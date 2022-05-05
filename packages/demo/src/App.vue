@@ -1,5 +1,5 @@
 <template>
-  <div class="grid min-h-screen grid-cols-10 gap-4 antialiased">
+  <div class="grid min-h-screen grid-cols-10 gap-x-8 antialiased">
     <transitions-options
       class="col-span-2"
       @selected="transitionType = $event"

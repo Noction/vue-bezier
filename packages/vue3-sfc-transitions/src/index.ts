@@ -1,5 +1,3 @@
-import { App } from 'vue'
-
 import PrivateCollapseTransition from './components/Collapse/CollapseTransition.vue'
 
 import PrivateFadeTransition from './components/Fade/FadeTransition.vue'
