@@ -1,0 +1,54 @@
+{
+  "name": "vue3-sfc-transitions",
+  "version": "0.1.0",
+  "description": "Vue3 reusable transition components",
+  "keywords": [
+    "transitions",
+    "animations",
+    "fade",
+    "sfc",
+    "composition-api",
+    "vue",
+    "vue3"
+  ],
+  "author": {
+    "name": "50rayn",
+    "email": "soryngitlan@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "50rayn/vue3-sfc-transitions",
+    "directory": "packages/vue3-sfc-transitions"
+  },
+  "homepage": "https://github.com/50rayn/vue3-sfc-transitions",
+  "bugs": {
+    "url": "https://github.com/50rayn/vue3-sfc-transitions/issues",
+    "email": "soryngitlan@gmail.com"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "license": "MIT",
+  "main": "dist/vue3-sfc-transitions.umd.js",
+  "module": "dist/vue3-sfc-transitions.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development vite build --watch",
+    "build": "cross-env NODE_ENV=production vite build && tsc -d --emitDeclarationOnly && vue-typegen gen -s src -o dist",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.2.0",
+    "cross-env": "^7.0.3",
+    "sass": "^1.49.9",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.6",
+    "vue": "^3.2.25",
+    "vue-tsc": "^0.29.8",
+    "vue-typegen": "^0.2.0"
+  }
+}

@@ -1,0 +1,4 @@
+dist/
+tests/unit/coverage/
+tests/lcov-report/
+*rc.js

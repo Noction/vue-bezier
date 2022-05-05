@@ -1,0 +1,25 @@
+{
+  "name": "demo",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "vite --force",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "prismjs": "^1.27.0",
+    "vue": "^3.2.25",
+    "vue-prism-editor": "^2.0.0-alpha.2",
+    "vue3-sfc-transitions": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/prismjs": "^1.26.0",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "autoprefixer": "^10.4.4",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.6",
+    "vue-tsc": "^0.29.8"
+  }
+}

@@ -1,0 +1,156 @@
+<template>
+  <div
+    class="grid h-full auto-rows-auto content-start gap-10 border-l border-black/5 bg-white p-8 dark:border-white/5"
+  >
+    <div class="code-block grid gap-y-2">
+      <h3 class="text-xl font-semibold">Style import</h3>
+      <prism-editor
+        :model-value="styleImportCode"
+        class="my-editor rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25"
+        readonly
+        :highlight="highlighter"
+      />
+    </div>
+    <div class="code-block grid gap-y-2">
+      <h3 class="text-xl font-semibold">Registration</h3>
+      <div
+        class="grid auto-cols-auto gap-y-4 border border-black/5 p-4 dark:border-white/5"
+      >
+        <div class="code-block grid gap-y-2">
+          <h3 class="font-semibold">Globally</h3>
+          <prism-editor
+            :model-value="globalRegisterCode"
+            class="my-editor rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25"
+            readonly
+            :highlight="highlighter"
+          />
+        </div>
+        <div class="code-block relative flex flex-row items-center gap-x-4">
+          <hr class="grow" />
+          <span class="grow-0">OR</span>
+          <hr class="grow" />
+        </div>
+        <div class="code-block grid gap-y-2">
+          <h3 class="font-semibold">Locally</h3>
+          <prism-editor
+            :model-value="localRegisterCode"
+            class="my-editor rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25"
+            readonly
+            :highlight="highlighter"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="code-block grid gap-y-2">
+      <h3 class="text-xl font-semibold">Appliance</h3>
+      <prism-editor
+        :model-value="applianceCode"
+        class="my-editor rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25"
+        readonly
+        :highlight="highlighter"
+      />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import Prism from 'prismjs'
+import 'prismjs/components/prism-clike'
+import 'prismjs/components/prism-javascript'
+import 'prismjs/themes/prism.css'
+import 'vue-prism-editor/dist/prismeditor.min.css' // import the styles somewhere
+import { PrismEditor } from 'vue-prism-editor'
+import { computed } from 'vue'
+import { injectStrict } from '../../utils'
+import { TransitionBundleKey, TransitionInfoKey } from '../../types/symbols'
+import {
+  appliance,
+  globalRegister,
+  localRegister,
+  styleImport
+} from '../assets/example'
+
+const { transitionDelay, transitionGroup, transitionType, transitionDuration } =
+  injectStrict(TransitionInfoKey)
+
+const { transitionsList } = injectStrict(TransitionBundleKey)
+
+const formatter = (code: string) => {
+  let sampleCode = code
+    .replace(/TRANSITION/g, transitionType.value)
+    .replace(/kebab-transition/g, transitionType.value)
+
+  if (!transitionGroup.value) {
+    sampleCode = sampleCode.replace(/\[group\]/g, '')
+  } else {
+    sampleCode = sampleCode.replace(/\[group\]/g, ' group')
+  }
+  if (
+    transitionDuration.value.leave !== 300 ||
+    transitionDuration.value.enter !== 300
+  ) {
+    sampleCode = sampleCode.replace(
+      /\[duration\]/g,
+      ` :duration="${JSON.stringify(transitionDuration.value)}"`
+    )
+  } else {
+    sampleCode = sampleCode.replace(/\[duration\]/g, '')
+  }
+
+  if (transitionDelay.value !== 0) {
+    sampleCode = sampleCode.replace(
+      /\[delay\]/g,
+      ` :delay="${transitionDelay.value}"`
+    )
+  } else {
+    sampleCode = sampleCode.replace(/\[delay\]/g, '')
+  }
+
+  return sampleCode
+}
+
+const highlighter = (code: string) => {
+  return Prism.highlight(
+    code,
+    {
+      ...Prism.languages.markup,
+      ...Prism.languages.js,
+      ...Prism.languages.css
+    },
+    'markup'
+  )
+}
+
+const globalRegFormatter = (code: string) => {
+  let sampleCode = code
+
+  if (transitionsList.value.length) {
+    const mapper = transitionsList.value.map((el) => `'${el}'`)
+
+    sampleCode = sampleCode.replace(
+      /TRANSITION_LIST\b/g,
+      `\nconst transitionList = [\n${mapper.join(', ')}\n]\n`
+    )
+    sampleCode = sampleCode.replace(/TRANSITION_LIST_RESULT/g, 'transitionList')
+  } else {
+    sampleCode = sampleCode.replace(/TRANSITION_LIST\b/g, '')
+    sampleCode = sampleCode.replace(/TRANSITION_LIST_RESULT/g, 'V3Transitions')
+  }
+
+  return sampleCode
+}
+
+const styleImportCode = styleImport
+const globalRegisterCode = computed(() => globalRegFormatter(globalRegister))
+const localRegisterCode = computed(() => formatter(localRegister))
+const applianceCode = computed(() => formatter(appliance))
+</script>
+
+<style>
+/* required class */
+.my-editor {
+  font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+}
+</style>
