@@ -104,7 +104,7 @@ function transitionStyle(duration = 300) {
 }
 </script>
 
-<style scoped>
+<style>
 .collapse-move {
   transition: transform 0.3s ease-in-out;
 }

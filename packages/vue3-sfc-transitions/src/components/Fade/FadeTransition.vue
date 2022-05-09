@@ -35,7 +35,7 @@ const tag = buildTag(props)
 const hooks = buildHooks(props, emit)
 </script>
 
-<style scoped>
+<style>
 .fadeIn {
   animation-name: fadeIn;
 }

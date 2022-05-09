@@ -51,7 +51,7 @@ const tag = buildTag(props)
 const hooks = buildHooks(props, emit)
 </script>
 
-<style scoped>
+<style>
 @keyframes scaleIn {
   from {
     opacity: 0;

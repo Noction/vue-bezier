@@ -61,7 +61,13 @@ function beforeLeave(props, el: HTMLElement) {
 
 function leave(props, el: HTMLElement, done: Function) {
   setAbsolutePosition(props, el)
-  setTimeout(done, props.duration)
+  const leaveDuration = props.duration.leave
+    ? props.duration.leave
+    : props.duration
+
+  const leaveDelay = props.delay.leave ? props.delay.leave : props.delay
+
+  setTimeout(done, leaveDuration + leaveDelay)
 }
 
 function setStyles(props, el: HTMLElement) {

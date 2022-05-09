@@ -48,7 +48,7 @@ const tag = buildTag(props)
 const hooks = buildHooks(props, emit)
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import 'move';
 
 @keyframes slideYIn {
