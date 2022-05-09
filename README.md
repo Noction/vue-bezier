@@ -81,7 +81,7 @@ Gotchas/things to watch:
 
 - Zoom
   ```css
-   .zoom-move { transition: transform .3s ease-out; }
+    .zoom-move { transition: transform .3s ease-out; }
   ```
 - Slide
   ```css
@@ -89,11 +89,11 @@ Gotchas/things to watch:
   ```
 - Scale
   ```css
-   .scale-move { transition: transform .3s cubic-bezier(.25, .8, .50, 1); }
+    .scale-move { transition: transform .3s cubic-bezier(.25, .8, .50, 1); }
   ``` 
 - Fade
   ```css
-  .fade-move { transition: transform .3s ease-out; }
+    .fade-move { transition: transform .3s ease-out; }
    ``` 
 If you want to configure the duration, just redefine the class for the transition you use with the desired duration.
 

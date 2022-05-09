@@ -1,6 +1,10 @@
 <template>
   <div
-    class="grid h-full auto-rows-auto content-start gap-10 border-l border-black/5 bg-white p-8 dark:border-white/5"
+    class="h-full auto-rows-auto content-start gap-10 border-l border-black/5 bg-white p-8 dark:border-white/5 xl:static xl:grid"
+    :class="{
+      'top-0 bottom-0 right-0 z-20 block h-full w-3/4 lg:fixed': shown,
+      hidden: !shown
+    }"
   >
     <div class="code-block grid gap-y-2">
       <h3 class="text-xl font-semibold">Style import</h3>
@@ -74,6 +78,13 @@ const { transitionDelay, transitionGroup, transitionType, transitionDuration } =
   injectStrict(TransitionInfoKey)
 
 const { transitionsList } = injectStrict(TransitionBundleKey)
+
+defineProps({
+  shown: {
+    default: false,
+    type: Boolean
+  }
+})
 
 const formatter = (code: string) => {
   let sampleCode = code

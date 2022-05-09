@@ -1,7 +1,7 @@
 <template>
   <div id="preview" class="flex items-center gap-x-4">
     <div
-      class="flex h-1/2 w-full flex-col content-center items-center justify-center rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25"
+      class="flex h-auto h-3/4 w-full flex-col content-center items-center justify-center gap-y-4 rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25 lg:h-1/2"
     >
       <div class="ml-auto grid grid-flow-col items-end justify-center gap-x-8">
         <div
@@ -12,7 +12,7 @@
             class="transition-scale square mb-1 h-8 w-8 rounded border border-sky-700/10 bg-sky-400/20 duration-500 group-hover:scale-75 dark:border-0 dark:bg-blue-900/70"
           />
           <span
-            class="transition-all group-hover:font-semibold group-hover:text-sky-500 group-hover:dark:text-sky-400"
+            class="text-sm transition-all group-hover:font-semibold group-hover:text-sky-500 group-hover:dark:text-sky-400 md:text-base"
             :class="{ 'text-sky-500 dark:text-sky-400': !transitionGroup }"
           >
             Single
@@ -31,7 +31,7 @@
             />
           </div>
           <span
-            class="transition-all group-hover:font-semibold group-hover:text-sky-500 group-hover:dark:text-sky-400"
+            class="text-sm transition-all group-hover:font-semibold group-hover:text-sky-500 group-hover:dark:text-sky-400 md:text-base"
             :class="{
               'text-sky-500 dark:text-sky-400': transitionGroup
             }"

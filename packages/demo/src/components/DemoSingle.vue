@@ -16,16 +16,16 @@
       </div>
     </component>
   </div>
-  <div class="flex w-full justify-between gap-x-3 bg-white px-6 py-4 shadow">
+
+  <transition-duration>
     <button
-      class="h-10 h-10 rounded-lg px-6 px-6 px-3 py-2 font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
+      class="grow rounded-full border border-sky-200 bg-sky-100 px-4 py-1.5 text-sm text-sky-500 shadow-sm shadow-transparent transition hover:shadow-current dark:border-sky-600 dark:bg-sky-500 dark:text-white md:grow-0"
       type="button"
       @click="show = !show"
     >
       Toggle
     </button>
-    <transition-duration />
-  </div>
+  </transition-duration>
 </template>
 
 <script lang="ts">

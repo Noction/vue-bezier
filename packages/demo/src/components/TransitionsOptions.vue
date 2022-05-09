@@ -1,39 +1,39 @@
 <template>
-  <div id="transitions-list">
-    <nav class="flex h-full flex-col justify-center px-8 pb-10">
+  <div id="transitions-options">
+    <select
+      v-model="transitionType"
+      class="mx-8 block rounded-full py-2 px-4 lg:hidden"
+    >
+      <option
+        v-for="transition in transitions"
+        :key="transition"
+        :value="transition"
+        v-text="transition"
+      />
+    </select>
+    <nav class="hidden h-full flex-col justify-center px-8 pb-10 lg:flex">
       <ul>
         <li>
-          <h5 class="mb-10 text-xl font-semibold lg:mb-3">Transitions List</h5>
+          <h5 class="mb-10 text-base font-semibold lg:mb-3 xl:text-xl">
+            Transitions List
+          </h5>
           <ul class="border-l border-slate-100">
             <li
               v-for="transition in transitions"
               :key="transition"
-              class="group -ml-px flex cursor-pointer items-center justify-between border-l pt-2 pl-4"
+              class="group relative -ml-px flex cursor-pointer items-center justify-between border-l pt-2 pl-4"
+              :class="{
+                'border-current text-sky-500': transition === transitionType
+              }"
             >
               <span
-                class="group-hover:border-slate-400 group-hover:text-slate-900"
-                :class="{
-                  'border-current font-semibold text-sky-500':
-                    transition === transitionType
-                }"
-                @click="transitionType = transition"
+                class="group-hover:border-slate-400"
+                @click="optionSelected(transition)"
                 v-text="transition"
               />
               <span
-                class="select-none rounded border border-slate-300 px-2 py-0.5 text-xs text-slate-300 opacity-0 transition-opacity transition-colors hover:border-slate-500 hover:text-slate-500 group-hover:opacity-100 dark:border-white/5"
-                @click="
-                  isSelected(transition)
-                    ? removeTransition(transition)
-                    : addTransition(transition)
-                "
-              >
-                {{ isSelected(transition) ? '- Remove' : '+ Add' }}
-              </span>
-              <span
-                class="mark h-2 w-2 rounded bg-sky-500"
-                :class="[
-                  isSelected(transition) ? 'block group-hover:hidden' : 'hidden'
-                ]"
+                class="mark before:absolute before:left-2 before:top-0 before:rounded before:text-sm before:font-bold before:text-sky-500"
+                :class="[addBadge(transition)]"
               />
             </li>
           </ul>
@@ -66,6 +66,16 @@ const transitions: TransitionType[] = [
   'CollapseTransition'
 ]
 
-const isSelected = (anim: TransitionType) =>
+const isSelected = (anim: TransitionType): boolean =>
   transitionsList.value.includes(anim)
+
+const addBadge = (anim: TransitionType): string =>
+  isSelected(anim)
+    ? "before:content-['+'] group-hover:before:content-['-']"
+    : "before:content-['']"
+
+const optionSelected = (anim: TransitionType) => {
+  isSelected(anim) ? removeTransition(anim) : addTransition(anim)
+  transitionType.value = anim
+}
 </script>

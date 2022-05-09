@@ -25,29 +25,29 @@
       </template>
     </component>
   </div>
-  <div class="flex w-full justify-between gap-x-3 bg-white px-6 py-4 shadow">
-    <div class="flex justify-center space-x-3">
+
+  <transition-duration>
+    <button
+      class="grow rounded-full border border-sky-200 bg-sky-100 px-4 py-1.5 text-sm text-sky-500 shadow-sm shadow-transparent transition hover:shadow-current dark:border-sky-600 dark:bg-sky-500 dark:text-white md:grow-0"
+      @click="insert"
+    >
+      Insert
+    </button>
+    <div class="flex gap-x-3">
       <button
-        class="h-10 rounded-lg px-3 py-2 font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
-        @click="insert"
-      >
-        insert
-      </button>
-      <button
-        class="h-10 rounded-lg px-3 py-2 font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
+        class="grow rounded-full border border-pink-200 bg-pink-100 px-4 py-1.5 text-sm text-pink-500 shadow-sm shadow-transparent transition hover:shadow-current dark:border-pink-600 dark:bg-pink-500 dark:text-white md:grow-0"
         @click="reset"
       >
-        reset
+        Reset
       </button>
       <button
-        class="h-10 rounded-lg px-3 py-2 font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
+        class="grow rounded-full border border-emerald-200 bg-emerald-100 px-4 py-1.5 text-sm text-emerald-500 shadow-sm shadow-transparent transition hover:shadow-current dark:border-emerald-600 dark:bg-emerald-500 dark:text-white md:grow-0"
         @click="shuffle"
       >
-        shuffle
+        Shuffle
       </button>
     </div>
-    <transition-duration />
-  </div>
+  </transition-duration>
 </template>
 
 <script lang="ts">
