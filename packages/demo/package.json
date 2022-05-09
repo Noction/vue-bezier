@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "scripts": {
     "dev": "vite --force",
-    "build": "vue-tsc --noEmit && vite build --base=./",
+    "build": "vue-tsc --noEmit && vite build --base=./ --emptyOutDir",
     "preview": "vite preview"
   },
   "dependencies": {
