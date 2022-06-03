@@ -3,11 +3,10 @@
     :is="componentType"
     :tag="tag"
     type="animation"
-    v-bind="$attrs"
+    v-bind="{ ...$attrs, ...hooks }"
     enter-active-class="slide-y-in"
     move-class="slide-move"
     leave-active-class="slide-y-out"
-    v-on="hooks"
   >
     <slot />
   </component>

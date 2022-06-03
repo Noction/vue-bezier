@@ -2,22 +2,22 @@
   <component
     :is="componentType"
     :tag="tag"
-    v-bind="$attrs"
+    v-bind="{ ...$attrs, ...hooks }"
     move-class="collapse-move"
-    v-on="hooks"
   >
     <slot />
   </component>
 </template>
 
 <script setup lang="ts">
+import { BaseTransitionProps } from 'vue'
 import {
   buildComponentType,
   buildEmits,
   buildProps,
   buildTag
 } from '../../composable'
-import { setAbsolutePosition, setStyles } from '../../composable/buildHooks'
+import { leave, setAbsolutePosition, setStyles } from '../../composable/buildHooks'
 
 const props = defineProps(buildProps())
 const emit = defineEmits(buildEmits())
@@ -25,26 +25,29 @@ const emit = defineEmits(buildEmits())
 const componentType = buildComponentType(props)
 const tag = buildTag(props)
 
-const hooks = {
-  afterEnter (el) {
+const hooks: BaseTransitionProps = {
+  onAfterEnter (el) {
     // for safari: remove class then reset height is necessary
     el.style.transition = ''
     el.style.height = ''
     el.style.overflow = el.dataset.oldOverflow
+
+    emit('after-enter', el)
   },
-  afterLeave (el) {
+  onAfterLeave (el) {
     el.style.transition = ''
     el.style.height = ''
     el.style.overflow = el.dataset.oldOverflow
     el.style.paddingTop = el.dataset.oldPaddingTop
     el.style.paddingBottom = el.dataset.oldPaddingBottom
+
+    emit('after-leave', el)
   },
-  beforeEnter (el) {
-    const enterDuration = props.duration.enter
-      ? props.duration.enter
-      : props.duration
+  onBeforeEnter (el) {
+    const enterDuration = props.duration?.enter ?? props.duration ?? 0
 
     el.style.transition = transitionStyle(enterDuration)
+
     if (!el.dataset) el.dataset = {}
 
     el.dataset.oldPaddingTop = el.style.paddingTop
@@ -53,20 +56,28 @@ const hooks = {
     el.style.height = '0'
     el.style.paddingTop = 0
     el.style.paddingBottom = 0
+
     setStyles(props, el)
+
+    emit('before-enter', el)
   },
-  beforeLeave (el) {
+  onBeforeLeave (el) {
     if (!el.dataset) el.dataset = {}
+
     el.dataset.oldPaddingTop = el.style.paddingTop
     el.dataset.oldPaddingBottom = el.style.paddingBottom
     el.dataset.oldOverflow = el.style.overflow
 
     el.style.height = `${el.scrollHeight}px`
     el.style.overflow = 'hidden'
+
     setStyles(props, el)
+
+    emit('before-leave', el)
   },
-  enter (el) {
+  onEnter (el) {
     el.dataset.oldOverflow = el.style.overflow
+
     if (el.scrollHeight !== 0) {
       el.style.height = `${el.scrollHeight}px`
       el.style.paddingTop = el.dataset.oldPaddingTop
@@ -79,10 +90,8 @@ const hooks = {
 
     el.style.overflow = 'hidden'
   },
-  leave (el) {
-    const leaveDuration = props.duration.leave
-      ? props.duration.leave
-      : props.duration
+  onLeave (el, done: () => void) {
+    const leaveDuration = props.duration.leave ?? props.duration ?? 0
 
     if (el.scrollHeight !== 0) {
       // for safari: add class after set height, or it will jump to zero height suddenly, weired
@@ -91,17 +100,21 @@ const hooks = {
       el.style.paddingTop = 0
       el.style.paddingBottom = 0
     }
+
     // necessary for transition-group
     setAbsolutePosition(props, el)
+
+    leave(props, el, done)
+    emit('leave', el, done)
   }
 }
 
-function transitionStyle (duration = 300) {
+const transitionStyle = (duration: number) => {
   const durationInSeconds = duration / 1000
-  const style = `${durationInSeconds}s height ease-in-out, ${durationInSeconds}s padding-top ease-in-out, ${durationInSeconds}s padding-bottom ease-in-out`
 
-  return style
+  return `${durationInSeconds}s height ease-in-out, ${durationInSeconds}s padding-top ease-in-out, ${durationInSeconds}s padding-bottom ease-in-out`
 }
+
 </script>
 
 <style>

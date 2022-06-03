@@ -1,0 +1,64 @@
+name: 'ci'
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - master
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set node version to 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+
+      - name: Installing root modules
+        run: npm install
+
+      - name: Bootstraping packages
+        run: npm run bootstrap
+
+      - name: Building module
+        run: npm run build -- --scope=vue3-sfc-transitions
+
+      - name: Running eslint
+        run: npm run lint:es
+
+      - name: Running stylelint
+        run: npm run lint:style
+
+  unit-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+
+      - name: Installing root modules
+        run: npm install
+
+      - name: Bootstraping packages
+        run: npm run bootstrap
+
+      - name: Running tests
+        run: npm run test:coverage
+
+      - name: Submitting test coverage to CodeCov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./packages/vue3-sfc-transitions
+          fail_ci_if_error: true
+          files: ./packages/vue3-sfc-transitions/coverage/cobertura-coverage.xml

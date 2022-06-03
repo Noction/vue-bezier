@@ -31,12 +31,10 @@ const defaultProps = {
    * Element styles that are applied during transition. These styles are applied on @beforeEnter and @beforeLeave hooks
    */
   styles: {
-    default: () => {
-      return {
-        animationFillMode: 'both',
-        animationTimingFunction: 'ease-out'
-      }
-    },
+    default: () => ({
+      animationFillMode: 'both',
+      animationTimingFunction: 'ease-out'
+    }),
     type: Object
   },
   /**
@@ -48,7 +46,7 @@ const defaultProps = {
   }
 }
 
-export default (customProps?: any) => ({
+export default (customProps?: Record<string, unknown>) => ({
   ...defaultProps,
   ...(customProps || {})
 })

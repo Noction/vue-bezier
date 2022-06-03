@@ -1,98 +1,92 @@
-export default (props, emit) => ({
-  afterEnter: (el: HTMLElement) => {
-    cleanUpStyles(props, el)
-    emit('after-enter', el)
-  },
-  afterLeave: (el: HTMLElement) => {
-    cleanUpStyles(props, el)
-    emit('after-leave', el)
-  },
-  beforeEnter: (el: HTMLElement) => {
-    beforeEnter(props, el)
-    emit('before-enter', el)
-  },
-  beforeLeave: (el: HTMLElement) => {
-    beforeLeave(props, el)
-    emit('before-leave', el)
-  },
-  leave: (el: HTMLElement, done: () => void) => {
-    leave(props, el, done)
-    emit('leave', el, done)
-  }
-})
+import { BaseTransitionProps, RendererElement } from 'vue'
 
-function beforeEnter (props, el: HTMLElement) {
-  const enterDuration = props.duration.enter
-    ? props.duration.enter
-    : props.duration
+const beforeEnter = (props, el: RendererElement) => {
+  const enterDuration = props.duration?.enter ?? props.duration ?? 0
+  const enterDelay = props.delay?.enter ?? props.delay ?? 0
 
   el.style.animationDuration = `${enterDuration}ms`
-
-  const enterDelay = props.delay.enter ? props.delay.enter : props.delay
-
   el.style.animationDelay = `${enterDelay}ms`
 
   setStyles(props, el)
 }
 
-function cleanUpStyles (props, el: HTMLElement) {
-  Object.keys(props.styles).forEach(key => {
-    const styleValue = props.styles[key]
-
-    if (styleValue) el.style[key] = ''
-  })
-  el.style.animationDuration = ''
-  el.style.animationDelay = ''
-}
-
-function beforeLeave (props, el: HTMLElement) {
-  const leaveDuration = props.duration.leave
-    ? props.duration.leave
-    : props.duration
+const beforeLeave = (props, el: RendererElement) => {
+  const leaveDuration = props.duration?.leave ?? props.duration ?? 0
+  const leaveDelay = props.delay?.leave ?? props.delay ?? 0
 
   el.style.animationDuration = `${leaveDuration}ms`
-
-  const leaveDelay = props.delay.leave ? props.delay.leave : props.delay
-
   el.style.animationDelay = `${leaveDelay}ms`
 
   setStyles(props, el)
 }
 
-function leave (props, el: HTMLElement, done: () => void) {
-  setAbsolutePosition(props, el)
-  const leaveDuration = props.duration.leave
-    ? props.duration.leave
-    : props.duration
+const cleanUpStyles = (props, el: RendererElement) => {
+  Object
+    .keys(props.styles)
+    .forEach(key => {
+      const styleValue = props.styles[key]
 
-  const leaveDelay = props.delay.leave ? props.delay.leave : props.delay
+      if (styleValue) el.style[key] = ''
+    })
+
+  el.style.animationDuration = ''
+  el.style.animationDelay = ''
+}
+
+const leave = (props, el: RendererElement, done: () => void) => {
+  setAbsolutePosition(props, el)
+
+  const leaveDuration = props.duration?.leave ?? props.duration ?? 0
+  const leaveDelay = props.delay?.leave ?? props.delay ?? 0
 
   setTimeout(done, leaveDuration + leaveDelay)
 }
 
-function setStyles (props, el: HTMLElement) {
+const setStyles = (props, el: RendererElement) => {
   setTransformOrigin(props, el)
-  Object.keys(props.styles).forEach(key => {
-    const styleValue = props.styles[key]
 
-    if (styleValue) el.style[key] = styleValue
-  })
+  Object
+    .keys(props.styles)
+    .forEach(key => {
+      const styleValue = props.styles[key]
+
+      if (styleValue) el.style[key] = styleValue
+    })
 }
 
-function setAbsolutePosition (props, el: HTMLElement) {
+const setAbsolutePosition = (props, el: RendererElement) => {
   if (props.group) el.style.position = 'absolute'
 }
 
-function setTransformOrigin (props, el: HTMLElement) {
+const setTransformOrigin = (props, el: RendererElement) => {
   if (props.origin) el.style.transformOrigin = props.origin
 }
 
+export default (props, emit): BaseTransitionProps => ({
+  onAfterEnter: (el: RendererElement) => {
+    cleanUpStyles(props, el)
+    emit('after-enter', el)
+  },
+  onAfterLeave: (el: RendererElement) => {
+    cleanUpStyles(props, el)
+    emit('after-leave', el)
+  },
+  onBeforeEnter: (el: RendererElement) => {
+    beforeEnter(props, el)
+    emit('before-enter', el)
+  },
+  onBeforeLeave: (el: RendererElement) => {
+    beforeLeave(props, el)
+    emit('before-leave', el)
+  },
+  onLeave: (el: RendererElement, done: () => void) => {
+    leave(props, el, done)
+    emit('leave', el, done)
+  }
+})
+
 export {
-  beforeEnter,
-  beforeLeave,
-  cleanUpStyles,
   leave,
   setAbsolutePosition,
-  setStyles,
-  setTransformOrigin
+  setStyles
 }
