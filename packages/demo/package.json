@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vite --force",
     "build": "vue-tsc --noEmit && vite build --base=./ --emptyOutDir",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:es": "eslint \"{src,ts,types}/**/*.{js,vue,ts}\" --fix --color",
+    "lint:style": "stylelint src/**/*.{scss,vue} --color --fix"
   },
   "dependencies": {
     "prismjs": "^1.27.0",

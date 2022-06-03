@@ -1,4 +1,6 @@
 import { defineConfig } from 'vite'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 
@@ -9,5 +11,8 @@ export default defineConfig({
   build: {
     outDir
   },
-  plugins: [vue()]
+  plugins: [vue()],
+  resolve: {
+    dedupe: ['vue']
+  }
 })

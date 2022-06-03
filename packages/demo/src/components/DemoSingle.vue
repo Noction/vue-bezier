@@ -44,4 +44,5 @@ const { transitionDelay, transitionType, transitionDuration } =
   injectStrict(TransitionInfoKey)
 
 const show = ref(true)
+
 </script>

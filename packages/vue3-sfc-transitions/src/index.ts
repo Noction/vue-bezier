@@ -59,7 +59,7 @@ export {
   PrivateZoomYTransition as ZoomYTransition
 }
 
-export function install(app, options: Options) {
+export function install (app, options: Options) {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   if (app.$_v3TransitionsInstalled) return
@@ -68,8 +68,8 @@ export function install(app, options: Options) {
   app.$_v3TransitionsInstalled = true
 
   const componentNameCasing = {
-    PascalCase: (str) => str,
-    'kebab-case': (str) =>
+    PascalCase: str => str,
+    'kebab-case': str =>
       `${str.slice(0, 1)}${str
         .slice(1)
         .replace(/[A-Z]/g, '-$&')}`.toLocaleLowerCase()

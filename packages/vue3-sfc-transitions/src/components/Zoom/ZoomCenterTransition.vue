@@ -3,9 +3,9 @@
     :is="componentType"
     :tag="tag"
     v-bind="$attrs"
-    enter-active-class="zoomIn"
+    enter-active-class="zoom-in"
     move-class="zoom-move"
-    leave-active-class="zoomOut"
+    leave-active-class="zoom-out"
     v-on="hooks"
   >
     <slot />
@@ -33,42 +33,32 @@ const emit = defineEmits(buildEmits())
 const componentType = buildComponentType(props)
 const tag = buildTag(props)
 const hooks = buildHooks(props, emit)
+
 </script>
 
 <style lang="scss">
-@import 'move';
+  @import 'move';
 
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
+  @keyframes zoom-in {
+    from {
+      opacity: 0;
+      transform: scale3d(.3, .3, .3);
+    }
+
+    50% { opacity: 1; }
   }
 
-  50% {
-    opacity: 1;
-  }
-}
+  @keyframes zoom-out {
+    from { opacity: 1; }
 
-.zoomIn {
-  animation-name: zoomIn;
-}
+    50% {
+      opacity: 0;
+      transform: scale3d(.3, .3, .3);
+    }
 
-@keyframes zoomOut {
-  from {
-    opacity: 1;
+    to { opacity: 0; }
   }
 
-  50% {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-.zoomOut {
-  animation-name: zoomOut;
-}
+  .zoom-in { animation-name: zoom-in; }
+  .zoom-out { animation-name: zoom-out; }
 </style>

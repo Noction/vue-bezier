@@ -80,25 +80,25 @@ const items = ref(getInitialItems())
 
 let id = items.value.length + 1
 
-function shuffleArray(array: number[]): number[] {
+function shuffleArray (array: number[]): number[] {
   return array.sort(() => Math.random() - 0.5)
 }
 
-function insert() {
+function insert () {
   const i = Math.round(Math.random() * items.value.length)
 
   items.value.splice(i, 0, id++)
 }
 
-function reset() {
+function reset () {
   items.value = getInitialItems()
 }
 
-function shuffle() {
+function shuffle () {
   items.value = shuffleArray(items.value)
 }
 
-function remove(item: number) {
+function remove (item: number) {
   const i = items.value.indexOf(item)
 
   if (i > -1) items.value.splice(i, 1)

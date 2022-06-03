@@ -16,4 +16,4 @@ export default {
 }
 </script>`
 
-export const styleImport = `import 'vue3-sfc-transitions/dist/style.css'`
+export const styleImport = 'import \'vue3-sfc-transitions/dist/style.css\''

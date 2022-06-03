@@ -15,13 +15,13 @@ export default (props, emit) => ({
     beforeLeave(props, el)
     emit('before-leave', el)
   },
-  leave: (el: HTMLElement, done: Function) => {
+  leave: (el: HTMLElement, done: () => void) => {
     leave(props, el, done)
     emit('leave', el, done)
   }
 })
 
-function beforeEnter(props, el: HTMLElement) {
+function beforeEnter (props, el: HTMLElement) {
   const enterDuration = props.duration.enter
     ? props.duration.enter
     : props.duration
@@ -35,8 +35,8 @@ function beforeEnter(props, el: HTMLElement) {
   setStyles(props, el)
 }
 
-function cleanUpStyles(props, el: HTMLElement) {
-  Object.keys(props.styles).forEach((key) => {
+function cleanUpStyles (props, el: HTMLElement) {
+  Object.keys(props.styles).forEach(key => {
     const styleValue = props.styles[key]
 
     if (styleValue) el.style[key] = ''
@@ -45,7 +45,7 @@ function cleanUpStyles(props, el: HTMLElement) {
   el.style.animationDelay = ''
 }
 
-function beforeLeave(props, el: HTMLElement) {
+function beforeLeave (props, el: HTMLElement) {
   const leaveDuration = props.duration.leave
     ? props.duration.leave
     : props.duration
@@ -59,7 +59,7 @@ function beforeLeave(props, el: HTMLElement) {
   setStyles(props, el)
 }
 
-function leave(props, el: HTMLElement, done: Function) {
+function leave (props, el: HTMLElement, done: () => void) {
   setAbsolutePosition(props, el)
   const leaveDuration = props.duration.leave
     ? props.duration.leave
@@ -70,20 +70,20 @@ function leave(props, el: HTMLElement, done: Function) {
   setTimeout(done, leaveDuration + leaveDelay)
 }
 
-function setStyles(props, el: HTMLElement) {
+function setStyles (props, el: HTMLElement) {
   setTransformOrigin(props, el)
-  Object.keys(props.styles).forEach((key) => {
+  Object.keys(props.styles).forEach(key => {
     const styleValue = props.styles[key]
 
     if (styleValue) el.style[key] = styleValue
   })
 }
 
-function setAbsolutePosition(props, el: HTMLElement) {
+function setAbsolutePosition (props, el: HTMLElement) {
   if (props.group) el.style.position = 'absolute'
 }
 
-function setTransformOrigin(props, el: HTMLElement) {
+function setTransformOrigin (props, el: HTMLElement) {
   if (props.origin) el.style.transformOrigin = props.origin
 }
 

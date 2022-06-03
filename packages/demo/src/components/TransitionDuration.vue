@@ -22,7 +22,7 @@
         max="3000"
         step="100"
         class="range grow"
-      />
+      >
       <!-- ENTER -->
       <span class="grow">Enter</span>
       <span class="text-center" v-text="transitionDuration.enter" />
@@ -35,7 +35,7 @@
         max="3000"
         step="100"
         class="grow"
-      />
+      >
       <!-- LEAVE -->
       <span class="grow">Leave</span>
       <span class="text-center" v-text="transitionDuration.leave" />
@@ -48,7 +48,7 @@
         max="3000"
         step="100"
         class="grow"
-      />
+      >
     </div>
   </div>
 </template>
@@ -58,10 +58,11 @@ import { TransitionInfoKey } from '../../types/symbols'
 import { injectStrict } from '../../utils'
 
 const { transitionDelay, transitionDuration } = injectStrict(TransitionInfoKey)
+
 </script>
 
 <style scoped>
-.operations {
-  grid: 1fr 1fr 1fr / auto 30px auto 1fr;
-}
+  .operations {
+    grid: 1fr 1fr 1fr / auto 30px auto 1fr;
+  }
 </style>

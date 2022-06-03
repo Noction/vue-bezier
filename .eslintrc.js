@@ -8,17 +8,12 @@ module.exports = {
   parserOptions: {
     parser: '@typescript-eslint/parser'
   },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-recommended',
     require.resolve('./rules/eslint-rules.js'),
     require.resolve('./rules/vue-rules.js'),
-    'prettier',
-    'plugin:prettier/recommended'
   ],
-  rules: {
-    'prettier/prettier': 'error'
-  }
 }

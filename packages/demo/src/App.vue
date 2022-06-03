@@ -62,7 +62,7 @@ provide(TransitionBundleKey, {
     transitionsList.value.push(el)
   },
   removeTransition: (el: TransitionType) => {
-    const index = transitionsList.value.findIndex((e) => e === el)
+    const index = transitionsList.value.findIndex(e => e === el)
 
     transitionsList.value.splice(index, 1)
   },
@@ -94,11 +94,11 @@ provide(TransitionDurationOperationKey, {
 </script>
 
 <style lang="scss">
-.layout {
-  grid-template-rows: auto 1fr;
+  .layout {
+    grid-template-rows: auto 1fr;
 
-  @media (max-width: 1024px) {
-    grid-template-rows: 80px auto 1fr;
+    @media (max-width: 1024px) {
+      grid-template-rows: 80px auto 1fr;
+    }
   }
-}
 </style>

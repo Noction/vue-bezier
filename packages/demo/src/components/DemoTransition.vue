@@ -53,4 +53,5 @@ import { TransitionInfoKey } from '../../types/symbols'
 import { injectStrict } from '../../utils'
 
 const { transitionGroup } = injectStrict(TransitionInfoKey)
+
 </script>

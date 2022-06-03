@@ -26,20 +26,20 @@ const componentType = buildComponentType(props)
 const tag = buildTag(props)
 
 const hooks = {
-  afterEnter(el) {
+  afterEnter (el) {
     // for safari: remove class then reset height is necessary
     el.style.transition = ''
     el.style.height = ''
     el.style.overflow = el.dataset.oldOverflow
   },
-  afterLeave(el) {
+  afterLeave (el) {
     el.style.transition = ''
     el.style.height = ''
     el.style.overflow = el.dataset.oldOverflow
     el.style.paddingTop = el.dataset.oldPaddingTop
     el.style.paddingBottom = el.dataset.oldPaddingBottom
   },
-  beforeEnter(el) {
+  beforeEnter (el) {
     const enterDuration = props.duration.enter
       ? props.duration.enter
       : props.duration
@@ -55,7 +55,7 @@ const hooks = {
     el.style.paddingBottom = 0
     setStyles(props, el)
   },
-  beforeLeave(el) {
+  beforeLeave (el) {
     if (!el.dataset) el.dataset = {}
     el.dataset.oldPaddingTop = el.style.paddingTop
     el.dataset.oldPaddingBottom = el.style.paddingBottom
@@ -65,7 +65,7 @@ const hooks = {
     el.style.overflow = 'hidden'
     setStyles(props, el)
   },
-  enter(el) {
+  enter (el) {
     el.dataset.oldOverflow = el.style.overflow
     if (el.scrollHeight !== 0) {
       el.style.height = `${el.scrollHeight}px`
@@ -79,7 +79,7 @@ const hooks = {
 
     el.style.overflow = 'hidden'
   },
-  leave(el) {
+  leave (el) {
     const leaveDuration = props.duration.leave
       ? props.duration.leave
       : props.duration
@@ -96,7 +96,7 @@ const hooks = {
   }
 }
 
-function transitionStyle(duration = 300) {
+function transitionStyle (duration = 300) {
   const durationInSeconds = duration / 1000
   const style = `${durationInSeconds}s height ease-in-out, ${durationInSeconds}s padding-top ease-in-out, ${durationInSeconds}s padding-bottom ease-in-out`
 
@@ -105,7 +105,5 @@ function transitionStyle(duration = 300) {
 </script>
 
 <style>
-.collapse-move {
-  transition: transform 0.3s ease-in-out;
-}
+  .collapse-move { transition: transform .3s ease-in-out; }
 </style>

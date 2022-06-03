@@ -1,1 +1,1 @@
-export default (props) => props.tag
+export default props => props.tag

@@ -1,0 +1,10 @@
+# .gitignore syntax (uses node-ignore behind the scenes)
+{
+  rules: {},
+  ignoreFiles: [
+    '**/*.js',
+    '**/dist/*',
+    '**/docs/*',
+    '**/assets/*.min.css'
+  ]
+}

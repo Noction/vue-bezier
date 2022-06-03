@@ -3,9 +3,9 @@
     :is="componentType"
     :tag="tag"
     v-bind="$attrs"
-    enter-active-class="slideXLeftIn"
+    enter-active-class="slide-x-left-in"
     move-class="slide-move"
-    leave-active-class="slideXLeftOut"
+    leave-active-class="slide-x-left-out"
     v-on="hooks"
   >
     <slot />
@@ -45,38 +45,30 @@ const emit = defineEmits(buildEmits())
 const componentType = buildComponentType(props)
 const tag = buildTag(props)
 const hooks = buildHooks(props, emit)
+
 </script>
 
 <style lang="scss">
-@import 'move';
+  @import 'move';
 
-@keyframes slideXLeftIn {
-  from {
-    opacity: 0;
-    transform: translateX(-15px);
+  @keyframes slide-x-left-in {
+    from {
+      opacity: 0;
+      transform: translateX(-15px);
+    }
+
+    to { opacity: 1; }
   }
 
-  to {
-    opacity: 1;
-  }
-}
+  @keyframes slide-x-left-out {
+    from { opacity: 1; }
 
-.slideXLeftIn {
-  animation-name: slideXLeftIn;
-}
-
-@keyframes slideXLeftOut {
-  from {
-    opacity: 1;
+    to {
+      opacity: 0;
+      transform: translateX(-15px);
+    }
   }
 
-  to {
-    opacity: 0;
-    transform: translateX(-15px);
-  }
-}
-
-.slideXLeftOut {
-  animation-name: slideXLeftOut;
-}
+  .slide-x-left-in { animation-name: slide-x-left-in; }
+  .slide-x-left-out { animation-name: slide-x-left-out; }
 </style>

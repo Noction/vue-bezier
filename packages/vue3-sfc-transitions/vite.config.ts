@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   build: {
+    emptyOutDir: true,
     lib: {
       entry: resolve(__dirname, './src/index.ts'),
       name: 'Vue3SFCTransitions'

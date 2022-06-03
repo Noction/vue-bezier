@@ -7,7 +7,9 @@
     }"
   >
     <div class="code-block grid gap-y-2">
-      <h3 class="text-xl font-semibold">Style import</h3>
+      <h3 class="text-xl font-semibold">
+        Style import
+      </h3>
       <prism-editor
         :model-value="styleImportCode"
         class="my-editor rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25"
@@ -16,12 +18,16 @@
       />
     </div>
     <div class="code-block grid gap-y-2">
-      <h3 class="text-xl font-semibold">Registration</h3>
+      <h3 class="text-xl font-semibold">
+        Registration
+      </h3>
       <div
         class="grid auto-cols-auto gap-y-4 border border-black/5 p-4 dark:border-white/5"
       >
         <div class="code-block grid gap-y-2">
-          <h3 class="font-semibold">Globally</h3>
+          <h3 class="font-semibold">
+            Globally
+          </h3>
           <prism-editor
             :model-value="globalRegisterCode"
             class="my-editor rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25"
@@ -30,12 +36,14 @@
           />
         </div>
         <div class="code-block relative flex flex-row items-center gap-x-4">
-          <hr class="grow" />
+          <hr class="grow">
           <span class="grow-0">OR</span>
-          <hr class="grow" />
+          <hr class="grow">
         </div>
         <div class="code-block grid gap-y-2">
-          <h3 class="font-semibold">Locally</h3>
+          <h3 class="font-semibold">
+            Locally
+          </h3>
           <prism-editor
             :model-value="localRegisterCode"
             class="my-editor rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25"
@@ -46,7 +54,9 @@
       </div>
     </div>
     <div class="code-block grid gap-y-2">
-      <h3 class="text-xl font-semibold">Appliance</h3>
+      <h3 class="text-xl font-semibold">
+        Appliance
+      </h3>
       <prism-editor
         :model-value="applianceCode"
         class="my-editor rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25"
@@ -58,11 +68,14 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable sort-imports */
+// Disable sorting imports rule, due to module specificity
 import Prism from 'prismjs'
 import 'prismjs/components/prism-clike'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/themes/prism.css'
-import 'vue-prism-editor/dist/prismeditor.min.css' // import the styles somewhere
+import 'vue-prism-editor/dist/prismeditor.min.css'
+/* eslint-enable  */
 import { PrismEditor } from 'vue-prism-editor'
 import { computed } from 'vue'
 import { injectStrict } from '../../utils'
@@ -136,7 +149,7 @@ const globalRegFormatter = (code: string) => {
   let sampleCode = code
 
   if (transitionsList.value.length) {
-    const mapper = transitionsList.value.map((el) => `'${el}'`)
+    const mapper = transitionsList.value.map(el => `'${el}'`)
 
     sampleCode = sampleCode.replace(
       /TRANSITION_LIST\b/g,
@@ -155,13 +168,13 @@ const styleImportCode = styleImport
 const globalRegisterCode = computed(() => globalRegFormatter(globalRegister))
 const localRegisterCode = computed(() => formatter(localRegister))
 const applianceCode = computed(() => formatter(appliance))
+
 </script>
 
-<style>
-/* required class */
-.my-editor {
-  font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
-  font-size: 12px;
-  line-height: 1.5;
-}
+<style lang="scss">
+  .my-editor {
+    font-family: "Fira code", "Fira Mono", Consolas, Menlo, Courier, monospace;
+    font-size: 12px;
+    line-height: 1.5;
+  }
 </style>

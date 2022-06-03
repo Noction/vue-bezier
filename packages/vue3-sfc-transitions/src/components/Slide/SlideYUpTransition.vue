@@ -4,9 +4,9 @@
     :tag="tag"
     type="animation"
     v-bind="$attrs"
-    enter-active-class="slideYIn"
+    enter-active-class="slide-y-in"
     move-class="slide-move"
-    leave-active-class="slideYOut"
+    leave-active-class="slide-y-out"
     v-on="hooks"
   >
     <slot />
@@ -16,13 +16,13 @@
 <script lang="ts">
 export const customProps = {
   styles: {
-    type: Object,
     default: () => {
       return {
         animationFillMode: 'both',
         animationTimingFunction: 'cubic-bezier(.25,.8,.50,1)'
       }
-    }
+    },
+    type: Object
   }
 }
 
@@ -46,38 +46,30 @@ const emit = defineEmits(buildEmits())
 const componentType = buildComponentType(props)
 const tag = buildTag(props)
 const hooks = buildHooks(props, emit)
+
 </script>
 
 <style lang="scss">
-@import 'move';
+  @import 'move';
 
-@keyframes slideYIn {
-  from {
-    opacity: 0;
-    transform: translateY(-15px);
+  @keyframes slide-y-in {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+
+    to { opacity: 1; }
   }
 
-  to {
-    opacity: 1;
-  }
-}
+  @keyframes slide-y-out {
+    from { opacity: 1; }
 
-.slideYIn {
-  animation-name: slideYIn;
-}
-
-@keyframes slideYOut {
-  from {
-    opacity: 1;
+    to {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
   }
 
-  to {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-}
-
-.slideYOut {
-  animation-name: slideYOut;
-}
+  .slide-y-in { animation-name: slide-y-in; }
+  .slide-y-out { animation-name: slide-y-out; }
 </style>

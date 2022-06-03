@@ -3,9 +3,9 @@
     :is="componentType"
     :tag="tag"
     v-bind="$attrs"
-    enter-active-class="fadeIn"
+    enter-active-class="fade-in"
     move-class="fade-move"
-    leave-active-class="fadeOut"
+    leave-active-class="fade-out"
     v-on="hooks"
   >
     <slot />
@@ -33,34 +33,21 @@ const emit = defineEmits(buildEmits())
 const componentType = buildComponentType(props)
 const tag = buildTag(props)
 const hooks = buildHooks(props, emit)
+
 </script>
 
 <style>
-.fadeIn {
-  animation-name: fadeIn;
-}
-.fadeOut {
-  animation-name: fadeOut;
-}
-.fade-move {
-  transition: transform 0.3s ease-out;
-}
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
   }
-  to {
-    opacity: 1;
-  }
-}
 
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
+  .fade-in { animation-name: fade-in; }
+  .fade-out { animation-name: fade-out; }
+  .fade-move { transition: transform .3s ease-out; }
 </style>

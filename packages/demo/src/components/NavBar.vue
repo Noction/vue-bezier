@@ -72,4 +72,5 @@ import * as Package from './../../package.json'
 import NavLogo from './NavLogo.vue'
 
 const { version } = Package
+
 </script>

@@ -36,7 +36,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite build --watch",
     "build": "cross-env NODE_ENV=production vite build && tsc -d --emitDeclarationOnly && vue-typegen gen -s src -o dist",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "lint:es": "eslint \"src/**/*.{js,ts,vue}\" --fix --color",
+    "lint:style": "stylelint src/**/*.{css,scss,vue} --color --fix"
   },
   "peerDependencies": {
     "vue": "^3.2.0"

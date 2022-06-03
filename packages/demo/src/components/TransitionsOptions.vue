@@ -71,11 +71,12 @@ const isSelected = (anim: TransitionType): boolean =>
 
 const addBadge = (anim: TransitionType): string =>
   isSelected(anim)
-    ? "before:content-['+'] group-hover:before:content-['-']"
-    : "before:content-['']"
+    ? 'before:content-[\'+\'] group-hover:before:content-[\'-\']'
+    : 'before:content-[\'\']'
 
 const optionSelected = (anim: TransitionType) => {
   isSelected(anim) ? removeTransition(anim) : addTransition(anim)
   transitionType.value = anim
 }
+
 </script>
