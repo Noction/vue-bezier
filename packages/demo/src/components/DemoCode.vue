@@ -79,6 +79,7 @@ import 'vue-prism-editor/dist/prismeditor.min.css'
 import { PrismEditor } from 'vue-prism-editor'
 import { computed } from 'vue'
 import { injectStrict } from '../../utils'
+import { options } from '../composables/options'
 import { TransitionBundleKey, TransitionInfoKey } from '../../types/symbols'
 import {
   appliance,
@@ -87,7 +88,7 @@ import {
   styleImport
 } from '../assets/example'
 
-const { transitionDelay, transitionGroup, transitionType, transitionDuration } =
+const { transitionGroup, transitionType } =
   injectStrict(TransitionInfoKey)
 
 const { transitionsList } = injectStrict(TransitionBundleKey)
@@ -110,21 +111,21 @@ const formatter = (code: string) => {
     sampleCode = sampleCode.replace(/\[group\]/g, ' group')
   }
   if (
-    transitionDuration.value.leave !== 300 ||
-    transitionDuration.value.enter !== 300
+    options.leave !== 300 ||
+    options.enter !== 300
   ) {
     sampleCode = sampleCode.replace(
       /\[duration\]/g,
-      ` :duration="${JSON.stringify(transitionDuration.value)}"`
+      ` :duration="${JSON.stringify({ enter: options.enter, leave: options.leave })}"`
     )
   } else {
     sampleCode = sampleCode.replace(/\[duration\]/g, '')
   }
 
-  if (transitionDelay.value !== 0) {
+  if (options.delay !== 0) {
     sampleCode = sampleCode.replace(
       /\[delay\]/g,
-      ` :delay="${transitionDelay.value}"`
+      ` :delay="${options.delay}"`
     )
   } else {
     sampleCode = sampleCode.replace(/\[delay\]/g, '')

@@ -51,7 +51,7 @@ const hooks = buildHooks(props, emit)
   @import 'move';
 
   @keyframes zoom-in-up {
-    from {
+    0% {
       opacity: 0;
       transform: scaleY(0);
       transform-origin: top center;
@@ -59,15 +59,15 @@ const hooks = buildHooks(props, emit)
 
     50% { opacity: 1; }
 
-    to { transform: scaleY(1); }
+    100% { transform: scaleY(1); }
   }
 
   @keyframes zoom-out-up {
-    from { opacity: 1; }
+    0% { opacity: 1; }
 
     50% { transform: scaleY(0); }
 
-    to { opacity: 0; }
+    100% { opacity: 0; }
   }
 
   .zoom-in-up { animation-name: zoom-in-up; }

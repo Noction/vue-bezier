@@ -2,8 +2,8 @@
   <div class="flex h-full items-center overflow-y-auto">
     <component
       :is="transitionType"
-      :duration="transitionDuration"
-      :delay="transitionDelay"
+      :duration="{ enter: options.enter, leave: options.leave }"
+      :delay="options.delay"
       group
       class="flex flex-wrap gap-4"
     >
@@ -60,10 +60,10 @@ export default {
 import TransitionDuration from './TransitionDuration.vue'
 import { TransitionInfoKey } from '../../types/symbols'
 import { injectStrict } from '../../utils'
+import { options } from '../composables/options'
 import { ref } from 'vue'
 
-const { transitionDelay, transitionDuration, transitionType } =
-  injectStrict(TransitionInfoKey)
+const { transitionType } = injectStrict(TransitionInfoKey)
 
 const colors = [
   'border-blue-700/10 bg-blue-400/20 text-blue-600',

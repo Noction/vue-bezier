@@ -11,12 +11,13 @@
       class="operations grid w-full gap-2 text-xs font-semibold text-slate-700"
     >
       <!-- DELAY -->
+      <circle-progress progress-type="delay" />
       <span class="grow">Delay</span>
-      <span class="text-center" v-text="transitionDelay" />
+      <span class="text-center" v-text="options.delay" />
       <span>ms</span>
       <input
         id="myRange"
-        v-model.number="transitionDelay"
+        v-model.number.lazy="options.delay"
         type="range"
         min="0"
         max="3000"
@@ -24,12 +25,13 @@
         class="range grow"
       >
       <!-- ENTER -->
+      <circle-progress progress-type="enter" />
       <span class="grow">Enter</span>
-      <span class="text-center" v-text="transitionDuration.enter" />
+      <span class="text-center" v-text="options.enter" />
       <span>ms</span>
       <input
         id="myRange"
-        v-model.number="transitionDuration.enter"
+        v-model.number.lazy="options.enter"
         type="range"
         min="0"
         max="3000"
@@ -37,12 +39,13 @@
         class="grow"
       >
       <!-- LEAVE -->
+      <circle-progress progress-type="leave" />
       <span class="grow">Leave</span>
-      <span class="text-center" v-text="transitionDuration.leave" />
+      <span class="text-center" v-text="options.leave" />
       <span>ms</span>
       <input
         id="myRange"
-        v-model.number="transitionDuration.leave"
+        v-model.number.lazy="options.leave"
         type="range"
         min="0"
         max="3000"
@@ -54,15 +57,10 @@
 </template>
 
 <script setup lang="ts">
-import { TransitionInfoKey } from '../../types/symbols'
-import { injectStrict } from '../../utils'
-
-const { transitionDelay, transitionDuration } = injectStrict(TransitionInfoKey)
-
+import CircleProgress from './CircleProgress.vue'
+import { options } from '../composables/options'
 </script>
 
 <style scoped>
-  .operations {
-    grid: 1fr 1fr 1fr / auto 30px auto 1fr;
-  }
+  .operations { grid: 1fr 1fr 1fr / 16px auto 30px auto 1fr; }
 </style>

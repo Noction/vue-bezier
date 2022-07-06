@@ -1,5 +1,5 @@
 // Vitest Snapshot v1
 
-exports[`components / Scale / ScaleTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub></transition-stub>"`;
+exports[`components / Scale / ScaleTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub enteractiveclass=\\"scale-in\\" leaveactiveclass=\\"scale-out\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\" tag=\\"span\\" move-class=\\"scale-move\\"></transition-stub>"`;
 
-exports[`components / Scale / ScaleTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub></transition-group-stub>"`;
+exports[`components / Scale / ScaleTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub tag=\\"span\\" enteractiveclass=\\"scale-in\\" moveclass=\\"scale-move\\" leaveactiveclass=\\"scale-out\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\"></transition-group-stub>"`;

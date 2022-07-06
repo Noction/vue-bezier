@@ -1,6 +1,8 @@
 export const appliance = `<template>
   <kebab-transition[group][duration][delay]>
-    <div v-show="show">Your content here</div>
+    <div v-show="show">
+      Your content here
+    </div>
   </kebab-transition>
 </template>`
 

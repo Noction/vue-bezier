@@ -51,7 +51,7 @@ const hooks = buildHooks(props, emit)
   @import 'move';
 
   @keyframes zoom-in-y {
-    from {
+    0% {
       opacity: 0;
       transform: scaleY(0);
     }
@@ -63,14 +63,14 @@ const hooks = buildHooks(props, emit)
   }
 
   @keyframes zoom-out-y {
-    from { opacity: 1; }
+    0% { opacity: 1; }
 
     50% {
       opacity: 0;
       transform: scaleY(0);
     }
 
-    to { opacity: 0; }
+    100% { opacity: 0; }
   }
 
   .zoom-in-y { animation-name: zoom-in-y; }

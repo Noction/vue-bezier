@@ -1,5 +1,5 @@
 // Vitest Snapshot v1
 
-exports[`components / Slide / SlideYDownTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub></transition-stub>"`;
+exports[`components / Slide / SlideYDownTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub enteractiveclass=\\"slide-y-down-in\\" leaveactiveclass=\\"slide-y-down-out\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\" tag=\\"span\\"></transition-stub>"`;
 
-exports[`components / Slide / SlideYDownTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub></transition-group-stub>"`;
+exports[`components / Slide / SlideYDownTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub tag=\\"span\\" enteractiveclass=\\"slide-y-down-in\\" leaveactiveclass=\\"slide-y-down-out\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\"></transition-group-stub>"`;

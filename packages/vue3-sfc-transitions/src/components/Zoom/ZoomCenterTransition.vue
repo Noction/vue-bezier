@@ -39,7 +39,7 @@ const hooks = buildHooks(props, emit)
   @import 'move';
 
   @keyframes zoom-in {
-    from {
+    0% {
       opacity: 0;
       transform: scale3d(.3, .3, .3);
     }
@@ -48,14 +48,14 @@ const hooks = buildHooks(props, emit)
   }
 
   @keyframes zoom-out {
-    from { opacity: 1; }
+    0% { opacity: 1; }
 
     50% {
       opacity: 0;
       transform: scale3d(.3, .3, .3);
     }
 
-    to { opacity: 0; }
+    100% { opacity: 0; }
   }
 
   .zoom-in { animation-name: zoom-in; }
