@@ -41,7 +41,7 @@
     "lint:style": "stylelint src/**/*.{css,scss,vue} --color --fix",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "report-coverage": "cat ./coverage/lcov.info | coveralls"
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "peerDependencies": {
     "vue": "^3.2.0"
