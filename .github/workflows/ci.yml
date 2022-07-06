@@ -48,8 +48,10 @@ jobs:
       - name: Run tests
         run: npm run test:coverage
 
+      - run: npm run report-coverage
+
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
-          base-path: ./packages/vue3-sfc-transitions
+          path-to-lcov: ./packages/vue3-sfc-transitions/coverage/lcov.info
           github-token: ${{ secrets.GITHUB_TOKEN }}
