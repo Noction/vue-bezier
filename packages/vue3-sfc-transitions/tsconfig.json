@@ -10,7 +10,12 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "skipLibCheck": true,
+    "types": ["vitest/globals"]
   },
   "exclude": ["node_modules", "dist", "**/*.js"],
-  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "tests/unit/**/*.spec.ts"
+  ],
 }

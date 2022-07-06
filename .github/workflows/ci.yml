@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
+          cache: npm
 
       - run: npm install
 
@@ -29,3 +29,28 @@ jobs:
 
       - name: Run stylelint
         run: npm run lint:style
+
+  coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+
+      - run: npm install
+
+      - run: npm run bootstrap
+
+      - run: npm run build -- --scope=vue3-sfc-transitions
+
+      - name: Run tests
+        run: npm run coverage
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
