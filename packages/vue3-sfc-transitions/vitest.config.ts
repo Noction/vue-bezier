@@ -12,6 +12,9 @@ export default defineConfig({
     }
   },
   test: {
+    coverage: {
+      reporter: ['text', 'lcov']
+    },
     environment: 'jsdom',
     globals: true,
     include: ['tests/unit/**/*.spec.ts']

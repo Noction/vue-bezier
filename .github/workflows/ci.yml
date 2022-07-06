@@ -53,4 +53,5 @@ jobs:
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
+          path-to-lcov: ./packages/vue3-sfc-transitions/coverage/lcov.info
           github-token: ${{ secrets.GITHUB_TOKEN }}
