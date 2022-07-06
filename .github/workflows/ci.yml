@@ -45,13 +45,11 @@ jobs:
 
       - run: npm run bootstrap
 
-      - run: npm run build -- --scope=vue3-sfc-transitions
-
       - name: Run tests
         run: npm run test:coverage
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
-          path-to-lcov: ./packages/vue3-sfc-transitions/coverage/lcov.info
+          base-path: packages/vue3-sfc-transitions
           github-token: ${{ secrets.GITHUB_TOKEN }}
