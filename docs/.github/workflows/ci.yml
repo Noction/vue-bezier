@@ -1,0 +1,36 @@
+name: 'ci'
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - master
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install npm
+        uses: npm/action-setup@v2.0.1
+        with:
+          version: 7.0.1
+
+      - name: Set node version to 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      - run: npm install
+
+      - run: npm run bootstrap
+
+      - run: npm run build -- --scope=vue3-sfc-transitions
+
+      - name: Run eslint
+        run: npm run lint:es
+
+      - name: Run stylelint
+        run: npm run lint:style
