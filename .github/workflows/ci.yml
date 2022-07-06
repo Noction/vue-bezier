@@ -48,7 +48,7 @@ jobs:
       - run: npm run build -- --scope=vue3-sfc-transitions
 
       - name: Run tests
-        run: npm run coverage
+        run: npm run test:coverage
 
       - name: Coveralls
         uses: coverallsapp/github-action@master

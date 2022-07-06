@@ -7,7 +7,9 @@
     "build": "lerna run build",
     "lint": "npm run lint:es; npm run lint:style",
     "lint:es": "lerna run lint:es --no-bail --parallel",
-    "lint:style": "lerna run lint:style --no-bail --parallel"
+    "lint:style": "lerna run lint:style --no-bail --parallel",
+    "test": "lerna run test",
+    "test:coverage": "lerna run coverage"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.19.0",
