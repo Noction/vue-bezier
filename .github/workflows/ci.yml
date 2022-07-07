@@ -76,6 +76,6 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          directory: ./packages/vue3-sfc-transitions/coverage
+          directory: ./packages/vue3-sfc-transitions
           fail_ci_if_error: true
-          files: ./packages/vue3-sfc-transitions/coverage/coverage-final.json
+          files: ./packages/vue3-sfc-transitions/coverage/cobertura-coverage.xml
