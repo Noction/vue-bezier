@@ -40,8 +40,7 @@
     "lint:es": "eslint \"src/**/*.{js,ts,vue}\" --fix --color",
     "lint:style": "stylelint src/**/*.{css,scss,vue} --color --fix",
     "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "test:coverage": "vitest run --coverage"
   },
   "peerDependencies": {
     "vue": "^3.2.0"
@@ -60,7 +59,6 @@
     "vue-typegen": "^0.2.0"
   },
   "dependencies": {
-    "c8": "^7.11.3",
-    "coveralls": "^3.1.1"
+    "c8": "^7.11.3"
   }
 }
