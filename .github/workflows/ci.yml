@@ -7,30 +7,30 @@ on:
     branches:
       - master
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+#  lint:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      - name: Set node version to 16
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: 16
+#          cache: npm
+#
+#      - run: npm install
+#
+#      - run: npm run bootstrap
+#
+#      - run: npm run build -- --scope=vue3-sfc-transitions
+#
+#      - name: Run eslint
+#        run: npm run lint:es
+#
+#      - name: Run stylelint
+#        run: npm run lint:style
 
-      - name: Set node version to 16
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-
-      - run: npm install
-
-      - run: npm run bootstrap
-
-      - run: npm run build -- --scope=vue3-sfc-transitions
-
-      - name: Run eslint
-        run: npm run lint:es
-
-      - name: Run stylelint
-        run: npm run lint:style
-
-  coverage:
+  coveralls:
     runs-on: ubuntu-latest
 
     steps:
@@ -49,7 +49,32 @@ jobs:
         run: npm run test:coverage
 
       - name: Coveralls
-        uses: coverallsapp/github-action@master
+        uses: coverallsapp/github-action@1.1.3
         with:
-          path-to-lcov: ./packages/vue3-sfc-transitions/coverage/lcov.info
+          path-to-lcov: ./packages/vue3-sfc-transitions/coverage/coverage-final.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  Codecov:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+
+      - run: npm install
+
+      - run: npm run bootstrap
+
+      - name: Run tests
+        run: npm run test:coverage
+
+      - name: Coveralls
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./packages/vue3-sfc-transitions/coverage
+          files: ./coverage-final.json
