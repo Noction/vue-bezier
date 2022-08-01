@@ -17,7 +17,7 @@ import {
   buildProps,
   buildTag
 } from '../../composable'
-import { setAbsolutePosition, setStyles } from '../../composable/buildHooks'
+import { leave, setAbsolutePosition, setStyles } from '../../composable/buildHooks'
 
 const props = defineProps(buildProps())
 const emit = defineEmits(buildEmits())
@@ -31,6 +31,8 @@ const hooks: BaseTransitionProps = {
     el.style.transition = ''
     el.style.height = ''
     el.style.overflow = el.dataset.oldOverflow
+
+    emit('after-enter', el)
   },
   onAfterLeave (el) {
     el.style.transition = ''
@@ -38,6 +40,8 @@ const hooks: BaseTransitionProps = {
     el.style.overflow = el.dataset.oldOverflow
     el.style.paddingTop = el.dataset.oldPaddingTop
     el.style.paddingBottom = el.dataset.oldPaddingBottom
+
+    emit('after-leave', el)
   },
   onBeforeEnter (el) {
     const enterDuration = props.duration?.enter ?? props.duration ?? 0
@@ -54,6 +58,8 @@ const hooks: BaseTransitionProps = {
     el.style.paddingBottom = 0
 
     setStyles(props, el)
+
+    emit('before-enter', el)
   },
   onBeforeLeave (el) {
     if (!el.dataset) el.dataset = {}
@@ -66,6 +72,8 @@ const hooks: BaseTransitionProps = {
     el.style.overflow = 'hidden'
 
     setStyles(props, el)
+
+    emit('before-leave', el)
   },
   onEnter (el) {
     el.dataset.oldOverflow = el.style.overflow
@@ -82,7 +90,7 @@ const hooks: BaseTransitionProps = {
 
     el.style.overflow = 'hidden'
   },
-  onLeave (el) {
+  onLeave (el, done: () => void) {
     const leaveDuration = props.duration.leave ?? props.duration ?? 0
 
     if (el.scrollHeight !== 0) {
@@ -95,13 +103,16 @@ const hooks: BaseTransitionProps = {
 
     // necessary for transition-group
     setAbsolutePosition(props, el)
+
+    leave(props, el, done)
+    emit('leave', el, done)
   }
 }
 
-const transitionStyle = (duration = 300) => {
+const transitionStyle = (duration: number) => {
   const durationInSeconds = duration / 1000
 
-  return  `${durationInSeconds}s height ease-in-out, ${durationInSeconds}s padding-top ease-in-out, ${durationInSeconds}s padding-bottom ease-in-out`
+  return `${durationInSeconds}s height ease-in-out, ${durationInSeconds}s padding-top ease-in-out, ${durationInSeconds}s padding-bottom ease-in-out`
 }
 
 </script>

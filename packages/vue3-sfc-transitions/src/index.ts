@@ -59,13 +59,13 @@ export {
   PrivateZoomYTransition as ZoomYTransition
 }
 
-export function install (app, options: Options) {
+export function install (app, options?: Options) {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  if (app.$_v3TransitionsInstalled) return
+  if (app.$_v3SFCTransitionsInstalled) return
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  app.$_v3TransitionsInstalled = true
+  app.$_v3SFCTransitionsInstalled = true
 
   const componentNameCasing = {
     PascalCase: str => str,
@@ -89,7 +89,5 @@ export function install (app, options: Options) {
 }
 
 export default {
-  install,
-  // eslint-disable-next-line no-undef
-  version: VERSION
+  install
 }

@@ -86,6 +86,7 @@ export default (props, emit): BaseTransitionProps => ({
 })
 
 export {
+  leave,
   setAbsolutePosition,
   setStyles
 }

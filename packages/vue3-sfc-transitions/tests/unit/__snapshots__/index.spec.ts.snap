@@ -1,0 +1,980 @@
+// Vitest Snapshot v1
+
+exports[` 1`] = `
+{
+  "collapse-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Collapse/CollapseTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "fade-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Fade/FadeTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "scale-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Scale/ScaleTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "top left",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "slide-x-left-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Slide/SlideXLeftTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "slide-x-right-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Slide/SlideXRightTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "slide-y-down-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Slide/SlideYDownTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "slide-y-up-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Slide/SlideYUpTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "zoom-center-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Zoom/ZoomCenterTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "zoom-up-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Zoom/ZoomUpTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "zoom-x-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Zoom/ZoomXTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "zoom-y-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Zoom/ZoomYTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+}
+`;
+
+exports[` 2`] = `
+{
+  "fade-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Fade/FadeTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+}
+`;
+
+exports[`index > When installing with default argument, all of the transition component will be registered globally 1`] = `
+{
+  "collapse-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Collapse/CollapseTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "fade-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Fade/FadeTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "scale-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Scale/ScaleTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "top left",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "slide-x-left-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Slide/SlideXLeftTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "slide-x-right-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Slide/SlideXRightTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "slide-y-down-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Slide/SlideYDownTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "slide-y-up-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Slide/SlideYUpTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "zoom-center-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Zoom/ZoomCenterTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "zoom-up-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Zoom/ZoomUpTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "zoom-x-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Zoom/ZoomXTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+  "zoom-y-transition": {
+    "__file": "/Users/soringitlan/Workspace/vue3-sfc-transitions/packages/vue3-sfc-transitions/src/components/Zoom/ZoomYTransition.vue",
+    "emits": [
+      "after-enter",
+      "after-leave",
+      "before-enter",
+      "before-leave",
+      "leave",
+    ],
+    "inheritAttrs": false,
+    "props": {
+      "delay": {
+        "default": 0,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "duration": {
+        "default": 300,
+        "type": [
+          [Function],
+          [Function],
+        ],
+      },
+      "group": [Function],
+      "origin": {
+        "default": "",
+        "type": [Function],
+      },
+      "styles": {
+        "default": [Function],
+        "type": [Function],
+      },
+      "tag": {
+        "default": "span",
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "setup": [Function],
+  },
+}
+`;
