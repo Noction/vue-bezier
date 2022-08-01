@@ -2,6 +2,4 @@
 
 exports[`components / Fade / FadeTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub></transition-stub>"`;
 
-exports[`components / Fade / FadeTransition > When mounting component with default props, it should work fine 2`] = `"<transition-group-stub></transition-group-stub>"`;
-
 exports[`components / Fade / FadeTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub></transition-group-stub>"`;
