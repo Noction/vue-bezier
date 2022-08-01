@@ -1,6 +1,6 @@
-import { BaseTransitionProps } from 'vue'
+import { BaseTransitionProps, RendererElement } from 'vue'
 
-const beforeEnter = (props, el: HTMLElement) => {
+const beforeEnter = (props, el: RendererElement) => {
   const enterDuration = props.duration?.enter ?? props.duration ?? 0
   const enterDelay = props.delay?.enter ?? props.delay ?? 0
 
@@ -10,7 +10,7 @@ const beforeEnter = (props, el: HTMLElement) => {
   setStyles(props, el)
 }
 
-const beforeLeave = (props, el: HTMLElement) => {
+const beforeLeave = (props, el: RendererElement) => {
   const leaveDuration = props.duration?.leave ?? props.duration ?? 0
   const leaveDelay = props.delay?.leave ?? props.delay ?? 0
 
@@ -20,7 +20,7 @@ const beforeLeave = (props, el: HTMLElement) => {
   setStyles(props, el)
 }
 
-const cleanUpStyles = (props, el: HTMLElement) => {
+const cleanUpStyles = (props, el: RendererElement) => {
   Object
     .keys(props.styles)
     .forEach(key => {
@@ -33,7 +33,7 @@ const cleanUpStyles = (props, el: HTMLElement) => {
   el.style.animationDelay = ''
 }
 
-const leave = (props, el: HTMLElement, done: () => void) => {
+const leave = (props, el: RendererElement, done: () => void) => {
   setAbsolutePosition(props, el)
 
   const leaveDuration = props.duration?.leave ?? props.duration ?? 0
@@ -42,7 +42,7 @@ const leave = (props, el: HTMLElement, done: () => void) => {
   setTimeout(done, leaveDuration + leaveDelay)
 }
 
-const setStyles = (props, el: HTMLElement) => {
+const setStyles = (props, el: RendererElement) => {
   setTransformOrigin(props, el)
 
   Object
@@ -54,32 +54,32 @@ const setStyles = (props, el: HTMLElement) => {
     })
 }
 
-const setAbsolutePosition = (props, el: HTMLElement) => {
+const setAbsolutePosition = (props, el: RendererElement) => {
   if (props.group) el.style.position = 'absolute'
 }
 
-const setTransformOrigin = (props, el: HTMLElement) => {
+const setTransformOrigin = (props, el: RendererElement) => {
   if (props.origin) el.style.transformOrigin = props.origin
 }
 
 export default (props, emit): BaseTransitionProps => ({
-  onAfterEnter: (el: HTMLElement) => {
+  onAfterEnter: (el: RendererElement) => {
     cleanUpStyles(props, el)
     emit('after-enter', el)
   },
-  onAfterLeave: (el: HTMLElement) => {
+  onAfterLeave: (el: RendererElement) => {
     cleanUpStyles(props, el)
     emit('after-leave', el)
   },
-  onBeforeEnter: (el: HTMLElement) => {
+  onBeforeEnter: (el: RendererElement) => {
     beforeEnter(props, el)
     emit('before-enter', el)
   },
-  onBeforeLeave: (el: HTMLElement) => {
+  onBeforeLeave: (el: RendererElement) => {
     beforeLeave(props, el)
     emit('before-leave', el)
   },
-  onLeave: (el: HTMLElement, done: () => void) => {
+  onLeave: (el: RendererElement, done: () => void) => {
     leave(props, el, done)
     emit('leave', el, done)
   }
