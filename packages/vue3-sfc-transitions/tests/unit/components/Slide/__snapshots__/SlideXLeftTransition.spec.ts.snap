@@ -1,0 +1,5 @@
+// Vitest Snapshot v1
+
+exports[`components / Slide / SlideXLeftTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub></transition-stub>"`;
+
+exports[`components / Slide / SlideXLeftTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub></transition-group-stub>"`;

@@ -2,11 +2,10 @@
   <component
     :is="componentType"
     :tag="tag"
-    v-bind="$attrs"
     enter-active-class="zoom-in-x"
     move-class="zoom-move"
     leave-active-class="zoom-out-x"
-    v-on="hooks"
+    v-bind="{ ...$attrs, ...hooks }"
   >
     <slot />
   </component>

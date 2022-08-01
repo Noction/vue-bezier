@@ -2,11 +2,10 @@
   <component
     :is="componentType"
     :tag="tag"
-    v-bind="$attrs"
     enter-active-class="fade-in"
     move-class="fade-move"
     leave-active-class="fade-out"
-    v-on="hooks"
+    v-bind="{ ...$attrs, ...hooks }"
   >
     <slot />
   </component>

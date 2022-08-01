@@ -2,15 +2,15 @@
   <component
     :is="componentType"
     :tag="tag"
-    v-bind="$attrs"
+    v-bind="{ ...$attrs, ...hooks }"
     move-class="collapse-move"
-    v-on="hooks"
   >
     <slot />
   </component>
 </template>
 
 <script setup lang="ts">
+import { BaseTransitionProps } from 'vue'
 import {
   buildComponentType,
   buildEmits,
@@ -25,21 +25,21 @@ const emit = defineEmits(buildEmits())
 const componentType = buildComponentType(props)
 const tag = buildTag(props)
 
-const hooks = {
-  afterEnter (el) {
+const hooks: BaseTransitionProps = {
+  onAfterEnter (el) {
     // for safari: remove class then reset height is necessary
     el.style.transition = ''
     el.style.height = ''
     el.style.overflow = el.dataset.oldOverflow
   },
-  afterLeave (el) {
+  onAfterLeave (el) {
     el.style.transition = ''
     el.style.height = ''
     el.style.overflow = el.dataset.oldOverflow
     el.style.paddingTop = el.dataset.oldPaddingTop
     el.style.paddingBottom = el.dataset.oldPaddingBottom
   },
-  beforeEnter (el) {
+  onBeforeEnter (el) {
     const enterDuration = props.duration.enter
       ? props.duration.enter
       : props.duration
@@ -55,7 +55,7 @@ const hooks = {
     el.style.paddingBottom = 0
     setStyles(props, el)
   },
-  beforeLeave (el) {
+  onBeforeLeave (el) {
     if (!el.dataset) el.dataset = {}
     el.dataset.oldPaddingTop = el.style.paddingTop
     el.dataset.oldPaddingBottom = el.style.paddingBottom
@@ -65,7 +65,7 @@ const hooks = {
     el.style.overflow = 'hidden'
     setStyles(props, el)
   },
-  enter (el) {
+  onEnter (el) {
     el.dataset.oldOverflow = el.style.overflow
     if (el.scrollHeight !== 0) {
       el.style.height = `${el.scrollHeight}px`
@@ -79,7 +79,7 @@ const hooks = {
 
     el.style.overflow = 'hidden'
   },
-  leave (el) {
+  onLeave (el) {
     const leaveDuration = props.duration.leave
       ? props.duration.leave
       : props.duration

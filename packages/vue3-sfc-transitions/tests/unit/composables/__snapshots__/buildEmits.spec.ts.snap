@@ -1,5 +1,15 @@
 // Vitest Snapshot v1
 
+exports[`composable / buildEmits > The returned list of emit should match the snapshot 1`] = `
+[
+  "after-enter",
+  "after-leave",
+  "before-enter",
+  "before-leave",
+  "leave",
+]
+`;
+
 exports[`composables / buildEmits > The returned list of emit should match  1`] = `
 [
   "after-enter",
