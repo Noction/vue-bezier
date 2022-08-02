@@ -1,4 +1,4 @@
-name: 'ci'
+name: 'playground'
 
 on:
   push:
