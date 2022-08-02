@@ -1,6 +1,6 @@
 {
   "name": "vue3-sfc-transitions",
-  "version": "0.1.2",
+  "version": "1.0.1",
   "description": "Vue3 reusable transition components",
   "keywords": [
     "transitions",
