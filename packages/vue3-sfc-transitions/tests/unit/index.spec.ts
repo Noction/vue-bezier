@@ -1,3 +1,4 @@
+import { expect } from 'vitest'
 import FadeTransition from '../../src/components/Fade/FadeTransition.vue'
 import { faker } from '@faker-js/faker'
 import { install } from '../../src'
@@ -10,7 +11,19 @@ describe('index', () => {
 
     install(appInstance)
 
-    expect(appInstance._context.components).toMatchSnapshot()
+    expect(appInstance._context.components).toMatchSnapshot({
+      'collapse-transition': expect.any(Object),
+      'fade-transition': expect.any(Object),
+      'scale-transition': expect.any(Object),
+      'slide-x-left-transition': expect.any(Object),
+      'slide-x-right-transition': expect.any(Object),
+      'slide-y-down-transition': expect.any(Object),
+      'slide-y-up-transition': expect.any(Object),
+      'zoom-center-transition': expect.any(Object),
+      'zoom-up-transition': expect.any(Object),
+      'zoom-x-transition': expect.any(Object),
+      'zoom-y-transition': expect.any(Object)
+    })
   })
 
   it('When list of components is specified, it should be installed only mentioned', () => {
@@ -19,7 +32,7 @@ describe('index', () => {
 
     install(appInstance, { components: ['FadeTransition'] })
 
-    expect(appInstance._context.components).toMatchObject({ 'fade-transition': FadeTransition })
+    expect(appInstance._context.components).toStrictEqual({ 'fade-transition': FadeTransition })
   })
 
   it('When installed flag is `true`, it should not install additional components', () => {
@@ -32,6 +45,6 @@ describe('index', () => {
 
     install(appInstance)
 
-    expect(appInstance._context.components).toMatchObject({})
+    expect(appInstance._context.components).toStrictEqual({})
   })
 })
