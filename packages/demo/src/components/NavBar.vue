@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="absolute flex w-full justify-between bg-white/95 px-8 py-4 dark:border-slate-50/[0.06] dark:bg-transparent lg:border-b lg:border-slate-900/10"
+    class="absolute flex w-full justify-between bg-white/95 px-8 py-4 dark:border-slate-50/[0.06] dark:bg-slate-500 lg:border-b lg:border-slate-900/10"
   >
     <nav-logo />
     <div class="right flex flex-row items-center gap-x-4">

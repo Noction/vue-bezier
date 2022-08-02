@@ -5,3 +5,4 @@ node_modules/
 npm-debug.log
 coverage/
 vue3-sfc-transitions/dist
+/docs/
