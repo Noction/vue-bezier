@@ -1,6 +1,9 @@
 # vue3-sfc-transitions
 
-[![NPM version](https://img.shields.io/npm/v/vue3-sfc-transitions.svg?style=flat)](https://npmjs.com/package/vue3-sfc-transitions) [![NPM downloads](https://img.shields.io/npm/dm/vue3-sfc-transitions.svg?style=flat)](https://npmjs.com/package/vue3-sfc-transitions) [![codecov](https://codecov.io/gh/50rayn/vue3-sfc-transitions/branch/master/graph/badge.svg?token=IJ9ZDYJ65Z)](https://codecov.io/gh/50rayn/vue3-sfc-transitions)
+[![NPM version](https://img.shields.io/npm/v/vue3-sfc-transitions.svg?style=flat)](https://npmjs.com/package/vue3-sfc-transitions)
+[![NPM downloads](https://img.shields.io/npm/dm/vue3-sfc-transitions.svg?style=flat)](https://npmjs.com/package/vue3-sfc-transitions)
+[![codecov](https://codecov.io/gh/50rayn/vue3-sfc-transitions/branch/master/graph/badge.svg?token=IJ9ZDYJ65Z)](https://codecov.io/gh/50rayn/vue3-sfc-transitions)
+[![Featured on Openbase](https://badges.openbase.com/js/featured/vue3-sfc-transitions.svg?token=hU9KYWV7h9YbmSVPtFbArzNxlWR8XfEc1pJhzSaLTp8=)](https://openbase.com/js/vue3-sfc-transitions?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
 
 ## [Demo](https://50rayn.github.io/vue3-sfc-transitions/)
 
