@@ -21,7 +21,7 @@ module.exports = {
     // enforce the casing of component name in components options
     'vue/component-options-name-casing': 'error',
     // enforce specific casing for custom event name
-    'vue/custom-event-name-casing': 'error',
+    'vue/custom-event-name-casing': ['error', 'kebab-case'],
     // enforce consistent newlines before and after dots in <template>
     'vue/dot-location': ['error', 'property'],
     // enforce dot notation whenever possible in <template>

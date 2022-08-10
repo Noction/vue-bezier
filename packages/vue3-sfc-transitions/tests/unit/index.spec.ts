@@ -1,5 +1,5 @@
-import { expect } from 'vitest'
 import FadeTransition from '../../src/components/Fade/FadeTransition.vue'
+import { expect } from 'vitest'
 import { faker } from '@faker-js/faker'
 import { install } from '../../src'
 import { createApp, defineComponent } from 'vue'
