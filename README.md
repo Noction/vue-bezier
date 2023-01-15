@@ -56,7 +56,7 @@ app.use(Transitions)
 - SlideYUpTransition
 - SlideYDownTransition
 - ScaleTransition
-- :warning: CollapseTransition (still buggy)
+- CollapseTransition
 
 ## Props
 

@@ -7,10 +7,10 @@
     >
       <div
         v-if="state.shown"
-        class="flex h-40 w-72 flex-col items-center justify-center rounded-lg border border-blue-700/10 bg-blue-400/20 dark:border-sky-500 dark:bg-sky-600/50"
+        class="rounded-lg border border-blue-700/10 bg-blue-400/20 dark:border-sky-500 dark:bg-sky-600/50"
       >
-        <span
-          class="text-xl font-semibold text-blue-600 dark:text-sky-100"
+        <div
+          class="grid place-content-center h-40 w-72 text-xl font-semibold text-blue-600 dark:text-sky-100"
           v-text="transitionType"
         />
       </div>

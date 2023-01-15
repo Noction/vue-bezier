@@ -9,10 +9,10 @@
     >
       <template v-for="item in items" :key="item">
         <div
-          class="relative flex h-20 w-20 flex-col items-center justify-center rounded-lg border border-blue-700/10 bg-blue-400/20 text-blue-600 dark:border-sky-500 dark:bg-sky-600/50 dark:text-sky-100"
+          class="relative rounded-lg border border-blue-700/10 bg-blue-400/20 text-blue-600 dark:border-sky-500 dark:bg-sky-600/50 dark:text-sky-100"
           :class="colors[item % colors.length]"
         >
-          <span class="cursor-default text-xl font-semibold" v-text="item" />
+          <div class="grid place-content-center h-20 w-20 cursor-default text-xl font-semibold" v-text="item" />
           <div
             class="group absolute top-0 right-0 cursor-pointer p-2"
             @click="remove(item)"
