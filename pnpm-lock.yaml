@@ -63,7 +63,7 @@ importers:
   packages/demo:
     dependencies:
       '@noction/vue-bezier':
-        specifier: workspace:1.0.4
+        specifier: workspace:1.0.5
         version: link:../vue-bezier
       prismjs:
         specifier: ^1.29.0
