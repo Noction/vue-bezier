@@ -11,7 +11,11 @@ export default defineConfig({
   build: {
     outDir
   },
-  plugins: [vue()],
+  plugins: [vue({
+    script: {
+      propsDestructure: true
+    }
+  })],
   resolve: {
     dedupe: ['vue']
   }

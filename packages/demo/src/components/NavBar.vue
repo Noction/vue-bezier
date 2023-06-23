@@ -11,7 +11,7 @@
       <a
         class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
         target="_blank"
-        href="https://www.npmjs.com/package/vue3-sfc-transitions"
+        href="https://www.npmjs.com/package/@noction/vue-bezier"
       >
         <svg
           id="npm"
@@ -34,7 +34,7 @@
       <a
         class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
         target="_blank"
-        href="https://github.com/50rayn/vue3-sfc-transitions"
+        href="https://github.com/Noction/vue-bezier"
       >
         <svg
           class="h-6 w-6"

@@ -6,16 +6,16 @@ export const appliance = `<template>
   </kebab-transition>
 </template>`
 
-export const globalRegister = `import V3Transitions from 'vue3-sfc-transitions'
+export const globalRegister = `import VueBezier from '@noction/vue-bezier'
 TRANSITION_LIST
-app.use(TRANSITION_LIST_RESULT, { casing: 'PascalCase' })`
+app.use(TRANSITION_LIST_RESULT)`
 
 export const localRegister = `<script>
-import { TRANSITION } from 'vue3-sfc-transitions'
+import { TRANSITION } from '@noction/vue-bezier'
 
 export default {
   components: { TRANSITION }
 }
 </script>`
 
-export const styleImport = 'import \'vue3-sfc-transitions/dist/style.css\''
+export const styleImport = 'import \'@noction/vue-bezier/dist/style.css\''

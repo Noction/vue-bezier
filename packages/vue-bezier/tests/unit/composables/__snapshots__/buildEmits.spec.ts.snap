@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`composable / buildEmits > The returned list of emit should match the snapshot 1`] = `
+[
+  "after-enter",
+  "after-leave",
+  "before-enter",
+  "before-leave",
+  "leave",
+]
+`;

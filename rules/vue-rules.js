@@ -48,6 +48,8 @@ module.exports = {
     'vue/no-potential-component-option-typo': ['error', { custom: [], presets: ['vue'], threshold: 1 }],
     // disallow the use of reserved names in component definitions
     'vue/no-reserved-component-names': 'error',
+    // disallow props destructure
+    'vue/no-setup-props-destructure': 0,
     // enforce consistent spacing inside braces
     'vue/no-static-inline-styles': 'error',
     // disallow this usage in a beforeRouteEnter method

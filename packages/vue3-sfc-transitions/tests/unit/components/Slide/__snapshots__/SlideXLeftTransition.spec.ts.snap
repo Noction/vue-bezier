@@ -1,5 +1,0 @@
-// Vitest Snapshot v1
-
-exports[`components / Slide / SlideXLeftTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub enteractiveclass=\\"slide-x-left-in\\" leaveactiveclass=\\"slide-x-left-out\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\" tag=\\"span\\" move-class=\\"slide-move\\"></transition-stub>"`;
-
-exports[`components / Slide / SlideXLeftTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub tag=\\"span\\" enteractiveclass=\\"slide-x-left-in\\" moveclass=\\"slide-move\\" leaveactiveclass=\\"slide-x-left-out\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\"></transition-group-stub>"`;

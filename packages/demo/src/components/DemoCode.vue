@@ -159,7 +159,7 @@ const globalRegFormatter = (code: string) => {
     sampleCode = sampleCode.replace(/TRANSITION_LIST_RESULT/g, 'transitionList')
   } else {
     sampleCode = sampleCode.replace(/TRANSITION_LIST\b/g, '')
-    sampleCode = sampleCode.replace(/TRANSITION_LIST_RESULT/g, 'V3Transitions')
+    sampleCode = sampleCode.replace(/TRANSITION_LIST_RESULT/g, 'VueBezier')
   }
 
   return sampleCode

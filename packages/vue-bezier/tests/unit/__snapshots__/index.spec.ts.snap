@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`index > When installing with default argument, all of the transition component will be registered globally 1`] = `
+{
+  "CollapseTransition": Any<Object>,
+  "FadeTransition": Any<Object>,
+  "ScaleTransition": Any<Object>,
+  "SlideXLeftTransition": Any<Object>,
+  "SlideXRightTransition": Any<Object>,
+  "SlideYDownTransition": Any<Object>,
+  "SlideYUpTransition": Any<Object>,
+  "ZoomCenterTransition": Any<Object>,
+  "ZoomUpTransition": Any<Object>,
+  "ZoomXTransition": Any<Object>,
+  "ZoomYTransition": Any<Object>,
+}
+`;

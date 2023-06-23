@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`components / Fade / FadeTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub enteractiveclass=\\"fade-in\\" leaveactiveclass=\\"fade-out\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\" tag=\\"span\\" move-class=\\"fade-move\\"></transition-stub>"`;
+
+exports[`components / Fade / FadeTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub tag=\\"span\\" enteractiveclass=\\"fade-in\\" moveclass=\\"fade-move\\" leaveactiveclass=\\"fade-out\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\"></transition-group-stub>"`;
