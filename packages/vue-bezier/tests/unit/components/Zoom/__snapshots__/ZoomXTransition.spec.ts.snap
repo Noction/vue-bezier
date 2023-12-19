@@ -1,5 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`components / Zoom / ZoomXTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub enteractiveclass=\\"zoom-in-x\\" leaveactiveclass=\\"zoom-out-x\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\" tag=\\"span\\" move-class=\\"zoom-move\\"></transition-stub>"`;
+exports[`components / Zoom / ZoomXTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub enteractiveclass="zoom-in-x" leaveactiveclass="zoom-out-x" appear="false" persisted="false" css="true" tag="span" move-class="zoom-move"></transition-stub>"`;
 
-exports[`components / Zoom / ZoomXTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub tag=\\"span\\" enteractiveclass=\\"zoom-in-x\\" moveclass=\\"zoom-move\\" leaveactiveclass=\\"zoom-out-x\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\"></transition-group-stub>"`;
+exports[`components / Zoom / ZoomXTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub tag="span" enteractiveclass="zoom-in-x" moveclass="zoom-move" leaveactiveclass="zoom-out-x" appear="false" persisted="false" css="true"></transition-group-stub>"`;

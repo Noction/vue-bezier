@@ -2,8 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/@noction/vue-bezier.svg?style=flat)](https://npmjs.com/package/@noction/vue-bezier)
 [![NPM downloads](https://img.shields.io/npm/dm/@noction/vue-bezier.svg?style=flat)](https://npmjs.com/package/@noction/vue-bezier)
-[![codecov](https://codecov.io/gh/50rayn/@noction/vue-bezier/branch/master/graph/badge.svg?token=IJ9ZDYJ65Z)](https://codecov.io/gh/50rayn/@noction/vue-bezier)
-[![Featured on Openbase](https://badges.openbase.com/js/featured/@noction/vue-bezier.svg?token=hU9KYWV7h9YbmSVPtFbArzNxlWR8XfEc1pJhzSaLTp8=)](https://openbase.com/js/@noction/vue-bezier?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
+[![codecov](https://codecov.io/gh/Noction/vue-bezier/branch/master/graph/badge.svg?token=IJ9ZDYJ65Z)](https://codecov.io/gh/Noction/vue-bezier)
 
 ## [Demo](https://noction.github.io/vue-bezier)
 
