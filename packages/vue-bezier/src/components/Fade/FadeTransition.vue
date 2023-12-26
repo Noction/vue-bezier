@@ -11,12 +11,6 @@
   </component>
 </template>
 
-<script lang="ts">
-export default {
-  inheritAttrs: false
-}
-</script>
-
 <script setup lang="ts">
 import type { Events } from '../../../types'
 import {
@@ -25,6 +19,8 @@ import {
   buildProps,
   buildTag
 } from '../../composable'
+
+defineOptions({ inheritAttrs: false })
 
 const props = defineProps(buildProps())
 const emit = defineEmits<Events>()

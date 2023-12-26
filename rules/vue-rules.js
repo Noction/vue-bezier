@@ -55,7 +55,7 @@ module.exports = {
     // disallow this usage in a beforeRouteEnter method
     'vue/no-this-in-before-route-enter': 'error',
     // disallow unsupported Vue.js syntax on the specified version
-    'vue/no-unsupported-features': ['error', { ignores: [], version: '^3.0.0' }],
+    'vue/no-unsupported-features': ['error', { ignores: [], version: '^3.3.0' }],
     // disallow unused properties
     'vue/no-unused-properties': 'error',
     // disallow unused refs

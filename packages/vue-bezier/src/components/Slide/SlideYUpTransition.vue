@@ -24,10 +24,6 @@ export const customProps = {
     type: Object
   }
 }
-
-export default {
-  inheritAttrs: false
-}
 </script>
 
 <script setup lang="ts">
@@ -39,6 +35,7 @@ import {
   buildTag
 } from '../../composable'
 
+defineOptions({ inheritAttrs: false })
 const props = defineProps(buildProps(customProps))
 const emit = defineEmits<Events>()
 
