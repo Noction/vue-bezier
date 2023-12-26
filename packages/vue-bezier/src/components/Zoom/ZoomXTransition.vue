@@ -30,16 +30,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { Events } from '../../../types'
 import {
   buildComponentType,
-  buildEmits,
   buildHooks,
   buildProps,
   buildTag
 } from '../../composable'
 
 const props = defineProps(buildProps(customProps))
-const emit = defineEmits(buildEmits())
+const emit = defineEmits<Events>()
 
 const componentType = buildComponentType(props)
 const tag = buildTag(props)

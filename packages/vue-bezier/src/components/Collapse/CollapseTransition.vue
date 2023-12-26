@@ -11,16 +11,16 @@
 
 <script setup lang="ts">
 import { BaseTransitionProps } from 'vue'
+import type { Events } from '../../../types'
 import {
   buildComponentType,
-  buildEmits,
   buildProps,
   buildTag
 } from '../../composable'
 import { leave, setAbsolutePosition, setStyles } from '../../composable/buildHooks'
 
 const props = defineProps(buildProps())
-const emit = defineEmits(buildEmits())
+const emit = defineEmits<Events>()
 
 const componentType = buildComponentType(props)
 const tag = buildTag(props)
