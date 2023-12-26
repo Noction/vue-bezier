@@ -11,15 +11,21 @@
 
 <script setup lang="ts">
 import { BaseTransitionProps } from 'vue'
-import type { Events } from '../../../types'
-import {
-  buildComponentType,
-  buildProps,
-  buildTag
-} from '../../composable'
+import type { Events, Props } from '../../../types'
+import { buildComponentType, buildTag } from '../../composable'
 import { leave, setAbsolutePosition, setStyles } from '../../composable/buildHooks'
 
-const props = defineProps(buildProps())
+const props = withDefaults(defineProps<Props>(), {
+  delay: 0,
+  duration: 300,
+  group: false,
+  origin: '',
+  styles: () => ({
+    animationFillMode: 'both',
+    animationTimingFunction: 'ease-out'
+  }),
+  tag: 'span'
+})
 const emit = defineEmits<Events>()
 
 const componentType = buildComponentType(props)

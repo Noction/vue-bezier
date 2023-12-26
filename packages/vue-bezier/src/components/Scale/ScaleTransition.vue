@@ -11,37 +11,28 @@
   </component>
 </template>
 
-<script lang="ts">
-export const customProps = {
-  origin: {
-    default: 'top left',
-    type: String
-  },
-  styles: {
-    default: () => {
-      return {
-        animationFillMode: 'both',
-        animationTimingFunction: 'cubic-bezier(.25,.8,.50,1)'
-      }
-    },
-    type: Object
-  }
-}
-
-</script>
-
 <script setup lang="ts">
-import type { Events } from '../../../types'
+import type { Events, Props } from '../../../types'
 import {
   buildComponentType,
   buildHooks,
-  buildProps,
   buildTag
 } from '../../composable'
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps(buildProps(customProps))
+const props = withDefaults(defineProps<Props>(), {
+  delay: 0,
+  duration: 300,
+  group: false,
+  origin: 'top left',
+  styles: () => ({
+    animationFillMode: 'both',
+    animationTimingFunction: 'cubic-bezier(.25,.8,.50,1)'
+  }),
+  tag: 'span'
+})
+
 const emit = defineEmits<Events>()
 
 const componentType = buildComponentType(props)

@@ -11,31 +11,23 @@
   </component>
 </template>
 
-<script lang="ts">
-export const customProps = {
-  styles: {
-    default: () => {
-      return {
-        animationFillMode: 'both',
-        animationTimingFunction: 'ease-out'
-      }
-    },
-    type: Object
-  }
-}
-</script>
-
 <script setup lang="ts">
-import type { Events } from '../../../types'
-import {
-  buildComponentType,
-  buildHooks,
-  buildProps,
-  buildTag
-} from '../../composable'
+import type { Events, Props } from '../../../types'
+import { buildComponentType, buildHooks, buildTag } from '../../composable'
 
 defineOptions({ inheritAttrs: false })
-const props = defineProps(buildProps(customProps))
+
+const props = withDefaults(defineProps<Props>(), {
+  delay: 0,
+  duration: 300,
+  group: false,
+  origin: '',
+  styles: () => ({
+    animationFillMode: 'both',
+    animationTimingFunction: 'ease-out'
+  }),
+  tag: 'span'
+})
 const emit = defineEmits<Events>()
 
 const componentType = buildComponentType(props)
