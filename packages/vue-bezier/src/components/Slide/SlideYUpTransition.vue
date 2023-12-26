@@ -1,7 +1,7 @@
 <template>
   <component
     :is="componentType"
-    :tag="tag"
+    :tag="props.tag"
     type="animation"
     v-bind="{ ...$attrs, ...hooks }"
     enter-active-class="slide-y-in"
@@ -31,7 +31,6 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<Events>()
 
 const componentType = buildComponentType(props)
-const tag = buildTag(props)
 const hooks = buildHooks(props, emit)
 
 </script>

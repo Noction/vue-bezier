@@ -1,7 +1,7 @@
 <template>
   <component
     :is="componentType"
-    :tag="tag"
+    :tag="props.tag"
     v-bind="{ ...$attrs, ...hooks }"
     enter-active-class="scale-in"
     move-class="scale-move"
@@ -13,11 +13,7 @@
 
 <script setup lang="ts">
 import type { Events, Props } from '../../../types'
-import {
-  buildComponentType,
-  buildHooks,
-  buildTag
-} from '../../composable'
+import { buildComponentType, buildHooks } from '../../composable'
 
 defineOptions({ inheritAttrs: false })
 
@@ -36,7 +32,6 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<Events>()
 
 const componentType = buildComponentType(props)
-const tag = buildTag(props)
 const hooks = buildHooks(props, emit)
 
 </script>
