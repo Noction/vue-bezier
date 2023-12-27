@@ -37,7 +37,7 @@ export default {
 
 ## Global usage
 ```js
-import '@noction/vue-bezier/dist/style.css'
+import '@noction/vue-bezier/styles'
 import Transitions from '@noction/vue-bezier'
 import { createApp } from 'vue'
 
