@@ -1,6 +1,6 @@
 {
   "name": "@noction/vue-bezier",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Vue3 reusable transition components",
   "keywords": [
     "transitions",
