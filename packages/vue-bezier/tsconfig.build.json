@@ -1,13 +1,16 @@
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "types": ["vitest/globals"],
-  },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.vue",
-    "src/**/*.js",
+    "src/**/*.js"
+  ],
+  "exclude": [
     "tests/**/*.spec.ts"
-  ]
+  ],
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true
+  }
 }

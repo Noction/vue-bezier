@@ -13,11 +13,11 @@
 </template>
 
 <script setup lang="ts">
-import type { Events, Props } from '../../../types'
-import { buildComponentType, buildHooks, buildTag } from '../../composable'
+import type { ComponentEvents, ComponentProps } from '@/types'
+import { buildComponentType, useHooks } from '@/composables'
 
 defineOptions({ inheritAttrs: false })
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<ComponentProps>(), {
   delay: 0,
   duration: 300,
   group: false,
@@ -28,10 +28,10 @@ const props = withDefaults(defineProps<Props>(), {
   }),
   tag: 'span'
 })
-const emit = defineEmits<Events>()
+const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props)
-const hooks = buildHooks(props, emit)
+const hooks = useHooks(props, emit)
 
 </script>
 

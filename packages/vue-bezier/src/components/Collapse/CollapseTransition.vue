@@ -11,11 +11,11 @@
 
 <script setup lang="ts">
 import { BaseTransitionProps } from 'vue'
-import { buildComponentType } from '../../composable'
-import type { Events, Props } from '../../../types'
-import { leave, setAbsolutePosition, setStyles } from '../../composable/buildHooks'
+import { buildComponentType } from '../../composables'
+import type { ComponentEvents, ComponentProps } from '@/types'
+import { getTimingValue, leave, setAbsolutePosition, setStyles } from '@/composables/useHooks'
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<ComponentProps>(), {
   delay: 0,
   duration: 300,
   group: false,
@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
   }),
   tag: 'span'
 })
-const emit = defineEmits<Events>()
+const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props)
 
@@ -49,7 +49,7 @@ const hooks: BaseTransitionProps = {
     emit('after-leave', el)
   },
   onBeforeEnter (el) {
-    const enterDuration = props.duration?.enter ?? props.duration ?? 0
+    const enterDuration = getTimingValue(props.duration, 'enter')
 
     el.style.transition = transitionStyle(enterDuration)
 
@@ -96,7 +96,7 @@ const hooks: BaseTransitionProps = {
     el.style.overflow = 'hidden'
   },
   onLeave (el, done: () => void) {
-    const leaveDuration = props.duration.leave ?? props.duration ?? 0
+    const leaveDuration = getTimingValue(props.duration, 'leave')
 
     if (el.scrollHeight !== 0) {
       // for safari: add class after set height, or it will jump to zero height suddenly, weired

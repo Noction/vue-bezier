@@ -1,6 +1,6 @@
 import { RendererElement } from 'vue'
 
-export type Events = {
+export type ComponentEvents = {
     'after-enter': [el: RendererElement],
     'after-leave': [el: RendererElement],
     'before-enter': [el: RendererElement],
@@ -8,19 +8,7 @@ export type Events = {
     'leave': [el: RendererElement, done: () => void]
 }
 
-type TransitionTimings = {
-    enter: number;
-    leave: number;
-}
-
-type Styles = {
-    animationFillMode: string;
-    animationTimingFunction: string;
-}
-
-type NumberOrTimings = number | TransitionTimings;
-
-export type Props = {
+export type ComponentProps = {
     /**
      * Transition delay. Number for specifying the same delay for enter/leave transitions
      * Object style {enter: 300, leave: 300} for specifying explicit durations for enter/leave
@@ -40,7 +28,7 @@ export type Props = {
 
     /**
      * Transform origin property https://tympanus.net/codrops/css_reference/transform-origin/.
-     * Can be specified with styles as well but it's shorter with this prop
+     * Can be specified with styles as well, but it's shorter with this prop
      */
     origin?: string;
 
@@ -54,3 +42,12 @@ export type Props = {
      */
     tag?: string;
 }
+
+type TransitionTimings = {
+    enter: number;
+    leave: number;
+}
+
+type Styles = Partial<CSSStyleDeclaration>;
+
+export type NumberOrTimings = number | TransitionTimings;

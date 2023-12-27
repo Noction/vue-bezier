@@ -3,10 +3,11 @@
   "private": true,
   "version": "1.0.5",
   "scripts": {
-    "dev": "pnpm run build:light && pnpm run -r --parallel dev",
+    "predev": "pnpm run build:light",
+    "dev": "pnpm run -r --parallel dev",
     "build": "pnpm -r build",
     "build:light": "pnpm -F=vue-bezier run build:light",
-    "lint": "npm run lint:es; npm run lint:style",
+    "lint": "pnpm --parallel -w \"/^lint:.*/\"",
     "lint:es": "pnpm -r --parallel --no-bail lint:es",
     "lint:style": "pnpm -r --parallel --no-bail lint:style",
     "test": "pnpm -r --parallel test",

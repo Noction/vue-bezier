@@ -18,4 +18,4 @@ export default {
 }
 </script>`
 
-export const styleImport = 'import \'@noction/vue-bezier/dist/style.css\''
+export const styleImport = 'import \'@noction/vue-bezier/styles\''

@@ -5,6 +5,7 @@
     "moduleResolution": "node"
   },
   "include": [
-    "vite.config.mts"
+    "vite.config.ts",
+    "vitest.config.ts"
   ]
 }
