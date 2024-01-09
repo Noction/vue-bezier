@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   build: {
-    emptyOutDir: true,
+    emptyOutDir: false,
     lib: {
       entry: resolve(__dirname, './src/main.ts'),
       formats: ['es'],
