@@ -1,7 +1,7 @@
 {
   "name": "root",
   "private": true,
-  "version": "1.10.0",
+  "version": "1.11.0",
   "scripts": {
     "predev": "pnpm run build:light",
     "dev": "pnpm run -r --parallel dev",
@@ -11,7 +11,8 @@
     "lint:es": "pnpm -r --parallel --no-bail lint:es",
     "lint:style": "pnpm -r --parallel --no-bail lint:style",
     "test": "pnpm -r --parallel test",
-    "test:coverage": "pnpm -r --parallel run test:coverage"
+    "test:coverage": "pnpm -r --parallel run test:coverage",
+    "release": "pnpm run lint && bumpp package.json packages/playground/package.json packages/vue-bezier/package.json --commit --push --tag"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.62.0",
@@ -31,5 +32,8 @@
     "stylelint-config-recommended-vue": "^1.5.0",
     "stylelint-config-standard-scss": "^9.0.0",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "bumpp": "^9.3.0"
   }
 }
