@@ -2,15 +2,15 @@
   <component
     :is="componentType"
     :tag="props.tag"
+    name="noc-collapse"
     v-bind="{ ...$attrs, ...hooks }"
-    move-class="collapse-move"
   >
     <slot />
   </component>
 </template>
 
 <script setup lang="ts">
-import { BaseTransitionProps } from 'vue'
+import type { BaseTransitionProps } from 'vue'
 import { buildComponentType } from '../../composables'
 import type { ComponentEvents, ComponentProps } from '@/types'
 import { getTimingValue, leave, setAbsolutePosition, setStyles } from '@/composables/useHooks'
@@ -26,6 +26,7 @@ const props = withDefaults(defineProps<ComponentProps>(), {
   }),
   tag: 'span'
 })
+
 const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props)
@@ -123,5 +124,5 @@ const transitionStyle = (duration: number) => {
 </script>
 
 <style>
-  .collapse-move { transition: transform .3s ease-in-out; }
+  .noc-collapse-move { transition: transform .3s ease-in-out; }
 </style>

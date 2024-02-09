@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-full items-center overflow-y-auto">
+  <div class="size-full overflow-y-auto">
     <component
       :is="transitionType"
       :duration="{ enter: options.enter, leave: options.leave }"
@@ -9,17 +9,19 @@
     >
       <template v-for="item in items" :key="item">
         <div
-          class="relative rounded-lg border border-blue-700/10 bg-blue-400/20 text-blue-600 dark:border-sky-500 dark:bg-sky-600/50 dark:text-sky-100"
+          class="relative group  select-none rounded-lg border border-blue-700/10 bg-blue-400/20 text-blue-600 dark:border-sky-500 dark:bg-sky-600/50 dark:text-sky-100"
           :class="colors[item % colors.length]"
         >
-          <div class="grid place-content-center h-20 w-20 cursor-default text-xl font-semibold" v-text="item" />
+          <div class="grid place-content-center size-20 cursor-default text-xl font-semibold" v-text="item" />
           <div
-            class="group absolute top-0 right-0 cursor-pointer p-2"
+            class="absolute inset-0 size-full flex items-center justify-center cursor-pointer p-2"
             @click="remove(item)"
           >
             <div
-              class="h-2 w-2 rounded-full bg-current shadow transition group-hover:shadow-current dark:bg-sky-100"
-            />
+              class="size-10 flex justify-center scale-0 rounded-full bg-current shadow transition group-hover:shadow-current group-hover:scale-100 dark:bg-sky-100"
+            >
+              <span class="text-white text-4xl leading-none font-light">-</span>
+            </div>
           </div>
         </div>
       </template>
@@ -50,18 +52,14 @@
   </transition-duration>
 </template>
 
-<script lang="ts">
-export default {
-  inheritAttrs: false
-}
-</script>
-
 <script setup lang="ts">
 import TransitionDuration from './TransitionDuration.vue'
 import { TransitionInfoKey } from '../../types/symbols'
 import { injectStrict } from '../../utils'
 import { options } from '../composables/options'
 import { ref } from 'vue'
+
+defineOptions({ inheritAttrs: false })
 
 const { transitionType } = injectStrict(TransitionInfoKey)
 

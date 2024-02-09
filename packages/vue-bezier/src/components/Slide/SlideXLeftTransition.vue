@@ -2,10 +2,8 @@
   <component
     :is="componentType"
     :tag="props.tag"
+    name="noc-slide-left"
     v-bind="{ ...$attrs, ...hooks }"
-    enter-active-class="slide-x-left-in"
-    move-class="slide-move"
-    leave-active-class="slide-x-left-out"
   >
     <slot />
   </component>
@@ -24,7 +22,7 @@ const props = withDefaults(defineProps<ComponentProps>(), {
   origin: '',
   styles: () => ({
     animationFillMode: 'both',
-    animationTimingFunction: 'cubic-bezier(.25,.8,.50,1)'
+    animationTimingFunction: 'ease-out'
   }),
   tag: 'span'
 })
@@ -32,13 +30,12 @@ const props = withDefaults(defineProps<ComponentProps>(), {
 const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props)
+
 const hooks = useHooks(props, emit)
 
 </script>
 
-<style lang="scss">
-  @import 'move';
-
+<style>
   @keyframes slide-x-left-in {
     from {
       opacity: 0;
@@ -57,6 +54,7 @@ const hooks = useHooks(props, emit)
     }
   }
 
-  .slide-x-left-in { animation-name: slide-x-left-in; }
-  .slide-x-left-out { animation-name: slide-x-left-out; }
+  .noc-slide-left-enter-active { animation-name: slide-x-left-in; }
+  .noc-slide-left-leave-active { animation-name: slide-x-left-out; }
+  .noc-slide-left-move { transition: transform .3s ease-out; }
 </style>

@@ -2,10 +2,8 @@
   <component
     :is="componentType"
     :tag="props.tag"
+    name="noc-zoom"
     v-bind="{ ...$attrs, ...hooks }"
-    enter-active-class="zoom-in"
-    move-class="zoom-move"
-    leave-active-class="zoom-out"
   >
     <slot />
   </component>
@@ -16,6 +14,7 @@ import type { ComponentEvents, ComponentProps } from '@/types'
 import { buildComponentType, useHooks } from '@/composables'
 
 defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(defineProps<ComponentProps>(), {
   delay: 0,
   duration: 300,
@@ -27,16 +26,16 @@ const props = withDefaults(defineProps<ComponentProps>(), {
   }),
   tag: 'span'
 })
+
 const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props)
+
 const hooks = useHooks(props, emit)
 
 </script>
 
-<style lang="scss">
-  @import 'move';
-
+<style>
   @keyframes zoom-in {
     0% {
       opacity: 0;
@@ -57,6 +56,7 @@ const hooks = useHooks(props, emit)
     100% { opacity: 0; }
   }
 
-  .zoom-in { animation-name: zoom-in; }
-  .zoom-out { animation-name: zoom-out; }
+  .noc-zoom-enter-active { animation-name: zoom-in; }
+  .noc-zoom-leave-active { animation-name: zoom-out; }
+  .noc-zoom-move { transition: transform .3s ease-out; }
 </style>

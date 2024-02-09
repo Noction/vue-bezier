@@ -2,10 +2,8 @@
   <component
     :is="componentType"
     :tag="props.tag"
+    name="noc-scale"
     v-bind="{ ...$attrs, ...hooks }"
-    enter-active-class="scale-in"
-    move-class="scale-move"
-    leave-active-class="scale-out"
   >
     <slot />
   </component>
@@ -24,7 +22,7 @@ const props = withDefaults(defineProps<ComponentProps>(), {
   origin: 'top left',
   styles: () => ({
     animationFillMode: 'both',
-    animationTimingFunction: 'cubic-bezier(.25,.8,.50,1)'
+    animationTimingFunction: 'ease-out'
   }),
   tag: 'span'
 })
@@ -32,6 +30,7 @@ const props = withDefaults(defineProps<ComponentProps>(), {
 const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props)
+
 const hooks = useHooks(props, emit)
 
 </script>
@@ -55,7 +54,7 @@ const hooks = useHooks(props, emit)
     }
   }
 
-  .scale-in { animation-name: scale-in; }
-  .scale-out { animation-name: scale-out; }
-  .scale-move { transition: transform .3s cubic-bezier(.25, .8, .5, 1); }
+  .noc-scale-enter-active { animation-name: scale-in; }
+  .noc-scale-leave-active { animation-name: scale-out; }
+  .noc-scale-move { transition: transform .3s cubic-bezier(.25, .8, .5, 1); }
 </style>

@@ -2,9 +2,7 @@
   <component
     :is="componentType"
     :tag="props.tag"
-    enter-active-class="fade-in"
-    move-class="fade-move"
-    leave-active-class="fade-out"
+    name="noc-fade"
     v-bind="{ ...$attrs, ...hooks }"
   >
     <slot />
@@ -28,9 +26,11 @@ const props = withDefaults(defineProps<ComponentProps>(), {
   }),
   tag: 'span'
 })
+
 const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props)
+
 const hooks = useHooks(props, emit)
 
 </script>
@@ -46,7 +46,7 @@ const hooks = useHooks(props, emit)
     to { opacity: 0; }
   }
 
-  .fade-in { animation-name: fade-in; }
-  .fade-out { animation-name: fade-out; }
-  .fade-move { transition: transform .3s ease-out; }
+  .noc-fade-enter-active { animation-name: fade-in; }
+  .noc-fade-leave-active { animation-name: fade-out; }
+  .noc-fade-move { transition: transform .35s ease-out; }
 </style>

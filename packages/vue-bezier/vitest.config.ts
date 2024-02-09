@@ -12,6 +12,7 @@ export default defineConfig({
   test: {
     coverage: {
       all: true,
+      exclude: ['src/components/index.ts'],
       include: ['src/components/**', 'src/composables/**'],
       provider: 'v8',
       reporter: ['text', 'cobertura']

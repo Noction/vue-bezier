@@ -2,9 +2,7 @@
   <component
     :is="componentType"
     :tag="props.tag"
-    enter-active-class="zoom-in-x"
-    move-class="zoom-move"
-    leave-active-class="zoom-out-x"
+    name="noc-zoom-x"
     v-bind="{ ...$attrs, ...hooks }"
   >
     <slot />
@@ -24,7 +22,7 @@ const props = withDefaults(defineProps<ComponentProps>(), {
   origin: '',
   styles: () => ({
     animationFillMode: 'both',
-    animationTimingFunction: 'cubic-bezier(.55,0,.1,1)'
+    animationTimingFunction: 'ease-out'
   }),
   tag: 'span'
 })
@@ -32,13 +30,12 @@ const props = withDefaults(defineProps<ComponentProps>(), {
 const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props)
+
 const hooks = useHooks(props, emit)
 
 </script>
 
-<style lang="scss">
-  @import 'move';
-
+<style>
   @keyframes zoom-in-x {
     0% {
       opacity: 0;
@@ -59,6 +56,7 @@ const hooks = useHooks(props, emit)
     100% { opacity: 0; }
   }
 
-  .zoom-in-x { animation-name: zoom-in-x; }
-  .zoom-out-x { animation-name: zoom-out-x; }
+  .noc-zoom-x-enter-active { animation-name: zoom-in-x; }
+  .noc-zoom-x-leave-active { animation-name: zoom-out-x; }
+  .noc-zoom-x-move { transition: transform .3s ease-out; }
 </style>

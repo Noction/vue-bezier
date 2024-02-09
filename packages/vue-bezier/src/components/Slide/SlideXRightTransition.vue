@@ -2,10 +2,8 @@
   <component
     :is="componentType"
     :tag="props.tag"
+    name="noc-slide-right"
     v-bind="{ ...$attrs, ...hooks }"
-    enter-active-class="slide-x-right-in"
-    move-class="slide-move"
-    leave-active-class="slide-x-right-out"
   >
     <slot />
   </component>
@@ -16,6 +14,7 @@ import type { ComponentEvents, ComponentProps } from '@/types'
 import { buildComponentType, useHooks } from '@/composables'
 
 defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(defineProps<ComponentProps>(), {
   delay: 0,
   duration: 300,
@@ -23,20 +22,20 @@ const props = withDefaults(defineProps<ComponentProps>(), {
   origin: '',
   styles: () => ({
     animationFillMode: 'both',
-    animationTimingFunction: 'cubic-bezier(.25,.8,.50,1)'
+    animationTimingFunction: 'ease-out'
   }),
   tag: 'span'
 })
+
 const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props)
+
 const hooks = useHooks(props, emit)
 
 </script>
 
-<style lang="scss">
-  @import 'move';
-
+<style>
   @keyframes slide-x-right-in {
     from {
       opacity: 0;
@@ -55,6 +54,7 @@ const hooks = useHooks(props, emit)
     }
   }
 
-  .slide-x-right-in { animation-name: slide-x-right-in; }
-  .slide-x-right-out { animation-name: slide-x-right-out; }
+  .noc-slide-right-enter-active { animation-name: slide-x-right-in; }
+  .noc-slide-right-leave-active { animation-name: slide-x-right-out; }
+  .noc-slide-right-move { transition: transform .3s ease-out; }
 </style>

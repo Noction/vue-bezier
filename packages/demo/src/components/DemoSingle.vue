@@ -29,12 +29,6 @@
   </transition-duration>
 </template>
 
-<script lang="ts">
-export default {
-  inheritAttrs: false
-}
-</script>
-
 <script setup lang="ts">
 import TransitionDuration from './TransitionDuration.vue'
 import { TransitionInfoKey } from '../../types/symbols'
@@ -43,4 +37,5 @@ import { options, state } from '../composables/options'
 
 const { transitionType } = injectStrict(TransitionInfoKey)
 
+defineOptions({ inheritAttrs: false })
 </script>

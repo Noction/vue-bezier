@@ -2,9 +2,7 @@
   <component
     :is="componentType"
     :tag="props.tag"
-    enter-active-class="zoom-in-y"
-    move-class="zoom-move"
-    leave-active-class="zoom-out-y"
+    name="noc-zoom-y"
     v-bind="{ ...$attrs, ...hooks }"
   >
     <slot />
@@ -16,6 +14,7 @@ import type { ComponentEvents, ComponentProps } from '@/types'
 import { buildComponentType, useHooks } from '@/composables'
 
 defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(defineProps<ComponentProps>(), {
   delay: 0,
   duration: 300,
@@ -23,20 +22,20 @@ const props = withDefaults(defineProps<ComponentProps>(), {
   origin: '',
   styles: () => ({
     animationFillMode: 'both',
-    animationTimingFunction: 'cubic-bezier(.55,0,.1,1)'
+    animationTimingFunction: 'ease-out'
   }),
   tag: 'span'
 })
+
 const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props)
+
 const hooks = useHooks(props, emit)
 
 </script>
 
-<style lang="scss">
-  @import 'move';
-
+<style>
   @keyframes zoom-in-y {
     0% {
       opacity: 0;
@@ -60,6 +59,7 @@ const hooks = useHooks(props, emit)
     100% { opacity: 0; }
   }
 
-  .zoom-in-y { animation-name: zoom-in-y; }
-  .zoom-out-y { animation-name: zoom-out-y; }
+  .noc-zoom-y-enter-active { animation-name: zoom-in-y; }
+  .noc-zoom-y-leave-active { animation-name: zoom-out-y; }
+  .noc-zoom-y-move { transition: transform .3s ease-out; }
 </style>
