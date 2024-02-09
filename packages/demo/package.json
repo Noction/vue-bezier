@@ -1,6 +1,6 @@
 {
   "name": "demo",
-  "version": "1.10.0",
+  "version": "1.11.1",
   "scripts": {
     "dev": "vite --force",
     "prebuild": "vue-tsc --noEmit",
