@@ -28,7 +28,10 @@
     "dist"
   ],
   "exports": {
-    ".": "./dist/vue-bezier.js",
+    ".": {
+      "types": "./dist/types/main.d.ts",
+      "import": "./dist/vue-bezier.js"
+    },
     "./*": "./*",
     "./types": "./dist/types/main.d.ts",
     "./styles": "./dist/style.css"
