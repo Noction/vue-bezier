@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { options } from '../composables/options'
+import CircleProgress from './CircleProgress.vue'
+</script>
+
 <template>
   <div
     class="flex w-full flex-col items-center justify-between gap-5 bg-white px-4 py-4 shadow sm:flex-row md:px-6"
@@ -11,7 +16,7 @@
       class="operations grid w-full gap-2 text-xs font-semibold text-slate-700"
     >
       <!-- DELAY -->
-      <circle-progress progress-type="delay" />
+      <CircleProgress progress-type="delay" />
       <span class="grow">Delay</span>
       <span class="text-center" v-text="options.delay" />
       <span>ms</span>
@@ -25,7 +30,7 @@
         class="range grow"
       >
       <!-- ENTER -->
-      <circle-progress progress-type="enter" />
+      <CircleProgress progress-type="enter" />
       <span class="grow">Enter</span>
       <span class="text-center" v-text="options.enter" />
       <span>ms</span>
@@ -39,7 +44,7 @@
         class="grow"
       >
       <!-- LEAVE -->
-      <circle-progress progress-type="leave" />
+      <CircleProgress progress-type="leave" />
       <span class="grow">Leave</span>
       <span class="text-center" v-text="options.leave" />
       <span>ms</span>
@@ -55,11 +60,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import CircleProgress from './CircleProgress.vue'
-import { options } from '../composables/options'
-</script>
 
 <style scoped>
   .operations { grid: 1fr 1fr 1fr / 16px auto 30px auto 1fr; }

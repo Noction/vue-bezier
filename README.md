@@ -15,17 +15,9 @@ npm i -S @noction/vue-bezier
 ## Local usage :rocket:
 
 ```vue
-<template>
-   <fade-transition>
-      <div class="box" v-show="show">
-        <p>Fade transition</p>
-      </div>
-    </fade-transition>
-</template>
-
 <script>
-import '@noction/vue-bezier/styles'
 import { FadeTransition } from '@noction/vue-bezier'
+import '@noction/vue-bezier/styles'
 
 export default {
   components: {
@@ -33,13 +25,21 @@ export default {
   }
 }
 </script>
+
+<template>
+  <FadeTransition>
+    <div v-show="show" class="box">
+      <p>Fade transition</p>
+    </div>
+  </FadeTransition>
+</template>
 ```
 
 ## Global usage
 ```js
-import '@noction/vue-bezier/styles'
 import Transitions from '@noction/vue-bezier'
 import { createApp } from 'vue'
+import '@noction/vue-bezier/styles'
 
 const app = createApp(App)
 app.use(Transitions)
@@ -92,11 +92,11 @@ Gotchas/things to watch:
 - Scale
   ```css
     .scale-move { transition: transform .3s cubic-bezier(.25, .8, .50, 1); }
-  ``` 
+  ```
 - Fade
   ```css
     .fade-move { transition: transform .3s ease-out; }
-   ``` 
+   ```
 If you want to configure the duration, just redefine the class for the transition you use with the desired duration.
 
 ## License
@@ -105,4 +105,4 @@ MIT &copy; [50rayn](https://github.com/50rayn)
 
 ## Special thanks to
 
-@cristijora (The UI for list transitions in the demo is inspired by [vue2-transitions](https://github.com/BinarCode/vue2-transitions) )  
+@cristijora (The UI for list transitions in the demo is inspired by [vue2-transitions](https://github.com/BinarCode/vue2-transitions) )

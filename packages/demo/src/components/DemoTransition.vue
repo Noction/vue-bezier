@@ -1,7 +1,16 @@
+<script setup lang="ts">
+import { TransitionInfoKey } from '../../types/symbols'
+import { injectStrict } from '../../utils'
+import DemoGroup from './DemoGroup.vue'
+import DemoSingle from './DemoSingle.vue'
+
+const { transitionGroup } = injectStrict(TransitionInfoKey)
+</script>
+
 <template>
   <div id="preview" class="flex items-center gap-x-4">
     <div
-      class="flex h-auto h-3/4 w-full flex-col content-center items-center justify-center gap-y-4 rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25 lg:h-1/2"
+      class="flex h-3/4 w-full flex-col content-center items-center justify-center gap-y-4 rounded-xl border border-black/5 bg-slate-50 p-4 dark:border-white/5 dark:bg-slate-800/25 lg:h-1/2"
     >
       <div class="ml-auto grid grid-flow-col items-end justify-center gap-x-8">
         <div
@@ -33,25 +42,15 @@
           <span
             class="text-sm transition-all group-hover:font-semibold group-hover:text-sky-500 group-hover:dark:text-sky-400 md:text-base"
             :class="{
-              'text-sky-500 dark:text-sky-400': transitionGroup
+              'text-sky-500 dark:text-sky-400': transitionGroup,
             }"
           >
             Group
           </span>
         </div>
       </div>
-      <demo-group v-if="transitionGroup" class="w-full" />
-      <demo-single v-else class="w-full" />
+      <DemoGroup v-if="transitionGroup" class="w-full" />
+      <DemoSingle v-else class="w-full" />
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import DemoGroup from './DemoGroup.vue'
-import DemoSingle from './DemoSingle.vue'
-import { TransitionInfoKey } from '../../types/symbols'
-import { injectStrict } from '../../utils'
-
-const { transitionGroup } = injectStrict(TransitionInfoKey)
-
-</script>

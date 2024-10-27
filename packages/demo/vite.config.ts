@@ -1,23 +1,23 @@
-import { defineConfig } from 'vite'
 import path from 'node:path'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 
 const outDir = path.resolve(__dirname, '..', '..', 'docs')
 
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    outDir
+    outDir,
   },
   plugins: [vue({
     script: {
-      propsDestructure: true
-    }
+      propsDestructure: true,
+    },
   })],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
     },
-    dedupe: ['vue']
-  }
+    dedupe: ['vue'],
+  },
 })

@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
     "useDefineForClassFields": true,
+    "baseUrl": ".",
     "module": "commonjs",
     "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "outDir": "dist/types",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "lib": ["esnext", "dom"],
-    "allowJs": true,
-    "checkJs": false,
-    "skipLibCheck": true,
-    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "outDir": "dist/types",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules"],
-  "references": [{ "path": "./tsconfig.vite.json"}]
+  "references": [{ "path": "./tsconfig.vite.json" }],
+  "exclude": ["node_modules"]
 }

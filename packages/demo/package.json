@@ -12,18 +12,19 @@
   "dependencies": {
     "@noction/vue-bezier": "workspace:*",
     "prismjs": "^1.29.0",
-    "vue": "^3.4.35",
-    "vue-prism-editor": "2.0.0-alpha.2"
+    "vue": "^3.5.12",
+    "vue-prism-editor": "2.0.0-alpha.2",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@types/node": "^22.1.0",
+    "@types/node": "^22.7.6",
     "@types/prismjs": "^1.26.4",
-    "@vitejs/plugin-vue": "^5.1.2",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.40",
-    "sass": "^1.77.8",
-    "tailwindcss": "^3.4.7",
-    "vite": "^5.3.5",
-    "vue-tsc": "^2.0.29"
+    "@vitejs/plugin-vue": "^5.1.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "sass": "^1.80.1",
+    "tailwindcss": "^3.4.14",
+    "vite": "^5.4.9",
+    "vue-tsc": "^2.1.6"
   }
 }

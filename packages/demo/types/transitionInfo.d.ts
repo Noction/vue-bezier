@@ -1,8 +1,8 @@
-import { Ref } from 'vue'
+import type { Ref } from 'vue'
 
 export declare type TransitionGroup = boolean
 
-export declare type TransitionInfo = {
+export declare interface TransitionInfo {
   transitionGroup: Ref<TransitionGroup>
   transitionType: Ref<TransitionType>
 }
@@ -19,3 +19,7 @@ export declare type TransitionType =
   | 'ZoomYTransition'
   | 'ScaleTransition'
   | 'CollapseTransition'
+  | 'DissolveTransition'
+  | 'PushTransition'
+  | 'FadeSlideTransition'
+  | 'BlurTransition'

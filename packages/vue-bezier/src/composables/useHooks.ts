@@ -1,7 +1,7 @@
-import type { RendererElement } from 'vue'
 import type { ComponentProps, NumberOrTimings } from '@/types'
+import type { RendererElement } from 'vue'
 
-function getTimingValue (timing: NumberOrTimings | undefined, key: 'enter' | 'leave'): number {
+function getTimingValue(timing: NumberOrTimings | undefined, key: 'enter' | 'leave'): number {
   if (typeof timing === 'number') {
     return timing
   }
@@ -13,11 +13,11 @@ function getTimingValue (timing: NumberOrTimings | undefined, key: 'enter' | 'le
   return 0
 }
 
-function camelCaseToKebabCase (str: string) {
+function camelCaseToKebabCase(str: string) {
   return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
 }
 
-function beforeEnter (props: ComponentProps, el: RendererElement) {
+function beforeEnter(props: ComponentProps, el: RendererElement) {
   const enterDuration = getTimingValue(props.duration, 'enter')
   const enterDelay = getTimingValue(props.delay, 'enter')
 
@@ -27,7 +27,7 @@ function beforeEnter (props: ComponentProps, el: RendererElement) {
   setStyles(props, el)
 }
 
-function beforeLeave (props: ComponentProps, el: RendererElement) {
+function beforeLeave(props: ComponentProps, el: RendererElement) {
   const leaveDuration = getTimingValue(props.duration, 'leave')
   const leaveDelay = getTimingValue(props.delay, 'leave')
 
@@ -37,7 +37,7 @@ function beforeLeave (props: ComponentProps, el: RendererElement) {
   setStyles(props, el)
 }
 
-function leave (props: ComponentProps, el: RendererElement, done: () => void) {
+function leave(props: ComponentProps, el: RendererElement, done: () => void) {
   setAbsolutePosition(props, el)
 
   const leaveDuration = getTimingValue(props.duration, 'leave')
@@ -46,7 +46,7 @@ function leave (props: ComponentProps, el: RendererElement, done: () => void) {
   setTimeout(done, leaveDuration + leaveDelay)
 }
 
-function cleanUpStyles (props: ComponentProps, el: RendererElement) {
+function cleanUpStyles(props: ComponentProps, el: RendererElement) {
   if (props.styles) {
     Object.entries(props.styles).forEach(([key]) => {
       if (key in el.style) {
@@ -61,7 +61,7 @@ function cleanUpStyles (props: ComponentProps, el: RendererElement) {
   el.style.removeProperty('animation-delay')
 }
 
-function setStyles (props: ComponentProps, el: RendererElement) {
+function setStyles(props: ComponentProps, el: RendererElement) {
   setTransformOrigin(props, el)
 
   if (props.styles) {
@@ -75,16 +75,16 @@ function setStyles (props: ComponentProps, el: RendererElement) {
   }
 }
 
-function setAbsolutePosition (props: ComponentProps, el: RendererElement) {
+function setAbsolutePosition(props: ComponentProps, el: RendererElement) {
   if (props.group && el instanceof HTMLElement) {
     const styles = getComputedStyle(el)
 
     const { width, height, marginLeft, marginTop } = styles
 
-    const parsedWidth = width !== 'auto' ? parseFloat(width) : el.offsetWidth
-    const parsedHeight = height !== 'auto' ? parseFloat(height) : el.offsetHeight
-    const parsedMarginLeft = parseFloat(marginLeft)
-    const parsedMarginTop = parseFloat(marginTop)
+    const parsedWidth = width !== 'auto' ? Number.parseFloat(width) : el.offsetWidth
+    const parsedHeight = height !== 'auto' ? Number.parseFloat(height) : el.offsetHeight
+    const parsedMarginLeft = Number.parseFloat(marginLeft)
+    const parsedMarginTop = Number.parseFloat(marginTop)
 
     el.style.setProperty('left', `${el.offsetLeft - parsedMarginLeft}px`, 'important')
     el.style.setProperty('top', `${el.offsetTop - parsedMarginTop}px`, 'important')
@@ -94,8 +94,9 @@ function setAbsolutePosition (props: ComponentProps, el: RendererElement) {
   }
 }
 
-function setTransformOrigin (props: ComponentProps, el: RendererElement) {
-  if (props.origin) el.style.setProperty('transform-origin', props.origin)
+function setTransformOrigin(props: ComponentProps, el: RendererElement) {
+  if (props.origin)
+    el.style.setProperty('transform-origin', props.origin)
 }
 
 export default (props: ComponentProps, emit: any) => ({
@@ -118,12 +119,12 @@ export default (props: ComponentProps, emit: any) => ({
   onLeave: (el: RendererElement, done: () => void) => {
     leave(props, el, done)
     emit('leave', el, done)
-  }
+  },
 })
 
 export {
   getTimingValue,
   leave,
   setAbsolutePosition,
-  setStyles
+  setStyles,
 }

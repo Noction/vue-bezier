@@ -5,7 +5,7 @@ describe('composables / useHooks', () => {
   describe('onAfterEnter', () => {
     afterEach(() => { vi.restoreAllMocks() })
 
-    it('When calling `onAfterEnter`, it should call `emit` function with 2 arguments: `after-enter` and `el`', () => {
+    it('when calling `onAfterEnter`, it should call `emit` function with 2 arguments: `after-enter` and `el`', () => {
       const props = { styles: {} }
       const emitterFn = vi.fn()
       const eventName = 'after-enter'
@@ -16,7 +16,7 @@ describe('composables / useHooks', () => {
       expect(emitterFn).toHaveBeenCalledWith(eventName, refElement)
     })
 
-    it('When calling `onAfterEnter`, it should reset all set styles on element', () => {
+    it('when calling `onAfterEnter`, it should reset all set styles on element', () => {
       const color = faker.color.rgb({ format: 'css' })
       const props = { styles: { color } }
       const emitterFn = vi.fn()
@@ -34,7 +34,7 @@ describe('composables / useHooks', () => {
   describe('onAfterLeave', () => {
     afterEach(() => { vi.restoreAllMocks() })
 
-    it('When calling `onAfterLeave`, it should call `emit` function with 2 arguments: `after-leave` and `el`', () => {
+    it('when calling `onAfterLeave`, it should call `emit` function with 2 arguments: `after-leave` and `el`', () => {
       const props = { styles: {} }
       const emitterFn = vi.fn()
       const eventName = 'after-leave'
@@ -45,7 +45,7 @@ describe('composables / useHooks', () => {
       expect(emitterFn).toHaveBeenCalledWith(eventName, refElement)
     })
 
-    it('When calling `onAfterLeave`, it should reset all set styles on element', () => {
+    it('when calling `onAfterLeave`, it should reset all set styles on element', () => {
       const color = faker.color.rgb({ format: 'css' })
       const props = { styles: { color } }
       const emitterFn = vi.fn()
@@ -63,7 +63,7 @@ describe('composables / useHooks', () => {
   describe('onBeforeEnter', () => {
     afterEach(() => { vi.restoreAllMocks() })
 
-    it('When calling `onBeforeEnter`, it should call `emit` function with 2 arguments: `before-enter` and `el`', () => {
+    it('when calling `onBeforeEnter`, it should call `emit` function with 2 arguments: `before-enter` and `el`', () => {
       const props = { styles: {} }
       const emitterFn = vi.fn()
       const eventName = 'before-enter'
@@ -74,7 +74,7 @@ describe('composables / useHooks', () => {
       expect(emitterFn).toHaveBeenCalledWith(eventName, refElement)
     })
 
-    it('When calling `onBeforeEnter`, it should set `animationDuration` and `animationDelay` styles on element', () => {
+    it('when calling `onBeforeEnter`, it should set `animationDuration` and `animationDelay` styles on element', () => {
       const color = faker.color.rgb({ format: 'css' })
       const delay = +faker.string.numeric()
       const duration = +faker.string.numeric()
@@ -96,7 +96,7 @@ describe('composables / useHooks', () => {
   describe('onBeforeLeave', () => {
     afterEach(() => { vi.restoreAllMocks() })
 
-    it('When calling `beforeLeave`, it should call `emit` function with 2 arguments: `before-leave` and `el`', () => {
+    it('when calling `beforeLeave`, it should call `emit` function with 2 arguments: `before-leave` and `el`', () => {
       const props = { styles: {} }
       const emitterFn = vi.fn()
       const eventName = 'before-leave'
@@ -107,7 +107,7 @@ describe('composables / useHooks', () => {
       expect(emitterFn).toHaveBeenCalledWith(eventName, refElement)
     })
 
-    it('When calling `beforeLeave`, it should set `animationDuration` and `animationDelay` styles on element', () => {
+    it('when calling `beforeLeave`, it should set `animationDuration` and `animationDelay` styles on element', () => {
       const color = faker.color.rgb({ format: 'css' })
       const delay = +faker.string.numeric()
       const duration = +faker.string.numeric()
@@ -130,7 +130,7 @@ describe('composables / useHooks', () => {
     beforeEach(() => { vi.useFakeTimers() })
     afterEach(() => { vi.restoreAllMocks() })
 
-    it('When calling `onLeave`, it should call `emit` function with 2 arguments: `leave`, `el` and `done` function', () => {
+    it('when calling `onLeave`, it should call `emit` function with 2 arguments: `leave`, `el` and `done` function', () => {
       const props = { styles: {} }
       const emitterFn = vi.fn()
       const doneFn = vi.fn()
@@ -142,7 +142,7 @@ describe('composables / useHooks', () => {
       expect(emitterFn).toHaveBeenCalledWith(eventName, refElement, doneFn)
     })
 
-    it('When calling `onLeave`, it should not change styles of element', () => {
+    it('when calling `onLeave`, it should not change styles of element', () => {
       const color = faker.color.rgb({ format: 'css' })
       const props = { styles: { color } }
       const emitterFn = vi.fn()
@@ -157,7 +157,7 @@ describe('composables / useHooks', () => {
       expect(refElement).toStrictEqual(expectedElement)
     })
 
-    it('When calling `onLeave`, it should call `done` function after delay and duration sum', () => {
+    it('when calling `onLeave`, it should call `done` function after delay and duration sum', () => {
       const color = faker.color.rgb({ format: 'css' })
       const delay = +faker.string.numeric()
       const duration = +faker.string.numeric()
@@ -176,7 +176,7 @@ describe('composables / useHooks', () => {
       expect(doneFn).toBeCalledTimes(1)
     })
 
-    it('When calling `onLeave` with `group` prop to `true`, it should add `style` with `position: absolute` ', () => {
+    it('when calling `onLeave` with `group` prop to `true`, it should add `style` with `position: absolute` ', () => {
       const color = faker.color.rgb({ format: 'css' })
       const props = { group: true, styles: { color } }
       const emitterFn = vi.fn()

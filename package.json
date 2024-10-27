@@ -1,39 +1,36 @@
 {
   "name": "root",
-  "private": true,
   "version": "1.12.0",
+  "private": true,
   "scripts": {
     "predev": "pnpm run build:light",
     "dev": "pnpm run -r --parallel dev",
     "build": "pnpm -r build",
     "build:light": "pnpm -F=vue-bezier run build:light",
     "lint": "pnpm --parallel -w \"/^lint:.*/\"",
-    "lint:es": "pnpm -r --parallel --no-bail lint:es",
+    "lint:es": "eslint .",
+    "lint:es:fix": "eslint . --fix",
     "lint:style": "pnpm -r --parallel --no-bail lint:style",
     "test": "pnpm -r --parallel test",
     "test:coverage": "pnpm -r --parallel run test:coverage",
     "release": "pnpm run lint && bumpp package.json packages/demo/package.json packages/vue-bezier/package.json --commit --push --tag"
   },
+  "dependencies": {
+    "bumpp": "^9.7.1"
+  },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-sort-exports": "^0.8.0",
-    "eslint-plugin-vue": "^9.21.1",
-    "stylelint": "^15.11.0",
-    "postcss": "^8.4.40",
+    "@antfu/eslint-config": "^3.8.0",
+    "eslint": "^9.12.0",
+    "postcss": "^8.4.47",
     "postcss-html": "^1.7.0",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
+    "stylelint": "^15.11.0",
     "stylelint-config-css-modules": "^4.4.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-recess-order": "^4.6.0",
     "stylelint-config-recommended-vue": "^1.5.0",
     "stylelint-config-standard-scss": "^9.0.0",
-    "typescript": "^5.5.4"
-  },
-  "dependencies": {
-    "bumpp": "^9.4.2"
+    "typescript": "^5.6.3"
   }
 }

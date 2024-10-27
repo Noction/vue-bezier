@@ -1,8 +1,15 @@
+<script setup lang="ts">
+import * as Package from './../../package.json'
+import NavLogo from './NavLogo.vue'
+
+const { version } = Package
+</script>
+
 <template>
   <nav
-    class="absolute flex w-full justify-between bg-white/95 px-8 py-4 dark:border-slate-50/[0.06] dark:bg-transparent lg:border-b lg:border-slate-900/10"
+    class="sticky flex top-0 z-40 w-full justify-between bg-white/95 px-8 py-4 dark:border-slate-50/[0.06] dark:bg-transparent lg:border-b lg:border-slate-900/10"
   >
-    <nav-logo />
+    <NavLogo />
     <div class="right flex flex-row items-center gap-x-4">
       <span
         class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold"
@@ -66,11 +73,3 @@
     </div>
   </nav>
 </template>
-
-<script setup lang="ts">
-import * as Package from './../../package.json'
-import NavLogo from './NavLogo.vue'
-
-const { version } = Package
-
-</script>
