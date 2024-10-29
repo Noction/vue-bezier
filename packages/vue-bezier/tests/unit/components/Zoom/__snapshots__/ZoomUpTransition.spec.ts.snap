@@ -1,5 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`components / Zoom / ZoomUpTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub name="noc-zoom-up" appear="false" persisted="false" css="true" tag="span"></transition-stub>"`;
+exports[`components / Zoom / ZoomUpTransition > when mounting component with default props, it should work fine 1`] = `"<transition-stub name="noc-zoom-up" appear="false" persisted="false" css="true" tag="span"></transition-stub>"`;
 
-exports[`components / Zoom / ZoomUpTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub tag="span" name="noc-zoom-up" appear="false" persisted="false" css="true"></transition-group-stub>"`;
+exports[`components / Zoom / ZoomUpTransition > when mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub tag="span" name="noc-zoom-up" appear="false" persisted="false" css="true"></transition-group-stub>"`;
