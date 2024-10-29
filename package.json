@@ -1,6 +1,6 @@
 {
   "name": "root",
-  "version": "1.12.0",
+  "version": "2.0.0-beta.1",
   "private": true,
   "scripts": {
     "predev": "pnpm run build:light",
