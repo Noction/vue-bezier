@@ -43,8 +43,6 @@ function initLeaving(element: HTMLElement) {
   element.style.setProperty('top', `${element.offsetTop - Number.parseFloat(marginTop)}px`, 'important')
   element.style.setProperty('width', `${Number.parseFloat(width)}px`, 'important')
   element.style.setProperty('height', `${Number.parseFloat(height)}px`, 'important')
-
-  return element
 }
 
 function reduceTransition(element: HTMLElement) {
@@ -66,19 +64,22 @@ function setupTransition(element: HTMLElement, event: 'enter' | 'leave' = 'enter
   element.style.setProperty('transition-delay', delay, 'important')
 }
 
-function afterLeave(el: HTMLElement) {
-  resetTransition(el)
-  el.style.removeProperty('opacity')
+function afterLeave(el: Element) {
+  const element = el as HTMLElement
+  resetTransition(element)
+  element.style.removeProperty('opacity')
 }
 
-function beforeLeave(el: HTMLElement) {
-  reduceTransition(el)
-  initLeaving(el)
+function beforeLeave(el: Element) {
+  const element = el as HTMLElement
+  reduceTransition(element)
+  initLeaving(element)
 }
 
-function onLeave(el: HTMLElement) {
-  setupTransition(el, 'leave')
-  el.style.setProperty('opacity', '0', 'important')
+function onLeave(el: Element) {
+  const element = el as HTMLElement
+  setupTransition(element, 'leave')
+  element.style.setProperty('opacity', '0', 'important')
 }
 </script>
 
@@ -99,66 +100,66 @@ function onLeave(el: HTMLElement) {
       '--transition-enter-delay': transitionDelay.enter,
       '--transition-leave-delay': transitionDelay.leave,
     }"
-    @after-leave="afterLeave"
-    @before-leave="beforeLeave"
-    @leave="onLeave"
+    @after-leave="afterLeave($event)"
+    @before-leave="beforeLeave($event)"
+    @leave="onLeave($event)"
   >
     <slot />
   </TransitionGroup>
 </template>
 
 <style>
-@property --transition-enter-duration {
+  @property --transition-enter-duration {
     syntax: "<time>";
     inherits: false;
-    initial-value: 0.3s;
-}
-@property --transition-leave-duration {
+    initial-value: .3s;
+  }
+  @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
-    initial-value: 0.3s;
-}
-@property --transition-enter-delay {
-    syntax: "<time>";
-    inherits: false;
-    initial-value: 0s;
-}
-@property --transition-leave-delay {
+    initial-value: .3s;
+  }
+  @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
-}
+  }
+  @property --transition-leave-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
 
-.dissolve-list > * {
+  .dissolve-list > * {
     --transition-enter-duration: inherit;
     --transition-leave-duration: inherit;
     --transition-enter-delay: inherit;
     --transition-leave-delay: inherit;
-}
+  }
 
-.dissolve-enter-active {
+  .dissolve-enter-active {
     transition: opacity var(--transition-enter-duration) ease var(--transition-enter-delay);
     will-change: opacity;
-}
+  }
 
-.dissolve-leave-active {
+  .dissolve-leave-active {
     position: absolute;
     transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay);
     will-change: opacity;
     backface-visibility: hidden;
-}
+  }
 
-.dissolve-enter-from,
-.dissolve-leave-to {
+  .dissolve-enter-from,
+  .dissolve-leave-to {
     opacity: 0;
-}
+  }
 
-.dissolve-enter-to,
-.dissolve-leave-from {
+  .dissolve-enter-to,
+  .dissolve-leave-from {
     opacity: 1;
-}
+  }
 
-.dissolve-move {
+  .dissolve-move {
     transition: transform var(--transition-enter-duration) ease-out var(--transition-enter-delay);
-}
+  }
 </style>

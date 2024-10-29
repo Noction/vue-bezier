@@ -66,19 +66,22 @@ function setupTransition(element: HTMLElement, event: 'enter' | 'leave' = 'enter
   element.style.setProperty('transition-delay', delay, 'important')
 }
 
-function afterLeave(el: HTMLElement) {
-  resetTransition(el)
-  el.style.removeProperty('opacity')
+function afterLeave(el: Element) {
+  const element = el as HTMLElement
+  resetTransition(element)
+  element.style.removeProperty('opacity')
 }
 
-function beforeLeave(el: HTMLElement) {
-  reduceTransition(el)
-  initLeaving(el)
+function beforeLeave(el: Element) {
+  const element = el as HTMLElement
+  reduceTransition(element)
+  initLeaving(element)
 }
 
-function onLeave(el: HTMLElement) {
-  setupTransition(el, 'leave')
-  el.style.setProperty('opacity', '0', 'important')
+function onLeave(el: Element) {
+  const element = el as HTMLElement
+  setupTransition(element, 'leave')
+  element.style.setProperty('opacity', '0', 'important')
 }
 </script>
 
@@ -99,70 +102,70 @@ function onLeave(el: HTMLElement) {
       '--transition-enter-delay': transitionDelay.enter,
       '--transition-leave-delay': transitionDelay.leave,
     }"
-    @after-leave="afterLeave"
-    @before-leave="beforeLeave"
-    @leave="onLeave"
+    @after-leave="afterLeave($event)"
+    @before-leave="beforeLeave($event)"
+    @leave="onLeave($event)"
   >
     <slot />
   </TransitionGroup>
 </template>
 
 <style>
-@property --transition-enter-duration {
+  @property --transition-enter-duration {
     syntax: "<time>";
     inherits: false;
-    initial-value: 0.3s;
-}
-@property --transition-leave-duration {
+    initial-value: .3s;
+  }
+  @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
-    initial-value: 0.3s;
-}
-@property --transition-enter-delay {
-    syntax: "<time>";
-    inherits: false;
-    initial-value: 0s;
-}
-@property --transition-leave-delay {
+    initial-value: .3s;
+  }
+  @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
-}
+  }
+  @property --transition-leave-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
 
-.scale-list > * {
+  .scale-list > * {
     --transition-enter-duration: inherit;
     --transition-leave-duration: inherit;
     --transition-enter-delay: inherit;
     --transition-leave-delay: inherit;
-}
+  }
 
-.scale-list-enter-active {
+  .scale-list-enter-active {
     transition: opacity var(--transition-enter-duration) ease var(--transition-enter-delay),
-                transform var(--transition-enter-duration) ease var(--transition-enter-delay);
+      transform var(--transition-enter-duration) ease var(--transition-enter-delay);
     will-change: opacity, transform;
-}
+  }
 
-.scale-list-leave-active {
+  .scale-list-leave-active {
     position: absolute;
     transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay),
-                transform var(--transition-leave-duration) ease var(--transition-leave-delay);
+      transform var(--transition-leave-duration) ease var(--transition-leave-delay);
     will-change: opacity, transform;
     backface-visibility: hidden;
-}
+  }
 
-.scale-list-enter-from,
-.scale-list-leave-to {
+  .scale-list-enter-from,
+  .scale-list-leave-to {
     opacity: 0;
     transform: scale(0);
-}
+  }
 
-.scale-list-enter-to,
-.scale-list-leave-from {
+  .scale-list-enter-to,
+  .scale-list-leave-from {
     opacity: 1;
     transform: scale(1);
-}
+  }
 
-.scale-list-move {
+  .scale-list-move {
     transition: transform var(--transition-enter-duration) ease-out var(--transition-enter-delay);
-}
+  }
 </style>

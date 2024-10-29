@@ -27,7 +27,7 @@ const hooks: BaseTransitionProps = {
     el.style.height = ''
     el.style.overflow = el.dataset.oldOverflow
 
-    emit('after-enter', el)
+    emit('afterEnter', el)
   },
   onAfterLeave(el) {
     el.style.transition = ''
@@ -36,7 +36,7 @@ const hooks: BaseTransitionProps = {
     el.style.paddingTop = el.dataset.oldPaddingTop
     el.style.paddingBottom = el.dataset.oldPaddingBottom
 
-    emit('after-leave', el)
+    emit('afterLeave', el)
   },
   onBeforeEnter(el) {
     const enterDuration = getTimingValue(props.duration, 'enter')
@@ -55,7 +55,7 @@ const hooks: BaseTransitionProps = {
 
     setStyles(props, el)
 
-    emit('before-enter', el)
+    emit('beforeEnter', el)
   },
   onBeforeLeave(el) {
     if (!el.dataset)
@@ -70,7 +70,7 @@ const hooks: BaseTransitionProps = {
 
     setStyles(props, el)
 
-    emit('before-leave', el)
+    emit('beforeLeave', el)
   },
   onEnter(el) {
     el.dataset.oldOverflow = el.style.overflow

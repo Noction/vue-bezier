@@ -1,14 +1,14 @@
 import type { RendererElement } from 'vue'
 
-export interface ComponentEvents {
-  'after-enter': [el: RendererElement]
-  'after-leave': [el: RendererElement]
-  'before-enter': [el: RendererElement]
-  'before-leave': [el: RendererElement]
-  'leave': [el: RendererElement, done: () => void]
+export type ComponentEvents = {
+  afterEnter: [el: RendererElement]
+  afterLeave: [el: RendererElement]
+  beforeEnter: [el: RendererElement]
+  beforeLeave: [el: RendererElement]
+  leave: [el: RendererElement, done: () => void]
 }
 
-export interface ComponentProps {
+export type ComponentProps = {
   /**
    * Transition delay. Number for specifying the same delay for enter/leave transitions
    * Object style {enter: 300, leave: 300} for specifying explicit durations for enter/leave
@@ -43,7 +43,7 @@ export interface ComponentProps {
   tag?: string
 }
 
-interface TransitionTimings {
+type TransitionTimings = {
   enter: number
   leave: number
 }

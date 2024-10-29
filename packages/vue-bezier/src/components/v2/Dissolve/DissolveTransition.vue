@@ -56,52 +56,52 @@ const transitionDelay = computed(() => {
 </template>
 
 <style scoped>
-@property --transition-enter-duration {
+  @property --transition-enter-duration {
     syntax: "<time>";
     inherits: false;
-    initial-value: 0.3s;
-}
-@property --transition-leave-duration {
+    initial-value: .3s;
+  }
+  @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
-    initial-value: 0.3s;
-}
-@property --transition-enter-delay {
-    syntax: "<time>";
-    inherits: false;
-    initial-value: 0s;
-}
-@property --transition-leave-delay {
+    initial-value: .3s;
+  }
+  @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
-}
+  }
+  @property --transition-leave-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
 
-.dissolve-enter-active {
+  .dissolve-enter-active {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
     transition: opacity var(--transition-enter-duration) ease var(--transition-enter-delay);
     will-change: opacity;
     backface-visibility: hidden;
-}
+  }
 
-.dissolve-leave-active {
+  .dissolve-leave-active {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
     transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay);
     will-change: opacity;
     backface-visibility: hidden;
-}
+  }
 
-.dissolve-enter-from,
-.dissolve-leave-to {
+  .dissolve-enter-from,
+  .dissolve-leave-to {
     opacity: 0;
-}
+  }
 
-.dissolve-enter-to,
-.dissolve-leave-from {
+  .dissolve-enter-to,
+  .dissolve-leave-from {
     opacity: 1;
-}
+  }
 </style>

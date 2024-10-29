@@ -60,87 +60,91 @@ const pushDirectionClass = computed(() => {
 </template>
 
 <style scoped>
-@property --transition-enter-duration {
+  @property --transition-enter-duration {
     syntax: "<time>";
     inherits: false;
-    initial-value: 0.3s;
-}
-@property --transition-leave-duration {
+    initial-value: .3s;
+  }
+  @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
-    initial-value: 0.3s;
-}
-@property --transition-enter-delay {
-    syntax: "<time>";
-    inherits: false;
-    initial-value: 0s;
-}
-@property --transition-leave-delay {
+    initial-value: .3s;
+  }
+  @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
-}
+  }
+  @property --transition-leave-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
 
-.push-enter-active,
-.push-leave-active {
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-  transition: opacity var(--transition-enter-duration) ease var(--transition-enter-delay),
-            transform var(--transition-enter-duration) ease var(--transition-enter-delay);
-  will-change: opacity, transform;
-  backface-visibility: hidden;
-}
+  .push-enter-active,
+  .push-leave-active {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    transition: opacity var(--transition-enter-duration) ease var(--transition-enter-delay),
+      transform var(--transition-enter-duration) ease var(--transition-enter-delay);
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+  }
 
-.push-leave-active {
-transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay),
-            transform var(--transition-leave-duration) ease var(--transition-leave-delay);
-  backface-visibility: hidden;
-}
+  .push-leave-active {
+    transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay),
+      transform var(--transition-leave-duration) ease var(--transition-leave-delay);
+    backface-visibility: hidden;
+  }
 
-.push-enter-to,
-.push-leave-from {
-  transform: translateX(0);
-  opacity: 1;
-}
+  .push-enter-to,
+  .push-leave-from {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-/* Left */
-.push-left.push-enter-from {
-  transform: translateX(100%);
-  opacity: 0;
-}
-.push-left.push-leave-to {
-  transform: translateX(-100%);
-  opacity: 0;
-}
+  /* Left */
+  .push-left.push-enter-from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 
-/* Right */
-.push-right.push-enter-from {
-  transform: translateX(-100%);
-  opacity: 0;
-}
-.push-right.push-leave-to {
-  transform: translateX(100%);
-  opacity: 0;
-}
+  .push-left.push-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 
-/* Up */
-.push-up.push-enter-from {
-  transform: translateY(100%);
-  opacity: 0;
-}
-.push-up.push-leave-to {
-  transform: translateY(-100%);
-  opacity: 0;
-}
+  /* Right */
+  .push-right.push-enter-from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 
-/* Down */
-.push-down.push-enter-from {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-.push-down.push-leave-to {
-  transform: translateY(100%);
-  opacity: 0;
-}
+  .push-right.push-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  /* Up */
+  .push-up.push-enter-from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  .push-up.push-leave-to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  /* Down */
+  .push-down.push-enter-from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  .push-down.push-leave-to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
 </style>

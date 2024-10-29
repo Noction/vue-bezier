@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { options, state } from '../composables/options'
 
-interface Props {
+type Props = {
   progressType?: string
 }
 
@@ -30,7 +30,9 @@ const classType = computed(() => {
   else return 'stroke-emerald-500'
 })
 
-const delayTime = computed(() => { return options.delay })
+const delayTime = computed(() => {
+  return options.delay
+})
 
 const durationTime = computed(() => {
   if (progressType === 'delay')

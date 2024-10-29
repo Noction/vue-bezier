@@ -37,42 +37,42 @@ const transitionDelay = computed(() => ({
 </template>
 
 <style scoped>
-@property --transition-enter-duration {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0.5s;
-}
-@property --transition-leave-duration {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0.49s;
-}
-@property --transition-enter-delay {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0s;
-}
-@property --transition-leave-delay {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0s;
-}
+  @property --transition-enter-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: .5s;
+  }
+  @property --transition-leave-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: .49s;
+  }
+  @property --transition-enter-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
+  @property --transition-leave-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
 
-.wipe-enter-active {
-  transition: transform var(--transition-enter-duration) ease-out var(--transition-enter-delay);
-  z-index: 10;
-}
+  .wipe-enter-active {
+    z-index: 10;
+    transition: transform var(--transition-enter-duration) ease-out var(--transition-enter-delay);
+  }
 
-.wipe-leave-active {
-  position: absolute;
-  transition: transform calc(var(--transition-leave-duration) - 0.01s) ease var(--transition-leave-delay);
-}
+  .wipe-leave-active {
+    position: absolute;
+    transition: transform calc(var(--transition-leave-duration) - .01s) ease var(--transition-leave-delay);
+  }
 
-.wipe-enter-from {
-  transform: translateX(-100%);
-}
+  .wipe-enter-from {
+    transform: translateX(-100%);
+  }
 
-.wipe-enter-to {
-  transform: translateX(0);
-}
+  .wipe-enter-to {
+    transform: translateX(0);
+  }
 </style>

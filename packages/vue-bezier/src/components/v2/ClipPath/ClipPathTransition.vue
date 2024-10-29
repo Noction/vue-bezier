@@ -39,50 +39,50 @@ const clipTypeClass = computed(() => {
 </template>
 
 <style scoped>
-@property --transition-enter-duration {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 1s;
-}
-@property --transition-leave-duration {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0.99s;
-}
-@property --transition-enter-delay {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0s;
-}
-@property --transition-leave-delay {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0s;
-}
+  @property --transition-enter-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 1s;
+  }
+  @property --transition-leave-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: .99s;
+  }
+  @property --transition-enter-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
+  @property --transition-leave-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
 
-.clip-enter-active {
-  transition: all var(--transition-enter-duration) ease-in var(--transition-enter-delay);
-  position: relative;
-}
+  .clip-enter-active {
+    position: relative;
+    transition: all var(--transition-enter-duration) ease-in var(--transition-enter-delay);
+  }
 
-.clip-leave-active {
-  position: absolute;
-  transition: all calc(var(--transition-leave-duration) - 0.01s) linear calc(var(--transition-leave-delay));
-}
+  .clip-leave-active {
+    position: absolute;
+    transition: all calc(var(--transition-leave-duration) - .01s) linear calc(var(--transition-leave-delay));
+  }
 
-.clip-circle.clip-enter-from {
-  clip-path: circle(0%);
-}
+  .clip-circle.clip-enter-from {
+    clip-path: circle(0%);
+  }
 
-.clip-circle.clip-enter-to {
-  clip-path: circle(100%);
-}
+  .clip-circle.clip-enter-to {
+    clip-path: circle(100%);
+  }
 
-.clip-square.clip-enter-from {
-  clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
-}
+  .clip-square.clip-enter-from {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  }
 
-.clip-square.clip-enter-to {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
+  .clip-square.clip-enter-to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
 </style>

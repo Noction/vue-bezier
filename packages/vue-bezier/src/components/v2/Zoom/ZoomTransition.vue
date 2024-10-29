@@ -38,48 +38,48 @@ const transitionDelay = computed(() => ({
 </template>
 
 <style scoped>
-/* Define CSS properties for transition timing and delay */
-@property --transition-enter-duration {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0.5s;
-}
-@property --transition-leave-duration {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0.5s;
-}
-@property --transition-enter-delay {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0s;
-}
-@property --transition-leave-delay {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0s;
-}
+  /* Define CSS properties for transition timing and delay */
+  @property --transition-enter-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: .5s;
+  }
+  @property --transition-leave-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: .5s;
+  }
+  @property --transition-enter-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
+  @property --transition-leave-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
 
-.zoom-enter-active,
-.zoom-leave-active {
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-  transition: transform var(--transition-enter-duration) ease var(--transition-enter-delay);
-  will-change: transform;
-}
+  .zoom-enter-active,
+  .zoom-leave-active {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    transition: transform var(--transition-enter-duration) ease var(--transition-enter-delay);
+    will-change: transform;
+  }
 
-.zoom-leave-active {
-  transition: transform var(--transition-leave-duration) ease var(--transition-leave-delay);
-}
+  .zoom-leave-active {
+    transition: transform var(--transition-leave-duration) ease var(--transition-leave-delay);
+  }
 
-.zoom-enter-from,
-.zoom-leave-to {
-  transform: scale(1.05);
-}
+  .zoom-enter-from,
+  .zoom-leave-to {
+    transform: scale(1.05);
+  }
 
-.zoom-enter-to,
-.zoom-leave-from {
-  transform: scale(1);
-}
+  .zoom-enter-to,
+  .zoom-leave-from {
+    transform: scale(1);
+  }
 </style>

@@ -55,58 +55,58 @@ const transitionDelay = computed(() => {
 </template>
 
 <style scoped>
-@property --transition-enter-duration {
+  @property --transition-enter-duration {
     syntax: "<time>";
     inherits: false;
-    initial-value: 0.3s;
-}
-@property --transition-leave-duration {
+    initial-value: .3s;
+  }
+  @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
-    initial-value: 0.3s;
-}
-@property --transition-enter-delay {
-    syntax: "<time>";
-    inherits: false;
-    initial-value: 0s;
-}
-@property --transition-leave-delay {
+    initial-value: .3s;
+  }
+  @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
-}
+  }
+  @property --transition-leave-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
 
-.fade-slide-enter-active,
-.fade-slide-leave-active {
+  .fade-slide-enter-active,
+  .fade-slide-leave-active {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
-  transition: all var(--transition-enter-duration) ease var(--transition-enter-delay);
-  backface-visibility: hidden;
-}
+    transition: all var(--transition-enter-duration) ease var(--transition-enter-delay);
+    backface-visibility: hidden;
+  }
 
-.fade-slide-leave-active {
-  transition: all var(--transition-leave-duration) ease var(--transition-leave-delay);
-  backface-visibility: hidden;
-}
+  .fade-slide-leave-active {
+    transition: all var(--transition-leave-duration) ease var(--transition-leave-delay);
+    backface-visibility: hidden;
+  }
 
-.fade-slide-enter-from {
-  opacity: 0;
-  transform: translateY(0.5rem);
-}
+  .fade-slide-enter-from {
+    opacity: 0;
+    transform: translateY(.5rem);
+  }
 
-.fade-slide-enter-to {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .fade-slide-enter-to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.fade-slide-leave-from {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .fade-slide-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.fade-slide-leave-to {
-  opacity: 0;
-  transform: translateY(0.5rem);
-}
+  .fade-slide-leave-to {
+    opacity: 0;
+    transform: translateY(.5rem);
+  }
 </style>

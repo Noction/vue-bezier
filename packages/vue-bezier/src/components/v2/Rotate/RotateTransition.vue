@@ -38,60 +38,60 @@ const transitionDelay = computed(() => ({
 </template>
 
 <style scoped>
-/* Define CSS properties for transition timing and delay */
-@property --transition-enter-duration {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0.3s;
-}
-@property --transition-leave-duration {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0.3s;
-}
-@property --transition-enter-delay {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0s;
-}
-@property --transition-leave-delay {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0s;
-}
+  /* Define CSS properties for transition timing and delay */
+  @property --transition-enter-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: .3s;
+  }
+  @property --transition-leave-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: .3s;
+  }
+  @property --transition-enter-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
+  @property --transition-leave-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
 
-/* Active transition classes for enter and leave */
-.rotate-enter-active,
-.rotate-leave-active {
-  transition: all var(--transition-enter-duration) linear var(--transition-enter-delay);
-}
+  /* Active transition classes for enter and leave */
+  .rotate-enter-active,
+  .rotate-leave-active {
+    transition: all var(--transition-enter-duration) linear var(--transition-enter-delay);
+  }
 
-.rotate-leave-active {
-  transition: all var(--transition-leave-duration) linear var(--transition-leave-delay);
-}
+  .rotate-leave-active {
+    transition: all var(--transition-leave-duration) linear var(--transition-leave-delay);
+  }
 
-/* Define starting and ending states for the rotate transition */
-.rotate-enter-from {
-  transform: rotate(12deg);
-  opacity: 1;
-  filter: blur(4px); /* Tailwind's blur-sm */
-}
+  /* Define starting and ending states for the rotate transition */
+  .rotate-enter-from {
+    filter: blur(4px); /* Tailwind's blur-sm */
+    opacity: 1;
+    transform: rotate(12deg);
+  }
 
-.rotate-enter-to {
-  transform: rotate(0deg);
-  opacity: 1;
-  filter: blur(0px); /* Tailwind's blur-none */
-}
+  .rotate-enter-to {
+    filter: blur(0); /* Tailwind's blur-none */
+    opacity: 1;
+    transform: rotate(0deg);
+  }
 
-.rotate-leave-from {
-  transform: rotate(0deg);
-  opacity: 1;
-  filter: blur(0px); /* Tailwind's blur-none */
-}
+  .rotate-leave-from {
+    filter: blur(0); /* Tailwind's blur-none */
+    opacity: 1;
+    transform: rotate(0deg);
+  }
 
-.rotate-leave-to {
-  transform: rotate(12deg);
-  opacity: 1;
-  filter: blur(4px); /* Tailwind's blur-sm */
-}
+  .rotate-leave-to {
+    filter: blur(4px); /* Tailwind's blur-sm */
+    opacity: 1;
+    transform: rotate(12deg);
+  }
 </style>

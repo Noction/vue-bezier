@@ -2,7 +2,7 @@ import type { Ref } from 'vue'
 
 export declare type TransitionGroup = boolean
 
-export declare interface TransitionInfo {
+export declare type TransitionInfo = {
   transitionGroup: Ref<TransitionGroup>
   transitionType: Ref<TransitionType>
 }

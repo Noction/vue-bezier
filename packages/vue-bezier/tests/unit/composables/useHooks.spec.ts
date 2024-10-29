@@ -3,7 +3,9 @@ import { useHooks } from '../../../src/composables'
 
 describe('composables / useHooks', () => {
   describe('onAfterEnter', () => {
-    afterEach(() => { vi.restoreAllMocks() })
+    afterEach(() => {
+      vi.restoreAllMocks()
+    })
 
     it('when calling `onAfterEnter`, it should call `emit` function with 2 arguments: `after-enter` and `el`', () => {
       const props = { styles: {} }
@@ -32,7 +34,9 @@ describe('composables / useHooks', () => {
   })
 
   describe('onAfterLeave', () => {
-    afterEach(() => { vi.restoreAllMocks() })
+    afterEach(() => {
+      vi.restoreAllMocks()
+    })
 
     it('when calling `onAfterLeave`, it should call `emit` function with 2 arguments: `after-leave` and `el`', () => {
       const props = { styles: {} }
@@ -61,7 +65,9 @@ describe('composables / useHooks', () => {
   })
 
   describe('onBeforeEnter', () => {
-    afterEach(() => { vi.restoreAllMocks() })
+    afterEach(() => {
+      vi.restoreAllMocks()
+    })
 
     it('when calling `onBeforeEnter`, it should call `emit` function with 2 arguments: `before-enter` and `el`', () => {
       const props = { styles: {} }
@@ -94,7 +100,9 @@ describe('composables / useHooks', () => {
   })
 
   describe('onBeforeLeave', () => {
-    afterEach(() => { vi.restoreAllMocks() })
+    afterEach(() => {
+      vi.restoreAllMocks()
+    })
 
     it('when calling `beforeLeave`, it should call `emit` function with 2 arguments: `before-leave` and `el`', () => {
       const props = { styles: {} }
@@ -127,8 +135,12 @@ describe('composables / useHooks', () => {
   })
 
   describe('onLeave', () => {
-    beforeEach(() => { vi.useFakeTimers() })
-    afterEach(() => { vi.restoreAllMocks() })
+    beforeEach(() => {
+      vi.useFakeTimers()
+    })
+    afterEach(() => {
+      vi.restoreAllMocks()
+    })
 
     it('when calling `onLeave`, it should call `emit` function with 2 arguments: `leave`, `el` and `done` function', () => {
       const props = { styles: {} }

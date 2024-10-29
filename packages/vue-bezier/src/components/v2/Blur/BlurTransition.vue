@@ -40,59 +40,59 @@ const transitionDelay = computed(() => ({
 </template>
 
 <style scoped>
-/* Define CSS properties for transition timing and delay */
-@property --transition-enter-duration {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0.5s;
-}
-@property --transition-leave-duration {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0.5s;
-}
-@property --transition-enter-delay {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0s;
-}
-@property --transition-leave-delay {
-  syntax: "<time>";
-  inherits: false;
-  initial-value: 0s;
-}
+  /* Define CSS properties for transition timing and delay */
+  @property --transition-enter-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: .5s;
+  }
+  @property --transition-leave-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: .5s;
+  }
+  @property --transition-enter-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
+  @property --transition-leave-delay {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
+  }
 
-/* Active transition classes for enter and leave */
-.blur-enter-active,
-.blur-leave-active {
+  /* Active transition classes for enter and leave */
+  .blur-enter-active,
+  .blur-leave-active {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
-  transition: all var(--transition-enter-duration) ease var(--transition-enter-delay);
-  will-change: opacity, filter;
-}
+    transition: all var(--transition-enter-duration) ease var(--transition-enter-delay);
+    will-change: opacity, filter;
+  }
 
-.blur-leave-active {
-  transition: all var(--transition-leave-duration) ease var(--transition-leave-delay);
-}
+  .blur-leave-active {
+    transition: all var(--transition-leave-duration) ease var(--transition-leave-delay);
+  }
 
-.blur-enter-from {
-  opacity: 0;
-  filter: blur(8px); /* Tailwind's blur-md */
-}
+  .blur-enter-from {
+    filter: blur(8px); /* Tailwind's blur-md */
+    opacity: 0;
+  }
 
-.blur-enter-to {
-  opacity: 1;
-  filter: blur(0px); /* Tailwind's blur-none */
-}
+  .blur-enter-to {
+    filter: blur(0); /* Tailwind's blur-none */
+    opacity: 1;
+  }
 
-.blur-leave-from {
-  opacity: 1;
-  filter: blur(0px); /* Tailwind's blur-none */
-}
+  .blur-leave-from {
+    filter: blur(0); /* Tailwind's blur-none */
+    opacity: 1;
+  }
 
-.blur-leave-to {
-  opacity: 0;
-  filter: blur(8px); /* Tailwind's blur-md */
-}
+  .blur-leave-to {
+    filter: blur(8px); /* Tailwind's blur-md */
+    opacity: 0;
+  }
 </style>
