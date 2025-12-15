@@ -30,7 +30,7 @@ provide(TransitionBundleKey, {
 </script>
 
 <template>
-  <div class="min-h-screen antialiased">
+  <div class="min-h-screen antialiased bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
     <NavBar />
     <!-- <div class="row-start-2 row-end-3 lg:col-span-2 xl:col-span-2" /> -->
     <!-- <TransitionsOptions
@@ -39,15 +39,24 @@ provide(TransitionBundleKey, {
     /> -->
 
     <div class="flex items-center min-h-screen xl:max-w-5xl max-w-none mx-auto px-4 sm:px-6 md:px-8 ">
-      <div class="border w-full h-[500px] grid grid-rows-[auto_1fr] gap-y-4 overflow-hidden">
-        <nav class="flex w-full justify-center gap-x-8">
-          <router-link to="/">
+      <div class="border border-slate-200 dark:border-slate-700 rounded-lg w-full h-[500px] grid grid-rows-[auto_1fr] gap-y-4 overflow-hidden">
+        <nav class="flex w-full justify-center gap-x-8 font-semibold text-slate-600 dark:text-slate-300">
+          <router-link
+            to="/"
+            active-class="text-sky-500 dark:text-sky-400"
+          >
             Appear
           </router-link>
-          <router-link to="/between">
+          <router-link
+            to="/between"
+            active-class="text-emerald-500 dark:text-emerald-400"
+          >
             Between
           </router-link>
-          <router-link to="/list">
+          <router-link
+            to="/list"
+            active-class="text-yellow-500 dark:text-yellow-400"
+          >
             List
           </router-link>
         </nav>

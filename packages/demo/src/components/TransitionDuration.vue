@@ -1,66 +1,59 @@
 <script setup lang="ts">
-import { options } from '../composables/options'
+import { useTransitionOptions } from '../composables/options'
 import CircleProgress from './CircleProgress.vue'
+
+const { options } = useTransitionOptions()
 </script>
 
 <template>
   <div
-    class="flex w-full flex-col items-center justify-between gap-5 bg-white px-4 py-4 shadow sm:flex-row md:px-6"
+    class="flex w-full flex-col items-center justify-between gap-5 bg-white dark:bg-slate-900 sm:flex-row"
   >
+    <slot />
+
     <div
-      class="flex grow items-stretch justify-center gap-3 text-sm font-semibold text-white sm:flex-col md:text-base"
-    >
-      <slot />
-    </div>
-    <div
-      class="operations grid w-full gap-2 text-xs font-semibold text-slate-700"
+      class="operations items-center grid w-full gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300"
     >
       <!-- DELAY -->
       <CircleProgress progress-type="delay" />
       <span class="grow">Delay</span>
-      <span class="text-center" v-text="options.delay" />
-      <span>ms</span>
       <input
         id="myRange"
         v-model.number.lazy="options.delay"
-        type="range"
+        type="number"
         min="0"
-        max="3000"
+        max="1000"
         step="100"
-        class="range grow"
+        class="range grow bg-gray-100 dark:bg-slate-800 dark:text-slate-200 px-2 py-1 rounded border border-transparent dark:border-slate-700"
       >
       <!-- ENTER -->
       <CircleProgress progress-type="enter" />
       <span class="grow">Enter</span>
-      <span class="text-center" v-text="options.enter" />
-      <span>ms</span>
       <input
         id="myRange"
         v-model.number.lazy="options.enter"
-        type="range"
+        type="number"
         min="0"
-        max="3000"
+        max="1000"
         step="100"
-        class="grow"
+        class="range grow bg-gray-100 dark:bg-slate-800 dark:text-slate-200 px-2 py-1 rounded border border-transparent dark:border-slate-700"
       >
       <!-- LEAVE -->
       <CircleProgress progress-type="leave" />
       <span class="grow">Leave</span>
-      <span class="text-center" v-text="options.leave" />
-      <span>ms</span>
       <input
         id="myRange"
         v-model.number.lazy="options.leave"
-        type="range"
+        type="number"
         min="0"
-        max="3000"
+        max="1000"
         step="100"
-        class="grow"
+        class="range grow bg-gray-100 dark:bg-slate-800 dark:text-slate-200 px-2 py-1 rounded border border-transparent dark:border-slate-700"
       >
     </div>
   </div>
 </template>
 
 <style scoped>
-  .operations { grid: 1fr 1fr 1fr / 16px auto 30px auto 1fr; }
+  .operations { grid: 1fr 1fr 1fr / 16px auto 1fr; }
 </style>

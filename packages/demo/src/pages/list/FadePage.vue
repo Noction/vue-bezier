@@ -19,7 +19,8 @@ const { items, remove } = useListItems()
 
 <template>
   <div class="size-full max-h-[350px] overflow-y-auto">
-    <ScaleListTransition
+    <TransitionGroup
+      is="FadeTransition"
       :duration="{ enter: options.enter, leave: options.leave }"
       :delay="options.delay"
       tag="div"
@@ -27,7 +28,7 @@ const { items, remove } = useListItems()
     >
       <template v-for="item in items" :key="item">
         <div
-          class="relative group  select-none rounded-lg border border-blue-700/10 bg-blue-400/20 text-blue-600 dark:border-sky-500 dark:bg-sky-600/50 dark:text-sky-100"
+          class="relative group select-none rounded-lg border border-blue-700/10 bg-blue-400/20 text-blue-600 dark:border-sky-500 dark:bg-sky-600/50 dark:text-sky-100"
           :class="colors[item % colors.length]"
         >
           <div class="grid place-content-center size-20 cursor-default text-xl font-semibold" v-text="item" />
@@ -43,6 +44,6 @@ const { items, remove } = useListItems()
           </div>
         </div>
       </template>
-    </ScaleListTransition>
+    </TransitionGroup>
   </div>
 </template>
