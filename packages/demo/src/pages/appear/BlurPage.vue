@@ -10,7 +10,7 @@ import { options, state } from '@/composables/options'
     >
       <div
         v-if="state.shown"
-        class="grid place-content-center rounded-lg border border-blue-700/10 h-40 w-full bg-blue-400/20 dark:border-sky-500 dark:bg-sky-600/50"
+        class="grid place-content-center rounded-lg border  h-40 w-full border-sky-200 bg-sky-100 dark:border-sky-800 dark:bg-sky-950"
       >
         <div
           class="text-xl font-semibold text-blue-600 dark:text-sky-100"

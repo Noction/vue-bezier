@@ -2,6 +2,7 @@ import VueBezier from '@noction/vue-bezier'
 import { createApp } from 'vue'
 import App from './App.vue'
 import { router } from './router'
+import './assets/main.css'
 import './assets/tailwind.css'
 import '@noction/vue-bezier/styles'
 

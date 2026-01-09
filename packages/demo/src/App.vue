@@ -27,6 +27,20 @@ provide(TransitionBundleKey, {
   },
   transitionsList,
 })
+
+// const mode = useColorMode()
+
+// watch(mode, (newMode, oldMode) => {
+//   console.log('app', newMode, oldMode)
+//   if (!document.startViewTransition) {
+//     // defaultHandler(mode)
+//     return
+//   }
+
+//   document.startViewTransition(() => {
+//     // defaultHandler(mode)
+//   })
+// })
 </script>
 
 <template>
