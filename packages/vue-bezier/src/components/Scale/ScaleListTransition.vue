@@ -112,25 +112,25 @@ function onLeave(el: Element) {
 
 <style>
   @property --transition-enter-duration {
-    syntax: "<time>";
+    syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
   @property --transition-leave-duration {
-    syntax: "<time>";
+    syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
   @property --transition-enter-delay {
-    syntax: "<time>";
+    syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
   @property --transition-leave-delay {
-    syntax: "<time>";
+    syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
@@ -143,16 +143,14 @@ function onLeave(el: Element) {
   }
 
   .scale-list-enter-active {
-    transition: opacity var(--transition-enter-duration) ease var(--transition-enter-delay),
-      transform var(--transition-enter-duration) ease var(--transition-enter-delay);
+    transition: opacity var(--transition-enter-duration) ease var(--transition-enter-delay), transform var(--transition-enter-duration) ease var(--transition-enter-delay);
     will-change: opacity, transform;
   }
 
   .scale-list-leave-active {
     position: absolute;
     backface-visibility: hidden;
-    transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay),
-      transform var(--transition-leave-duration) ease var(--transition-leave-delay);
+    transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay), transform var(--transition-leave-duration) ease var(--transition-leave-delay);
     will-change: opacity, transform;
   }
 

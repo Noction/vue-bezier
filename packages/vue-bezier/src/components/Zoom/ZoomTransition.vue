@@ -40,25 +40,25 @@ const transitionDelay = computed(() => ({
 <style scoped>
   /* Define CSS properties for transition timing and delay */
   @property --transition-enter-duration {
-    syntax: "<time>";
+    syntax: '<time>';
     inherits: false;
     initial-value: .5s;
   }
 
   @property --transition-leave-duration {
-    syntax: "<time>";
+    syntax: '<time>';
     inherits: false;
     initial-value: .5s;
   }
 
   @property --transition-enter-delay {
-    syntax: "<time>";
+    syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
   @property --transition-leave-delay {
-    syntax: "<time>";
+    syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
