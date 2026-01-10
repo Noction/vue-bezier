@@ -174,7 +174,7 @@ const applianceCode = computed(() => formatter(appliance))
   </div>
 </template>
 
-<style lang="scss">
+<style>
   .my-editor {
     font-family: "Fira code", "Fira Mono", Consolas, Menlo, Courier, monospace;
     font-size: 12px;

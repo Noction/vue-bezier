@@ -12,7 +12,7 @@ export { default as ClipPathTransition } from './v2/ClipPath/ClipPathTransition.
 export { default as DissolveListTransition } from './v2/Dissolve/DissolveListTransition.vue'
 export { default as DissolveTransition } from './v2/Dissolve/DissolveTransition.vue'
 
-export { default as FadeTransition } from './v2/Fade/FadeTransition.vue'
+export { default as FadeTransition } from './v2/Dissolve/DissolveTransition.vue'
 export { default as FadeSlideTransition } from './v2/FadeSlide/FadeSlideTransition.vue'
 export { default as PushTransition } from './v2/Push/PushTransition.vue'
 export { default as RotateTransition } from './v2/Rotate/RotateTransition.vue'
