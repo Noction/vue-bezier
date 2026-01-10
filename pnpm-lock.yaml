@@ -4,52 +4,172 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@antfu/eslint-config':
+      specifier: ^6.7.3
+      version: 6.7.3
+    '@faker-js/faker':
+      specifier: ^10.2.0
+      version: 10.2.0
+    '@iconify-json/lucide':
+      specifier: ^1.2.83
+      version: 1.2.83
+    '@iconify-json/mdi':
+      specifier: ^1.2.3
+      version: 1.2.3
+    '@tailwindcss/postcss':
+      specifier: ^4.1.18
+      version: 4.1.18
+    '@types/node':
+      specifier: ^24.0.1
+      version: 24.10.4
+    '@types/prismjs':
+      specifier: ^1.26.4
+      version: 1.26.5
+    '@vitejs/plugin-vue':
+      specifier: ^6.0.3
+      version: 6.0.3
+    '@vitest/coverage-v8':
+      specifier: ^4.0.16
+      version: 4.0.16
+    '@vue/test-utils':
+      specifier: ^2.4.6
+      version: 2.4.6
+    '@vueuse/core':
+      specifier: ^14.1.0
+      version: 14.1.0
+    autoprefixer:
+      specifier: ^10.4.23
+      version: 10.4.23
+    bumpp:
+      specifier: ^10.3.2
+      version: 10.3.2
+    cross-env:
+      specifier: ^10.1.0
+      version: 10.1.0
+    eslint:
+      specifier: ^9.12.0
+      version: 9.39.2
+    jsdom:
+      specifier: ^27.4.0
+      version: 27.4.0
+    minimist:
+      specifier: ^1.2.8
+      version: 1.2.8
+    postcss:
+      specifier: ^8.5.6
+      version: 8.5.6
+    postcss-html:
+      specifier: ^1.7.0
+      version: 1.8.0
+    prettier:
+      specifier: ^3.3.3
+      version: 3.7.4
+    prettier-plugin-tailwindcss:
+      specifier: ^0.7.2
+      version: 0.7.2
+    prismjs:
+      specifier: ^1.29.0
+      version: 1.30.0
+    stylelint:
+      specifier: ^16.26.1
+      version: 16.26.1
+    stylelint-config-recess-order:
+      specifier: ^7.4.0
+      version: 7.4.0
+    stylelint-config-recommended-vue:
+      specifier: ^1.6.1
+      version: 1.6.1
+    stylelint-config-standard-scss:
+      specifier: ^16.0.0
+      version: 16.0.0
+    stylelint-order:
+      specifier: ^7.0.1
+      version: 7.0.1
+    tailwindcss:
+      specifier: ^4.1.18
+      version: 4.1.18
+    typescript:
+      specifier: ^5.6.3
+      version: 5.9.3
+    unplugin-icons:
+      specifier: ^22.5.0
+      version: 22.5.0
+    unplugin-vue-components:
+      specifier: ^30.0.0
+      version: 30.0.0
+    vite:
+      specifier: npm:rolldown-vite@latest
+      version: 7.3.1
+    vitest:
+      specifier: ^4.0.16
+      version: 4.0.16
+    vue:
+      specifier: ^3.5.26
+      version: 3.5.26
+    vue-docgen-web-types:
+      specifier: ^0.1.8
+      version: 0.1.8
+    vue-prism-editor:
+      specifier: 2.0.0-alpha.2
+      version: 2.0.0-alpha.2
+    vue-router:
+      specifier: ^4.6.4
+      version: 4.6.4
+    vue-tsc:
+      specifier: ^3.2.2
+      version: 3.2.2
+
 importers:
 
   .:
     dependencies:
       bumpp:
-        specifier: ^10.3.2
+        specifier: 'catalog:'
         version: 10.3.2(magicast@0.5.1)
     devDependencies:
       '@antfu/eslint-config':
-        specifier: ^6.7.3
+        specifier: 'catalog:'
         version: 6.7.3(@vue/compiler-sfc@3.5.26)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.16(@types/node@24.10.4)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2)(sass@1.96.0)(yaml@2.8.2))
+      '@stylistic/stylelint-plugin':
+        specifier: ^4.0.0
+        version: 4.0.0(stylelint@16.26.1(typescript@5.9.3))
       '@types/node':
-        specifier: ^24.0.1
+        specifier: 'catalog:'
         version: 24.10.4
       eslint:
-        specifier: ^9.12.0
+        specifier: 'catalog:'
         version: 9.39.2(jiti@2.6.1)
       postcss:
-        specifier: ^8.4.47
+        specifier: 'catalog:'
         version: 8.5.6
       postcss-html:
-        specifier: ^1.7.0
+        specifier: 'catalog:'
         version: 1.8.0
       prettier:
-        specifier: ^3.3.3
+        specifier: 'catalog:'
         version: 3.7.4
       prettier-plugin-tailwindcss:
-        specifier: ^0.7.2
+        specifier: 'catalog:'
         version: 0.7.2(prettier@3.7.4)
       stylelint:
-        specifier: ^16.26.1
+        specifier: 'catalog:'
         version: 16.26.1(typescript@5.9.3)
       stylelint-config-recess-order:
-        specifier: ^7.4.0
+        specifier: 'catalog:'
         version: 7.4.0(stylelint-order@7.0.1(stylelint@16.26.1(typescript@5.9.3)))(stylelint@16.26.1(typescript@5.9.3))
       stylelint-config-recommended-vue:
-        specifier: ^1.6.1
+        specifier: 'catalog:'
         version: 1.6.1(postcss-html@1.8.0)(stylelint@16.26.1(typescript@5.9.3))
       stylelint-config-standard-scss:
-        specifier: ^16.0.0
+        specifier: 'catalog:'
         version: 16.0.0(postcss@8.5.6)(stylelint@16.26.1(typescript@5.9.3))
       stylelint-order:
-        specifier: ^7.0.1
+        specifier: 'catalog:'
         version: 7.0.1(stylelint@16.26.1(typescript@5.9.3))
       typescript:
-        specifier: ^5.6.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/demo:
@@ -58,50 +178,50 @@ importers:
         specifier: workspace:*
         version: link:../vue-bezier
       '@vueuse/core':
-        specifier: ^14.1.0
+        specifier: 'catalog:'
         version: 14.1.0(vue@3.5.26(typescript@5.9.3))
       prismjs:
-        specifier: ^1.29.0
+        specifier: 'catalog:'
         version: 1.30.0
       vue:
         specifier: 'catalog:'
         version: 3.5.26(typescript@5.9.3)
       vue-prism-editor:
-        specifier: 2.0.0-alpha.2
+        specifier: 'catalog:'
         version: 2.0.0-alpha.2(vue@3.5.26(typescript@5.9.3))
       vue-router:
-        specifier: ^4.6.4
+        specifier: 'catalog:'
         version: 4.6.4(vue@3.5.26(typescript@5.9.3))
     devDependencies:
       '@iconify-json/lucide':
-        specifier: ^1.2.83
+        specifier: 'catalog:'
         version: 1.2.83
       '@iconify-json/mdi':
-        specifier: ^1.2.3
+        specifier: 'catalog:'
         version: 1.2.3
       '@tailwindcss/postcss':
-        specifier: ^4.1.18
+        specifier: 'catalog:'
         version: 4.1.18
       '@types/prismjs':
-        specifier: ^1.26.4
+        specifier: 'catalog:'
         version: 1.26.5
       '@vitejs/plugin-vue':
         specifier: 'catalog:'
         version: 6.0.3(rolldown-vite@7.3.1(@types/node@24.10.4)(esbuild@0.27.2)(jiti@2.6.1)(sass@1.96.0)(yaml@2.8.2))(vue@3.5.26(typescript@5.9.3))
       autoprefixer:
-        specifier: ^10.4.23
+        specifier: 'catalog:'
         version: 10.4.23(postcss@8.5.6)
       postcss:
-        specifier: ^8.5.6
+        specifier: 'catalog:'
         version: 8.5.6
       tailwindcss:
-        specifier: ^4.1.18
+        specifier: 'catalog:'
         version: 4.1.18
       unplugin-icons:
-        specifier: ^22.5.0
+        specifier: 'catalog:'
         version: 22.5.0(@vue/compiler-sfc@3.5.26)
       unplugin-vue-components:
-        specifier: ^30.0.0
+        specifier: 'catalog:'
         version: 30.0.0(@babel/parser@7.28.5)(vue@3.5.26(typescript@5.9.3))
       vite:
         specifier: 'catalog:'
@@ -113,37 +233,37 @@ importers:
   packages/vue-bezier:
     devDependencies:
       '@faker-js/faker':
-        specifier: ^10.2.0
+        specifier: 'catalog:'
         version: 10.2.0
       '@vitejs/plugin-vue':
         specifier: 'catalog:'
         version: 6.0.3(rolldown-vite@7.3.1(@types/node@24.10.4)(esbuild@0.27.2)(jiti@2.6.1)(sass@1.96.0)(yaml@2.8.2))(vue@3.5.26(typescript@5.9.3))
       '@vitest/coverage-v8':
-        specifier: ^4.0.16
+        specifier: 'catalog:'
         version: 4.0.16(vitest@4.0.16(@types/node@24.10.4)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2)(sass@1.96.0)(yaml@2.8.2))
       '@vue/test-utils':
-        specifier: ^2.4.6
+        specifier: 'catalog:'
         version: 2.4.6
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       jsdom:
-        specifier: ^27.4.0
+        specifier: 'catalog:'
         version: 27.4.0
       minimist:
-        specifier: ^1.2.8
+        specifier: 'catalog:'
         version: 1.2.8
       vite:
         specifier: 'catalog:'
         version: rolldown-vite@7.3.1(@types/node@24.10.4)(esbuild@0.27.2)(jiti@2.6.1)(sass@1.96.0)(yaml@2.8.2)
       vitest:
-        specifier: ^4.0.16
+        specifier: 'catalog:'
         version: 4.0.16(@types/node@24.10.4)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2)(sass@1.96.0)(yaml@2.8.2)
       vue:
         specifier: 'catalog:'
         version: 3.5.26(typescript@5.9.3)
       vue-docgen-web-types:
-        specifier: ^0.1.8
+        specifier: 'catalog:'
         version: 0.1.8(vue@3.5.26(typescript@5.9.3))
       vue-tsc:
         specifier: 'catalog:'
@@ -491,12 +611,6 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
-
-  '@eslint-community/eslint-utils@4.9.0':
-    resolution: {integrity: sha512-ayVFHdtZ+hsq1t2Dy24wCmGXGe4q9Gu3smhLYALJrr473ZH27MsnSL+LKUlimp4BWJqMDMLmPpx/Q9R3OAlL4g==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
 
   '@eslint-community/eslint-utils@4.9.1':
     resolution: {integrity: sha512-phrYmNiYppR7znFEdqgfWHXR6NCkZEK7hwWDHZUjit/2/U0r6XvkDl0SYnoM51Hq7FhCGdLDT6zxCCOY1hexsQ==}
@@ -952,6 +1066,12 @@ packages:
     peerDependencies:
       eslint: '>=9.0.0'
 
+  '@stylistic/stylelint-plugin@4.0.0':
+    resolution: {integrity: sha512-CFwt3K4Y/7bygNCLCQ8Sy4Hzgbhxq3BsNW0FIuYxl17HD3ywptm54ocyeiLVRrk5jtz1Zwks7Xr9eiZt8SWHAw==}
+    engines: {node: ^18.12 || >=20.9}
+    peerDependencies:
+      stylelint: ^16.22.0
+
   '@tailwindcss/node@4.1.18':
     resolution: {integrity: sha512-DoR7U1P7iYhw16qJ49fgXUlry1t4CpXeErJHnQ44JgTSKMaZUdf17cfn5mHchfJ4KRBZRFA/Coo+MUF5+gOaCQ==}
 
@@ -1202,26 +1322,14 @@ packages:
   '@volar/typescript@2.4.27':
     resolution: {integrity: sha512-eWaYCcl/uAPInSK2Lze6IqVWaBu/itVqR5InXcHXFyles4zO++Mglt3oxdgj75BDcv1Knr9Y93nowS8U3wqhxg==}
 
-  '@vue/compiler-core@3.5.25':
-    resolution: {integrity: sha512-vay5/oQJdsNHmliWoZfHPoVZZRmnSWhug0BYT34njkYTPqClh3DNWLkZNJBVSjsNMrg0CCrBfoKkjZQPM/QVUw==}
-
   '@vue/compiler-core@3.5.26':
     resolution: {integrity: sha512-vXyI5GMfuoBCnv5ucIT7jhHKl55Y477yxP6fc4eUswjP8FG3FFVFd41eNDArR+Uk3QKn2Z85NavjaxLxOC19/w==}
-
-  '@vue/compiler-dom@3.5.25':
-    resolution: {integrity: sha512-4We0OAcMZsKgYoGlMjzYvaoErltdFI2/25wqanuTu+S4gismOTRTBPi4IASOjxWdzIwrYSjnqONfKvuqkXzE2Q==}
 
   '@vue/compiler-dom@3.5.26':
     resolution: {integrity: sha512-y1Tcd3eXs834QjswshSilCBnKGeQjQXB6PqFn/1nxcQw4pmG42G8lwz+FZPAZAby6gZeHSt/8LMPfZ4Rb+Bd/A==}
 
-  '@vue/compiler-sfc@3.5.25':
-    resolution: {integrity: sha512-PUgKp2rn8fFsI++lF2sO7gwO2d9Yj57Utr5yEsDf3GNaQcowCLKL7sf+LvVFvtJDXUp/03+dC6f2+LCv5aK1ag==}
-
   '@vue/compiler-sfc@3.5.26':
     resolution: {integrity: sha512-egp69qDTSEZcf4bGOSsprUr4xI73wfrY5oRs6GSgXFTiHrWj4Y3X5Ydtip9QMqiCMCPVwLglB9GBxXtTadJ3mA==}
-
-  '@vue/compiler-ssr@3.5.25':
-    resolution: {integrity: sha512-ritPSKLBcParnsKYi+GNtbdbrIE1mtuFEJ4U1sWeuOMlIziK5GtOL85t5RhsNy4uWIXPgk+OUdpnXiTdzn8o3A==}
 
   '@vue/compiler-ssr@3.5.26':
     resolution: {integrity: sha512-lZT9/Y0nSIRUPVvapFJEVDbEXruZh2IYHMk2zTtEgJSlP5gVOqeWXH54xDKAaFS4rTnDeDBQUYDtxKyoW9FwDw==}
@@ -1245,9 +1353,6 @@ packages:
     resolution: {integrity: sha512-TYKLXmrwWKSodyVuO1WAubucd+1XlLg4set0YoV+Hu8Lo79mp/YMwWV5mC5FgtsDxX3qo1ONrxFaTP1OQgy1uA==}
     peerDependencies:
       vue: 3.5.26
-
-  '@vue/shared@3.5.25':
-    resolution: {integrity: sha512-AbOPdQQnAnzs58H2FrrDxYj/TJfmeS2jdfEEhgiKINy+bnOANmVizIEgq1r+C5zsbs6l1CCQxtcj71rwNQ4jWg==}
 
   '@vue/shared@3.5.26':
     resolution: {integrity: sha512-7Z6/y3uFI5PRoKeorTOSXKcDj0MSasfNNltcslbFrPpcw6aXRUALq4IfJlaTRspiWIUOEZbrpM+iQGmCOiWe4A==}
@@ -1914,10 +2019,6 @@ packages:
     resolution: {integrity: sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==}
     engines: {node: '>=4'}
     hasBin: true
-
-  esquery@1.6.0:
-    resolution: {integrity: sha512-ca9pw9fomFcKPvFLXhBKUK90ZvGibiGOvRJNbjljY7s7uq/5YO4BOzcYtJqExdx99rF6aAcnRxHmcUHcz6sQsg==}
-    engines: {node: '>=0.10'}
 
   esquery@1.7.0:
     resolution: {integrity: sha512-Ap6G0WQwcU/LHsvLwON1fAQX9Zp0A2Y6Y/cJBl9r/JbW90Zyg4/zbG6zzKa2OTALELarYHmKu0GhpM5EO+7T0g==}
@@ -3152,6 +3253,9 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
+  style-search@0.1.0:
+    resolution: {integrity: sha512-Dj1Okke1C3uKKwQcetra4jSuk0DqbzbYtXipzFlFMZtowbF1x7BKJwB9AayVMyFARvU8EDrZdcax4At/452cAg==}
+
   stylelint-config-html@1.1.0:
     resolution: {integrity: sha512-IZv4IVESjKLumUGi+HWeb7skgO6/g4VMuAYrJdlqQFndgbj6WJAXPhaysvBiXefX79upBdQVumgYcdd17gCpjQ==}
     engines: {node: ^12 || >=14}
@@ -3889,11 +3993,6 @@ snapshots:
       eslint: 9.39.2(jiti@2.6.1)
       ignore: 5.3.2
 
-  '@eslint-community/eslint-utils@4.9.0(eslint@9.39.2(jiti@2.6.1))':
-    dependencies:
-      eslint: 9.39.2(jiti@2.6.1)
-      eslint-visitor-keys: 3.4.3
-
   '@eslint-community/eslint-utils@4.9.1(eslint@9.39.2(jiti@2.6.1))':
     dependencies:
       eslint: 9.39.2(jiti@2.6.1)
@@ -4250,6 +4349,17 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.3
 
+  '@stylistic/stylelint-plugin@4.0.0(stylelint@16.26.1(typescript@5.9.3))':
+    dependencies:
+      '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-tokenizer': 3.0.4
+      '@csstools/media-query-list-parser': 4.0.3(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
+      postcss: 8.5.6
+      postcss-selector-parser: 7.1.1
+      postcss-value-parser: 4.2.0
+      style-search: 0.1.0
+      stylelint: 16.26.1(typescript@5.9.3)
+
   '@tailwindcss/node@4.1.18':
     dependencies:
       '@jridgewell/remapping': 2.3.5
@@ -4531,14 +4641,6 @@ snapshots:
       path-browserify: 1.0.1
       vscode-uri: 3.1.0
 
-  '@vue/compiler-core@3.5.25':
-    dependencies:
-      '@babel/parser': 7.28.5
-      '@vue/shared': 3.5.25
-      entities: 4.5.0
-      estree-walker: 2.0.2
-      source-map-js: 1.2.1
-
   '@vue/compiler-core@3.5.26':
     dependencies:
       '@babel/parser': 7.28.5
@@ -4547,27 +4649,10 @@ snapshots:
       estree-walker: 2.0.2
       source-map-js: 1.2.1
 
-  '@vue/compiler-dom@3.5.25':
-    dependencies:
-      '@vue/compiler-core': 3.5.25
-      '@vue/shared': 3.5.25
-
   '@vue/compiler-dom@3.5.26':
     dependencies:
       '@vue/compiler-core': 3.5.26
       '@vue/shared': 3.5.26
-
-  '@vue/compiler-sfc@3.5.25':
-    dependencies:
-      '@babel/parser': 7.28.5
-      '@vue/compiler-core': 3.5.25
-      '@vue/compiler-dom': 3.5.25
-      '@vue/compiler-ssr': 3.5.25
-      '@vue/shared': 3.5.25
-      estree-walker: 2.0.2
-      magic-string: 0.30.21
-      postcss: 8.5.6
-      source-map-js: 1.2.1
 
   '@vue/compiler-sfc@3.5.26':
     dependencies:
@@ -4580,11 +4665,6 @@ snapshots:
       magic-string: 0.30.21
       postcss: 8.5.6
       source-map-js: 1.2.1
-
-  '@vue/compiler-ssr@3.5.25':
-    dependencies:
-      '@vue/compiler-dom': 3.5.25
-      '@vue/shared': 3.5.25
 
   '@vue/compiler-ssr@3.5.26':
     dependencies:
@@ -4624,8 +4704,6 @@ snapshots:
       '@vue/compiler-ssr': 3.5.26
       '@vue/shared': 3.5.26
       vue: 3.5.26(typescript@5.9.3)
-
-  '@vue/shared@3.5.25': {}
 
   '@vue/shared@3.5.26': {}
 
@@ -5308,7 +5386,7 @@ snapshots:
 
   eslint@9.39.2(jiti@2.6.1):
     dependencies:
-      '@eslint-community/eslint-utils': 4.9.0(eslint@9.39.2(jiti@2.6.1))
+      '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2(jiti@2.6.1))
       '@eslint-community/regexpp': 4.12.2
       '@eslint/config-array': 0.21.1
       '@eslint/config-helpers': 0.4.2
@@ -5328,7 +5406,7 @@ snapshots:
       eslint-scope: 8.4.0
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
-      esquery: 1.6.0
+      esquery: 1.7.0
       esutils: 2.0.3
       fast-deep-equal: 3.1.3
       file-entry-cache: 8.0.0
@@ -5368,10 +5446,6 @@ snapshots:
       eslint-visitor-keys: 3.4.3
 
   esprima@4.0.1: {}
-
-  esquery@1.6.0:
-    dependencies:
-      estraverse: 5.3.0
 
   esquery@1.7.0:
     dependencies:
@@ -6709,6 +6783,8 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
+  style-search@0.1.0: {}
+
   stylelint-config-html@1.1.0(postcss-html@1.8.0)(stylelint@16.26.1(typescript@5.9.3)):
     dependencies:
       postcss-html: 1.8.0
@@ -7047,8 +7123,8 @@ snapshots:
     dependencies:
       '@babel/parser': 7.28.5
       '@babel/types': 7.28.5
-      '@vue/compiler-dom': 3.5.25
-      '@vue/compiler-sfc': 3.5.25
+      '@vue/compiler-dom': 3.5.26
+      '@vue/compiler-sfc': 3.5.26
       ast-types: 0.16.1
       esm-resolve: 1.0.11
       hash-sum: 2.0.0

@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
+    "@stylistic/stylelint-plugin": "^4.0.0",
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "postcss": "catalog:",

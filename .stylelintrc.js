@@ -4,6 +4,9 @@ module.exports = {
     'stylelint-config-recommended-vue', // add overrides for .Vue files
     'stylelint-config-recess-order', // use the recess order for properties
   ],
+  plugins: [
+    '@stylistic/stylelint-plugin',
+  ],
   rules: {
     'no-empty-source': null,
     'block-no-empty': null,
@@ -17,6 +20,9 @@ module.exports = {
     'scss/at-rule-no-unknown': true,
     'declaration-no-important': null, // Allow !important since we use it for transitions
     'declaration-block-single-line-max-declarations': 1,
-    'selector-pseudo-element-no-unknown': true
+    'selector-pseudo-element-no-unknown': true,
+    // Stylistic rules
+    '@stylistic/indentation': [2, { baseIndentLevel: 1 }],
+    '@stylistic/number-leading-zero': 'never',
   }
 }
