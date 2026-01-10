@@ -8,7 +8,7 @@ import { TransitionBundleKey, TransitionInfoKey } from '../types/symbols'
 import NavBar from './components/NavBar.vue'
 
 const transitionGroup: Ref<TransitionGroup> = ref(false)
-const transitionType: Ref<TransitionType> = ref('FadeTransition')
+const transitionType: Ref<TransitionType> = ref('DissolveTransition')
 const transitionsList: TransitionsList = ref([])
 
 provide(TransitionInfoKey, {

@@ -8,21 +8,15 @@ const { transitionsList, addTransition, removeTransition }
   = injectStrict(TransitionBundleKey)
 
 const transitions: TransitionType[] = [
-  'FadeTransition',
-  'SlideXLeftTransition',
-  'SlideXRightTransition',
-  'SlideYDownTransition',
-  'SlideYUpTransition',
-  'ZoomCenterTransition',
-  'ZoomUpTransition',
-  'ZoomXTransition',
-  'ZoomYTransition',
-  'ScaleTransition',
-  'CollapseTransition',
   'DissolveTransition',
   'PushTransition',
   'FadeSlideTransition',
   'BlurTransition',
+  'ScaleTransition',
+  'ZoomTransition',
+  'WipeTransition',
+  'RotateTransition',
+  'ClipPathTransition',
 ]
 
 function isSelected(anim: TransitionType): boolean {

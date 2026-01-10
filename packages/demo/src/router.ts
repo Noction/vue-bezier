@@ -15,7 +15,7 @@ const routes = [
         redirect: { name: 'appear-dissolve' },
         children: [
           { name: 'appear-dissolve', path: 'dissolve', component: () => import('./pages/appear/index.vue'), props: { component: 'DissolveTransition', label: 'DissolveTransition' } },
-          { name: 'appear-fade', path: 'fade', component: () => import('./pages/appear/index.vue'), props: { component: 'FadeTransition', label: 'FadeTransition' } },
+          { name: 'appear-fade', path: 'fade', component: () => import('./pages/appear/index.vue'), props: { component: 'DissolveTransition', label: 'DissolveTransition' } },
           { name: 'appear-push', path: 'push', component: () => import('./pages/appear/index.vue'), props: { component: 'PushTransition', label: 'PushTransition' } },
           { name: 'appear-fade-slide', path: 'fade-slide', component: () => import('./pages/appear/index.vue'), props: { component: 'FadeSlideTransition', label: 'FadeSlideTransition' } },
           { name: 'appear-blur', path: 'blur', component: () => import('./pages/appear/index.vue'), props: { component: 'BlurTransition', label: 'BlurTransition' } },
@@ -32,7 +32,7 @@ const routes = [
         redirect: { name: 'between-dissolve' },
         children: [
           { name: 'between-dissolve', path: 'dissolve', component: () => import('./pages/between/index.vue'), props: { component: 'DissolveTransition', labelA: 'DissolveTransition A', labelB: 'DissolveTransition b' } },
-          { name: 'between-fade', path: 'fade', component: () => import('./pages/between/index.vue'), props: { component: 'FadeTransition', labelA: 'FadeTransition', labelB: 'FadeTransition' } },
+          { name: 'between-fade', path: 'fade', component: () => import('./pages/between/index.vue'), props: { component: 'DissolveTransition', labelA: 'DissolveTransition', labelB: 'DissolveTransition' } },
           { name: 'between-push', path: 'push', component: () => import('./pages/between/index.vue'), props: { component: 'PushTransition', labelA: 'PushTransition A', labelB: 'PushTransition b' } },
           { name: 'between-fade-slide', path: 'fade-slide', component: () => import('./pages/between/index.vue'), props: { component: 'FadeSlideTransition', labelA: 'FadeSlideTransition A', labelB: 'FadeSlideTransition b' } },
           { name: 'between-blur', path: 'blur', component: () => import('./pages/between/index.vue'), props: { component: 'BlurTransition', labelA: 'BlurTransition a', labelB: 'BlurTransition b' } },

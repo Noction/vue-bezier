@@ -26,7 +26,6 @@ const { items, remove } = useListItems()
     :is="component"
     :duration="{ enter: options.enter, leave: options.leave }"
     :delay="options.delay"
-    :group="component === 'FadeTransition'"
     tag="div"
     class="flex flex-wrap gap-4"
   >
