@@ -103,6 +103,8 @@ const transitionDelay = computed(() => {
     opacity: 0;
   }
 
+  .test { position: absolute }
+
   .dissolve-enter-to,
   .dissolve-leave-from {
     opacity: 1;

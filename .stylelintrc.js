@@ -19,10 +19,16 @@ module.exports = {
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': true,
     'declaration-no-important': null, // Allow !important since we use it for transitions
-    'declaration-block-single-line-max-declarations': 1,
+    'declaration-block-single-line-max-declarations': 1, // Allow single line if 1 declaration
     'selector-pseudo-element-no-unknown': true,
     // Stylistic rules
     '@stylistic/indentation': [2, { baseIndentLevel: 1 }],
     '@stylistic/number-leading-zero': 'never',
+    '@stylistic/block-opening-brace-newline-after': 'always-multi-line',
+    '@stylistic/block-closing-brace-newline-before': 'always-multi-line',
+    '@stylistic/block-opening-brace-space-before': 'always',
+    '@stylistic/block-opening-brace-space-after': 'always-single-line',
+    '@stylistic/block-closing-brace-space-before': 'always-single-line',
+    // No trailing semicolon rule - optional for single-line, required for multi-line is handled by standard config
   }
 }
