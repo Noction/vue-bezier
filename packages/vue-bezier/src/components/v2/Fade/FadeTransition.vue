@@ -77,17 +77,6 @@ const transitionDelay = computed(() => {
     initial-value: 0s;
   }
 
-  .fade-enter-active {
-    transition: opacity var(--transition-enter-duration) ease-out var(--transition-enter-delay);
-    will-change: opacity;
-  }
-
-  .fade-leave-active {
-    transition: opacity var(--transition-leave-duration) ease-out var(--transition-leave-delay);
-    will-change: opacity;
-  }
-
-  .fade-enter-from,
   .fade-leave-to {
     opacity: 0;
   }
