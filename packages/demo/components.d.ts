@@ -11,6 +11,12 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppearControls: typeof import('./src/components/appear/AppearControls.vue')['default']
+    AppearNav: typeof import('./src/components/appear/AppearNav.vue')['default']
+    AppearTransitionDemo: typeof import('./src/components/appear/AppearTransitionDemo.vue')['default']
+    BetweenControls: typeof import('./src/components/between/BetweenControls.vue')['default']
+    BetweenNav: typeof import('./src/components/between/BetweenNav.vue')['default']
+    BetweenTransitionDemo: typeof import('./src/components/between/BetweenTransitionDemo.vue')['default']
     CircleProgress: typeof import('./src/components/CircleProgress.vue')['default']
     DemoCode: typeof import('./src/components/DemoCode.vue')['default']
     DemoGroup: typeof import('./src/components/DemoGroup.vue')['default']
@@ -20,6 +26,9 @@ declare module 'vue' {
     ILucideSun: typeof import('~icons/lucide/sun')['default']
     IMdiGithub: typeof import('~icons/mdi/github')['default']
     IMdiNpm: typeof import('~icons/mdi/npm')['default']
+    ListControls: typeof import('./src/components/list/ListControls.vue')['default']
+    ListNav: typeof import('./src/components/list/ListNav.vue')['default']
+    ListTransitionDemo: typeof import('./src/components/list/ListTransitionDemo.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     NavLogo: typeof import('./src/components/NavLogo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

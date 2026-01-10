@@ -6,7 +6,11 @@ const routes = [
     children: [
       {
         path: 'appear',
-        component: () => import('./pages/AppearPage.vue'),
+        components: {
+          default: () => import('./pages/AppearPage.vue'),
+          nav: () => import('./components/appear/AppearNav.vue'),
+          controls: () => import('./components/appear/AppearControls.vue'),
+        },
         alias: [''],
         redirect: { name: 'appear-dissolve' },
         children: [
@@ -20,7 +24,11 @@ const routes = [
       },
       {
         path: 'between',
-        component: () => import('./pages/BetweenPage.vue'),
+        components: {
+          default: () => import('./pages/BetweenPage.vue'),
+          nav: () => import('./components/between/BetweenNav.vue'),
+          controls: () => import('./components/between/BetweenControls.vue'),
+        },
         redirect: { name: 'between-dissolve' },
         children: [
           { name: 'between-dissolve', path: 'dissolve', component: () => import('./pages/between/DissolvePage.vue') },
@@ -37,11 +45,14 @@ const routes = [
       },
       {
         path: 'list',
-        component: () => import('./pages/ListPage.vue'),
+        components: {
+          default: () => import('./pages/ListPage.vue'),
+          nav: () => import('./components/list/ListNav.vue'),
+          controls: () => import('./components/list/ListControls.vue'),
+        },
         redirect: { name: 'list-dissolve' },
         children: [
           { name: 'list-dissolve', path: 'dissolve', component: () => import('./pages/list/DissolvePage.vue') },
-          { name: 'list-fade', path: 'fade', component: () => import('./pages/list/FadePage.vue') },
           { name: 'list-scale', path: 'scale', component: () => import('./pages/list/ScalePage.vue') },
         ],
       },

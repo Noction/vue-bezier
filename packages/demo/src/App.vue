@@ -53,8 +53,8 @@ provide(TransitionBundleKey, {
     /> -->
 
     <div class="flex items-center min-h-screen xl:max-w-5xl max-w-none mx-auto px-4 sm:px-6 md:px-8 ">
-      <div class="border border-slate-200 dark:border-slate-700 rounded-lg w-full h-[500px] grid grid-rows-[auto_1fr] gap-y-4 overflow-hidden">
-        <nav class="flex w-full justify-center gap-x-8 font-semibold text-slate-600 dark:text-slate-300">
+      <div class="border border-slate-200 dark:border-slate-700 rounded-lg w-full h-[500px] grid grid-rows-[auto_1fr] grid-cols-[200px_1fr_200px] gap-y-4 overflow-hidden">
+        <nav class="col-span-3 flex w-full justify-center gap-x-8 font-semibold text-slate-600 dark:text-slate-300">
           <router-link
             to="/"
             active-class="text-sky-500 dark:text-sky-400"
@@ -74,7 +74,9 @@ provide(TransitionBundleKey, {
             List
           </router-link>
         </nav>
+        <RouterView name="nav" />
         <RouterView />
+        <RouterView name="controls" />
       </div>
     </div>
 
