@@ -2,7 +2,7 @@
   "name": "root",
   "version": "2.0.0-beta.1",
   "private": true,
-  "packageManager": "pnpm@10.7.1",
+  "packageManager": "pnpm@10.28.0",
   "scripts": {
     "predev": "pnpm run build:light",
     "dev": "pnpm run -r --parallel dev",
