@@ -44,16 +44,19 @@ const transitionDelay = computed(() => ({
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
   }
+
   @property --transition-leave-delay {
     syntax: "<time>";
     inherits: false;
@@ -72,26 +75,26 @@ const transitionDelay = computed(() => ({
 
   /* Define starting and ending states for the rotate transition */
   .rotate-enter-from {
-    filter: blur(4px); /* Tailwind's blur-sm */
     opacity: 1;
+    filter: blur(4px); /* Tailwind's blur-sm */
     transform: rotate(12deg);
   }
 
   .rotate-enter-to {
-    filter: blur(0); /* Tailwind's blur-none */
     opacity: 1;
+    filter: blur(0); /* Tailwind's blur-none */
     transform: rotate(0deg);
   }
 
   .rotate-leave-from {
-    filter: blur(0); /* Tailwind's blur-none */
     opacity: 1;
+    filter: blur(0); /* Tailwind's blur-none */
     transform: rotate(0deg);
   }
 
   .rotate-leave-to {
-    filter: blur(4px); /* Tailwind's blur-sm */
     opacity: 1;
+    filter: blur(4px); /* Tailwind's blur-sm */
     transform: rotate(12deg);
   }
 </style>

@@ -93,7 +93,7 @@ const props = withDefaults(defineProps<ComponentProps>(), { /* defaults */ })
 const emit = defineEmits<ComponentEvents>()
 
 const componentType = buildComponentType(props) // Transition or TransitionGroup
-const hooks = useHooks(props, emit)              // Lifecycle handlers
+const hooks = useHooks(props, emit) // Lifecycle handlers
 </script>
 
 <template>

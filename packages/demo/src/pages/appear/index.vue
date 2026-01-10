@@ -3,7 +3,7 @@ import { options, state } from '@/composables/options'
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps<{
+defineProps<{
   component: string
   label: string
   origin?: string

@@ -12,23 +12,23 @@
   },
   "dependencies": {
     "@noction/vue-bezier": "workspace:*",
-    "@vueuse/core": "^14.1.0",
-    "prismjs": "^1.29.0",
+    "@vueuse/core": "catalog:",
+    "prismjs": "catalog:",
     "vue": "catalog:",
-    "vue-prism-editor": "2.0.0-alpha.2",
-    "vue-router": "^4.6.4"
+    "vue-prism-editor": "catalog:",
+    "vue-router": "catalog:"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.83",
-    "@iconify-json/mdi": "^1.2.3",
-    "@tailwindcss/postcss": "^4.1.18",
-    "@types/prismjs": "^1.26.4",
+    "@iconify-json/lucide": "catalog:",
+    "@iconify-json/mdi": "catalog:",
+    "@tailwindcss/postcss": "catalog:",
+    "@types/prismjs": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
-    "autoprefixer": "^10.4.23",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.18",
-    "unplugin-icons": "^22.5.0",
-    "unplugin-vue-components": "^30.0.0",
+    "autoprefixer": "catalog:",
+    "postcss": "catalog:",
+    "tailwindcss": "catalog:",
+    "unplugin-icons": "catalog:",
+    "unplugin-vue-components": "catalog:",
     "vite": "catalog:",
     "vue-tsc": "catalog:"
   }

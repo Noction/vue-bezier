@@ -56,17 +56,17 @@
     "type:check": "vue-tsc --noEmit"
   },
   "devDependencies": {
-    "@faker-js/faker": "^10.2.0",
+    "@faker-js/faker": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
-    "@vitest/coverage-v8": "^4.0.16",
-    "@vue/test-utils": "^2.4.6",
-    "cross-env": "^10.1.0",
-    "jsdom": "^27.4.0",
-    "minimist": "^1.2.8",
+    "@vitest/coverage-v8": "catalog:",
+    "@vue/test-utils": "catalog:",
+    "cross-env": "catalog:",
+    "jsdom": "catalog:",
+    "minimist": "catalog:",
     "vite": "catalog:",
-    "vitest": "^4.0.16",
+    "vitest": "catalog:",
     "vue": "catalog:",
-    "vue-docgen-web-types": "^0.1.8",
+    "vue-docgen-web-types": "catalog:",
     "vue-tsc": "catalog:"
   },
   "web-types": "./dist/web-types.json"

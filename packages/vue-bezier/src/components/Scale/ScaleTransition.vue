@@ -62,16 +62,19 @@ const transitionDelay = computed(() => {
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
   }
+
   @property --transition-leave-delay {
     syntax: "<time>";
     inherits: false;
@@ -80,8 +83,8 @@ const transitionDelay = computed(() => {
 
   .scale-enter-active,
   .scale-leave-active {
-    transition: all var(--transition-enter-duration) ease-out var(--transition-enter-delay);
     transform-origin: var(--transform-origin, top left);
+    transition: all var(--transition-enter-duration) ease-out var(--transition-enter-delay);
     will-change: opacity, transform;
   }
 

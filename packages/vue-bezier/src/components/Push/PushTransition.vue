@@ -65,16 +65,19 @@ const pushDirectionClass = computed(() => {
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
   }
+
   @property --transition-leave-delay {
     syntax: "<time>";
     inherits: false;
@@ -86,16 +89,16 @@ const pushDirectionClass = computed(() => {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
+    backface-visibility: hidden;
     transition: opacity var(--transition-enter-duration) ease var(--transition-enter-delay),
       transform var(--transition-enter-duration) ease var(--transition-enter-delay);
     will-change: opacity, transform;
-    backface-visibility: hidden;
   }
 
   .push-leave-active {
+    backface-visibility: hidden;
     transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay),
       transform var(--transition-leave-duration) ease var(--transition-leave-delay);
-    backface-visibility: hidden;
   }
 
   .push-enter-to,

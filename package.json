@@ -1,8 +1,8 @@
 {
   "name": "root",
   "version": "2.0.0-beta.1",
-  "packageManager": "pnpm@10.7.1",
   "private": true,
+  "packageManager": "pnpm@10.7.1",
   "scripts": {
     "predev": "pnpm run build:light",
     "dev": "pnpm run -r --parallel dev",
@@ -17,22 +17,21 @@
     "release": "pnpm run lint && bumpp package.json packages/demo/package.json packages/vue-bezier/package.json --commit --push --tag"
   },
   "dependencies": {
-    "bumpp": "^10.3.2"
+    "bumpp": "catalog:"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.7.3",
-    "@types/node": "^24.0.1",
-    "eslint": "^9.12.0",
-    "postcss": "^8.4.47",
-    "postcss-html": "^1.7.0",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "stylelint": "^15.11.0",
-    "stylelint-config-css-modules": "^4.4.0",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-recess-order": "^4.6.0",
-    "stylelint-config-recommended-vue": "^1.5.0",
-    "stylelint-config-standard-scss": "^9.0.0",
-    "typescript": "^5.6.3"
+    "@antfu/eslint-config": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "postcss": "catalog:",
+    "postcss-html": "catalog:",
+    "prettier": "catalog:",
+    "prettier-plugin-tailwindcss": "catalog:",
+    "stylelint": "catalog:",
+    "stylelint-config-recess-order": "catalog:",
+    "stylelint-config-recommended-vue": "catalog:",
+    "stylelint-config-standard-scss": "catalog:",
+    "stylelint-order": "catalog:",
+    "typescript": "catalog:"
   }
 }

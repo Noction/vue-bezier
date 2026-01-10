@@ -60,16 +60,19 @@ const transitionDelay = computed(() => {
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
   }
+
   @property --transition-leave-delay {
     syntax: "<time>";
     inherits: false;
@@ -81,13 +84,13 @@ const transitionDelay = computed(() => {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
-    transition: all var(--transition-enter-duration) ease var(--transition-enter-delay);
     backface-visibility: hidden;
+    transition: all var(--transition-enter-duration) ease var(--transition-enter-delay);
   }
 
   .fade-slide-leave-active {
-    transition: all var(--transition-leave-duration) ease var(--transition-leave-delay);
     backface-visibility: hidden;
+    transition: all var(--transition-leave-duration) ease var(--transition-leave-delay);
   }
 
   .fade-slide-enter-from {

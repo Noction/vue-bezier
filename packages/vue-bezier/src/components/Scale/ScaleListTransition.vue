@@ -116,16 +116,19 @@ function onLeave(el: Element) {
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
   }
+
   @property --transition-leave-delay {
     syntax: "<time>";
     inherits: false;
@@ -147,10 +150,10 @@ function onLeave(el: Element) {
 
   .scale-list-leave-active {
     position: absolute;
+    backface-visibility: hidden;
     transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay),
       transform var(--transition-leave-duration) ease var(--transition-leave-delay);
     will-change: opacity, transform;
-    backface-visibility: hidden;
   }
 
   .scale-list-enter-from,

@@ -114,16 +114,19 @@ function onLeave(el: Element) {
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-leave-duration {
     syntax: "<time>";
     inherits: false;
     initial-value: .3s;
   }
+
   @property --transition-enter-delay {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;
   }
+
   @property --transition-leave-delay {
     syntax: "<time>";
     inherits: false;
@@ -144,9 +147,9 @@ function onLeave(el: Element) {
 
   .dissolve-leave-active {
     position: absolute;
+    backface-visibility: hidden;
     transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay);
     will-change: opacity;
-    backface-visibility: hidden;
   }
 
   .dissolve-enter-from,
