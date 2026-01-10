@@ -22,33 +22,31 @@ const { items, remove } = useListItems()
 </script>
 
 <template>
-  <div class="size-full max-h-[350px] overflow-y-auto">
-    <component
-      :is="component"
-      :duration="{ enter: options.enter, leave: options.leave }"
-      :delay="options.delay"
-      :group="component === 'FadeTransition'"
-      tag="div"
-      class="flex flex-wrap gap-4"
+  <component
+    :is="component"
+    :duration="{ enter: options.enter, leave: options.leave }"
+    :delay="options.delay"
+    :group="component === 'FadeTransition'"
+    tag="div"
+    class="flex flex-wrap gap-4"
+  >
+    <div
+      v-for="item in items"
+      :key="item"
+      class="relative group select-none rounded-lg border"
+      :class="colors[item % colors.length]"
     >
+      <div class="grid place-content-center size-20 cursor-default text-xl font-semibold" v-text="item" />
       <div
-        v-for="item in items"
-        :key="item"
-        class="relative group select-none rounded-lg border"
-        :class="colors[item % colors.length]"
+        class="absolute inset-0 size-full flex items-center justify-center cursor-pointer p-2"
+        @click="remove(item)"
       >
-        <div class="grid place-content-center size-20 cursor-default text-xl font-semibold" v-text="item" />
         <div
-          class="absolute inset-0 size-full flex items-center justify-center cursor-pointer p-2"
-          @click="remove(item)"
+          class="size-10 flex justify-center scale-0 opacity-0 rounded-full bg-current shadow transition group-hover:shadow-current group-hover:scale-100 group-hover:opacity-100"
         >
-          <div
-            class="size-10 flex justify-center scale-0 opacity-0 rounded-full bg-current shadow transition group-hover:shadow-current group-hover:scale-100 group-hover:opacity-100"
-          >
-            <span class="text-white text-4xl leading-none font-light">-</span>
-          </div>
+          <span class="text-white text-4xl leading-none font-light">-</span>
         </div>
       </div>
-    </component>
-  </div>
+    </div>
+  </component>
 </template>

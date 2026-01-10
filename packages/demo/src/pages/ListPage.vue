@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full h-full m-auto">
+  <div class="size-full max-h-[350px] overflow-y-auto">
     <router-view />
   </div>
 </template>

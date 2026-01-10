@@ -27,30 +27,11 @@ provide(TransitionBundleKey, {
   },
   transitionsList,
 })
-
-// const mode = useColorMode()
-
-// watch(mode, (newMode, oldMode) => {
-//   console.log('app', newMode, oldMode)
-//   if (!document.startViewTransition) {
-//     // defaultHandler(mode)
-//     return
-//   }
-
-//   document.startViewTransition(() => {
-//     // defaultHandler(mode)
-//   })
-// })
 </script>
 
 <template>
   <div class="min-h-screen antialiased bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
     <NavBar />
-    <!-- <div class="row-start-2 row-end-3 lg:col-span-2 xl:col-span-2" /> -->
-    <!-- <TransitionsOptions
-      class="row-start-2 row-end-3 lg:col-span-2 xl:col-span-2"
-      @selected="transitionType = $event"
-    /> -->
 
     <div class="flex items-center min-h-screen xl:max-w-5xl max-w-none mx-auto px-4 sm:px-6 md:px-8 ">
       <div class="border border-slate-200 dark:border-slate-700 rounded-lg w-full h-[500px] grid grid-rows-[auto_1fr] grid-cols-[200px_1fr_200px] gap-y-4 overflow-hidden">
