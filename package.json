@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
-    "@stylistic/stylelint-plugin": "^4.0.0",
+    "@stylistic/stylelint-plugin": "catalog:",
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "postcss": "catalog:",
@@ -31,7 +31,7 @@
     "stylelint": "catalog:",
     "stylelint-config-recess-order": "catalog:",
     "stylelint-config-recommended-vue": "catalog:",
-    "stylelint-config-standard": "^39.0.1",
+    "stylelint-config-standard": "catalog:",
     "stylelint-order": "catalog:",
     "typescript": "catalog:"
   }

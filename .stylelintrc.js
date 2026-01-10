@@ -45,6 +45,6 @@ module.exports = {
     '@stylistic/function-comma-space-after': 'always',
     '@stylistic/value-list-comma-space-after': 'always',
     // Stylistic rules - Line length
-    '@stylistic/max-line-length': 120,
+    '@stylistic/max-line-length': 180,
   }
 }

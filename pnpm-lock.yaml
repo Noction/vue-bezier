@@ -6,114 +6,21 @@ settings:
 
 catalogs:
   default:
-    '@antfu/eslint-config':
-      specifier: ^6.7.3
-      version: 6.7.3
-    '@faker-js/faker':
-      specifier: ^10.2.0
-      version: 10.2.0
-    '@iconify-json/lucide':
-      specifier: ^1.2.83
-      version: 1.2.83
-    '@iconify-json/mdi':
-      specifier: ^1.2.3
-      version: 1.2.3
-    '@tailwindcss/postcss':
-      specifier: ^4.1.18
-      version: 4.1.18
-    '@types/node':
-      specifier: ^24.0.1
-      version: 24.10.4
-    '@types/prismjs':
-      specifier: ^1.26.4
-      version: 1.26.5
     '@vitejs/plugin-vue':
       specifier: ^6.0.3
       version: 6.0.3
-    '@vitest/coverage-v8':
-      specifier: ^4.0.16
-      version: 4.0.16
-    '@vue/test-utils':
-      specifier: ^2.4.6
-      version: 2.4.6
-    '@vueuse/core':
-      specifier: ^14.1.0
-      version: 14.1.0
-    autoprefixer:
-      specifier: ^10.4.23
-      version: 10.4.23
-    bumpp:
-      specifier: ^10.3.2
-      version: 10.3.2
-    cross-env:
-      specifier: ^10.1.0
-      version: 10.1.0
-    eslint:
-      specifier: ^9.12.0
-      version: 9.39.2
-    jsdom:
-      specifier: ^27.4.0
-      version: 27.4.0
-    minimist:
-      specifier: ^1.2.8
-      version: 1.2.8
     postcss:
       specifier: ^8.5.6
       version: 8.5.6
-    postcss-html:
-      specifier: ^1.7.0
-      version: 1.8.0
-    prettier:
-      specifier: ^3.3.3
-      version: 3.7.4
-    prettier-plugin-tailwindcss:
-      specifier: ^0.7.2
-      version: 0.7.2
-    prismjs:
-      specifier: ^1.29.0
-      version: 1.30.0
-    stylelint:
-      specifier: ^16.26.1
-      version: 16.26.1
-    stylelint-config-recess-order:
-      specifier: ^7.4.0
-      version: 7.4.0
-    stylelint-config-recommended-vue:
-      specifier: ^1.6.1
-      version: 1.6.1
-    stylelint-order:
-      specifier: ^7.0.1
-      version: 7.0.1
-    tailwindcss:
-      specifier: ^4.1.18
-      version: 4.1.18
     typescript:
       specifier: ^5.6.3
       version: 5.9.3
-    unplugin-icons:
-      specifier: ^22.5.0
-      version: 22.5.0
-    unplugin-vue-components:
-      specifier: ^30.0.0
-      version: 30.0.0
     vite:
       specifier: npm:rolldown-vite@latest
       version: 7.3.1
-    vitest:
-      specifier: ^4.0.16
-      version: 4.0.16
     vue:
       specifier: ^3.5.26
       version: 3.5.26
-    vue-docgen-web-types:
-      specifier: ^0.1.8
-      version: 0.1.8
-    vue-prism-editor:
-      specifier: 2.0.0-alpha.2
-      version: 2.0.0-alpha.2
-    vue-router:
-      specifier: ^4.6.4
-      version: 4.6.4
     vue-tsc:
       specifier: ^3.2.2
       version: 3.2.2
@@ -123,47 +30,47 @@ importers:
   .:
     dependencies:
       bumpp:
-        specifier: 'catalog:'
+        specifier: ^10.3.2
         version: 10.3.2(magicast@0.5.1)
     devDependencies:
       '@antfu/eslint-config':
-        specifier: 'catalog:'
+        specifier: ^6.7.3
         version: 6.7.3(@vue/compiler-sfc@3.5.26)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.16(@types/node@24.10.4)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2)(sass@1.96.0)(yaml@2.8.2))
       '@stylistic/stylelint-plugin':
         specifier: ^4.0.0
         version: 4.0.0(stylelint@16.26.1(typescript@5.9.3))
       '@types/node':
-        specifier: 'catalog:'
+        specifier: ^24.0.1
         version: 24.10.4
       eslint:
-        specifier: 'catalog:'
+        specifier: ^9.12.0
         version: 9.39.2(jiti@2.6.1)
       postcss:
         specifier: 'catalog:'
         version: 8.5.6
       postcss-html:
-        specifier: 'catalog:'
+        specifier: ^1.7.0
         version: 1.8.0
       prettier:
-        specifier: 'catalog:'
+        specifier: ^3.3.3
         version: 3.7.4
       prettier-plugin-tailwindcss:
-        specifier: 'catalog:'
+        specifier: ^0.7.2
         version: 0.7.2(prettier@3.7.4)
       stylelint:
-        specifier: 'catalog:'
+        specifier: ^16.26.1
         version: 16.26.1(typescript@5.9.3)
       stylelint-config-recess-order:
-        specifier: 'catalog:'
+        specifier: ^7.4.0
         version: 7.4.0(stylelint-order@7.0.1(stylelint@16.26.1(typescript@5.9.3)))(stylelint@16.26.1(typescript@5.9.3))
       stylelint-config-recommended-vue:
-        specifier: 'catalog:'
+        specifier: ^1.6.1
         version: 1.6.1(postcss-html@1.8.0)(stylelint@16.26.1(typescript@5.9.3))
       stylelint-config-standard:
         specifier: ^39.0.1
         version: 39.0.1(stylelint@16.26.1(typescript@5.9.3))
       stylelint-order:
-        specifier: 'catalog:'
+        specifier: ^7.0.1
         version: 7.0.1(stylelint@16.26.1(typescript@5.9.3))
       typescript:
         specifier: 'catalog:'
@@ -175,50 +82,50 @@ importers:
         specifier: workspace:*
         version: link:../vue-bezier
       '@vueuse/core':
-        specifier: 'catalog:'
+        specifier: ^14.1.0
         version: 14.1.0(vue@3.5.26(typescript@5.9.3))
       prismjs:
-        specifier: 'catalog:'
+        specifier: ^1.29.0
         version: 1.30.0
       vue:
         specifier: 'catalog:'
         version: 3.5.26(typescript@5.9.3)
       vue-prism-editor:
-        specifier: 'catalog:'
+        specifier: 2.0.0-alpha.2
         version: 2.0.0-alpha.2(vue@3.5.26(typescript@5.9.3))
       vue-router:
-        specifier: 'catalog:'
+        specifier: ^4.6.4
         version: 4.6.4(vue@3.5.26(typescript@5.9.3))
     devDependencies:
       '@iconify-json/lucide':
-        specifier: 'catalog:'
+        specifier: ^1.2.83
         version: 1.2.83
       '@iconify-json/mdi':
-        specifier: 'catalog:'
+        specifier: ^1.2.3
         version: 1.2.3
       '@tailwindcss/postcss':
-        specifier: 'catalog:'
+        specifier: ^4.1.18
         version: 4.1.18
       '@types/prismjs':
-        specifier: 'catalog:'
+        specifier: ^1.26.4
         version: 1.26.5
       '@vitejs/plugin-vue':
         specifier: 'catalog:'
         version: 6.0.3(rolldown-vite@7.3.1(@types/node@24.10.4)(esbuild@0.27.2)(jiti@2.6.1)(sass@1.96.0)(yaml@2.8.2))(vue@3.5.26(typescript@5.9.3))
       autoprefixer:
-        specifier: 'catalog:'
+        specifier: ^10.4.23
         version: 10.4.23(postcss@8.5.6)
       postcss:
         specifier: 'catalog:'
         version: 8.5.6
       tailwindcss:
-        specifier: 'catalog:'
+        specifier: ^4.1.18
         version: 4.1.18
       unplugin-icons:
-        specifier: 'catalog:'
+        specifier: ^22.5.0
         version: 22.5.0(@vue/compiler-sfc@3.5.26)
       unplugin-vue-components:
-        specifier: 'catalog:'
+        specifier: ^30.0.0
         version: 30.0.0(@babel/parser@7.28.5)(vue@3.5.26(typescript@5.9.3))
       vite:
         specifier: 'catalog:'
@@ -230,37 +137,37 @@ importers:
   packages/vue-bezier:
     devDependencies:
       '@faker-js/faker':
-        specifier: 'catalog:'
+        specifier: ^10.2.0
         version: 10.2.0
       '@vitejs/plugin-vue':
         specifier: 'catalog:'
         version: 6.0.3(rolldown-vite@7.3.1(@types/node@24.10.4)(esbuild@0.27.2)(jiti@2.6.1)(sass@1.96.0)(yaml@2.8.2))(vue@3.5.26(typescript@5.9.3))
       '@vitest/coverage-v8':
-        specifier: 'catalog:'
+        specifier: ^4.0.16
         version: 4.0.16(vitest@4.0.16(@types/node@24.10.4)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2)(sass@1.96.0)(yaml@2.8.2))
       '@vue/test-utils':
-        specifier: 'catalog:'
+        specifier: ^2.4.6
         version: 2.4.6
       cross-env:
-        specifier: 'catalog:'
+        specifier: ^10.1.0
         version: 10.1.0
       jsdom:
-        specifier: 'catalog:'
+        specifier: ^27.4.0
         version: 27.4.0
       minimist:
-        specifier: 'catalog:'
+        specifier: ^1.2.8
         version: 1.2.8
       vite:
         specifier: 'catalog:'
         version: rolldown-vite@7.3.1(@types/node@24.10.4)(esbuild@0.27.2)(jiti@2.6.1)(sass@1.96.0)(yaml@2.8.2)
       vitest:
-        specifier: 'catalog:'
+        specifier: ^4.0.16
         version: 4.0.16(@types/node@24.10.4)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2)(sass@1.96.0)(yaml@2.8.2)
       vue:
         specifier: 'catalog:'
         version: 3.5.26(typescript@5.9.3)
       vue-docgen-web-types:
-        specifier: 'catalog:'
+        specifier: ^0.1.8
         version: 0.1.8(vue@3.5.26(typescript@5.9.3))
       vue-tsc:
         specifier: 'catalog:'
