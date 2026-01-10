@@ -31,7 +31,7 @@
     "stylelint": "catalog:",
     "stylelint-config-recess-order": "catalog:",
     "stylelint-config-recommended-vue": "catalog:",
-    "stylelint-config-standard-scss": "catalog:",
+    "stylelint-config-standard": "^39.0.1",
     "stylelint-order": "catalog:",
     "typescript": "catalog:"
   }

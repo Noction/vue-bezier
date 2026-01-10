@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    'stylelint-config-standard-scss', // configure for SCSS
+    'stylelint-config-standard', // configure for CSS
     'stylelint-config-recommended-vue', // add overrides for .Vue files
     'stylelint-config-recess-order', // use the recess order for properties
   ],
@@ -16,8 +16,6 @@ module.exports = {
     'font-weight-notation': 'numeric',
     'comment-empty-line-before': null,
     'comment-whitespace-inside': null,
-    'at-rule-no-unknown': null,
-    'scss/at-rule-no-unknown': true,
     'declaration-no-important': null, // Allow !important since we use it for transitions
     'declaration-block-single-line-max-declarations': 1, // Allow single line if 1 declaration
     'selector-pseudo-element-no-unknown': true,
