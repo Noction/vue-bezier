@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extends: [
     'stylelint-config-standard', // configure for CSS
     'stylelint-config-recommended-vue', // add overrides for .Vue files
@@ -46,5 +46,5 @@ module.exports = {
     '@stylistic/value-list-comma-space-after': 'always',
     // Stylistic rules - Line length
     '@stylistic/max-line-length': 180,
-  }
+  },
 }
