@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { useTransitionOptions } from '../composables/options'
+import { options } from '../composables/options'
 import CircleProgress from './CircleProgress.vue'
-
-const { options } = useTransitionOptions()
 </script>
 
 <template>

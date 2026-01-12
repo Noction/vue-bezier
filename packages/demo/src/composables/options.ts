@@ -1,4 +1,4 @@
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 
 export const options = reactive({
   delay: 0,
@@ -9,18 +9,3 @@ export const options = reactive({
 export const state = reactive({
   shown: true,
 })
-
-export function useTransitionOptions() {
-  const options = reactive({
-    delay: 0,
-    enter: 300,
-    leave: 300,
-  })
-
-  const visible = ref(true)
-
-  return {
-    options,
-    visible,
-  }
-}
