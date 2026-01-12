@@ -32,7 +32,9 @@ declare module 'vue' {
     NavLogo: typeof import('./src/components/NavLogo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SetupCode: typeof import('./src/components/SetupCode.vue')['default']
     TransitionDuration: typeof import('./src/components/TransitionDuration.vue')['default']
     TransitionsOptions: typeof import('./src/components/TransitionsOptions.vue')['default']
+    UsageCode: typeof import('./src/components/UsageCode.vue')['default']
   }
 }

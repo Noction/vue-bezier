@@ -6,6 +6,7 @@ import { provide, ref } from 'vue'
 import { RouterView } from 'vue-router'
 import { TransitionBundleKey, TransitionInfoKey } from '../types/symbols'
 import NavBar from './components/NavBar.vue'
+import SetupCode from './components/SetupCode.vue'
 
 const transitionGroup: Ref<TransitionGroup> = ref(false)
 const transitionType: Ref<TransitionType> = ref('DissolveTransition')
@@ -27,16 +28,20 @@ provide(TransitionBundleKey, {
   },
   transitionsList,
 })
-
-const show = ref(false)
 </script>
 
 <template>
   <div class="min-h-screen antialiased bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
     <NavBar />
 
-    <div class="flex items-center min-h-screen xl:max-w-5xl max-w-none mx-auto px-4 sm:px-6 md:px-8 ">
-      <div class="border p-4 border-slate-200 dark:border-slate-700 rounded-lg w-full h-[500px] grid grid-rows-[auto_1fr] grid-cols-[200px_1fr_200px] gap-4 overflow-hidden">
+    <div class="min-h-screen max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8 space-y-8">
+      <!-- Setup Code Section -->
+      <div class="border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+        <SetupCode />
+      </div>
+
+      <!-- Main Demo Area -->
+      <div class="border p-4 border-slate-200 dark:border-slate-700 rounded-lg h-[500px] grid grid-rows-[auto_1fr] grid-cols-[200px_1fr_200px] gap-4 overflow-hidden">
         <nav class="col-span-3 flex w-full justify-center gap-x-8 font-semibold text-slate-600 dark:text-slate-300">
           <router-link
             to="/"
@@ -67,14 +72,11 @@ const show = ref(false)
         <RouterView />
         <RouterView name="controls" />
       </div>
-      <!-- <DemoCode :shown="show" /> -->
 
-      <button
-        class="absolute top-32 -right-5 hidden -rotate-90 rounded border-t border-l border-r px-4 py-2 lg:block xl:hidden"
-        @click="show = !show"
-      >
-        CODE
-      </button>
+      <!-- Usage Code Section -->
+      <div class="border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+        <UsageCode />
+      </div>
     </div>
   </div>
 </template>
