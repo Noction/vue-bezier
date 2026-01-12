@@ -13,16 +13,14 @@
   "dependencies": {
     "@noction/vue-bezier": "workspace:*",
     "@vueuse/core": "catalog:",
-    "prismjs": "catalog:",
+    "shiki": "^3.21.0",
     "vue": "catalog:",
-    "vue-prism-editor": "catalog:",
     "vue-router": "catalog:"
   },
   "devDependencies": {
     "@iconify-json/lucide": "catalog:",
     "@iconify-json/mdi": "catalog:",
     "@tailwindcss/postcss": "catalog:",
-    "@types/prismjs": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "autoprefixer": "catalog:",
     "postcss": "catalog:",

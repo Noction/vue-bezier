@@ -16,7 +16,6 @@ export default {
     'font-weight-notation': 'numeric',
     'comment-empty-line-before': null,
     'comment-whitespace-inside': null,
-    'declaration-no-important': null, // Allow !important since we use it for transitions
     'declaration-block-single-line-max-declarations': 1, // Allow single line if 1 declaration
     'selector-pseudo-element-no-unknown': true,
     // Stylistic rules - Block formatting

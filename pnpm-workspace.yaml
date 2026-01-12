@@ -10,7 +10,6 @@ catalog:
   "@stylistic/stylelint-plugin": ^4.0.0
   "@tailwindcss/postcss": ^4.1.18
   "@types/node": ^24.0.1
-  "@types/prismjs": ^1.26.4
   "@vitejs/plugin-vue": ^6.0.3
   "@vitest/coverage-v8": ^4.0.16
   "@vue/test-utils": ^2.4.6
@@ -25,7 +24,6 @@ catalog:
   postcss-html: ^1.7.0
   prettier: ^3.3.3
   prettier-plugin-tailwindcss: ^0.7.2
-  prismjs: ^1.29.0
   stylelint: ^16.26.1
   stylelint-config-recess-order: ^7.4.0
   stylelint-config-recommended-vue: ^1.6.1
@@ -39,6 +37,5 @@ catalog:
   vitest: ^4.0.16
   vue: ^3.5.26
   vue-docgen-web-types: ^0.1.8
-  vue-prism-editor: 2.0.0-alpha.2
   vue-router: ^4.6.4
   vue-tsc: ^3.2.2
