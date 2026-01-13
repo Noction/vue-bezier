@@ -53,9 +53,9 @@ describe('components / Blur / BlurTransition', () => {
     })
 
     const style = wrapper.attributes('style')
-    expect(style).toContain('--transition-enter-duration: 400ms')
-    expect(style).toContain('--transition-leave-duration: 800ms')
-    expect(style).toContain('--transition-enter-delay: 50ms')
-    expect(style).toContain('--transition-leave-delay: 100ms')
+    expect(style).toContain('--noc-transition-enter-duration: 400ms')
+    expect(style).toContain('--noc-transition-leave-duration: 800ms')
+    expect(style).toContain('--noc-transition-enter-delay: 50ms')
+    expect(style).toContain('--noc-transition-leave-delay: 100ms')
   })
 })

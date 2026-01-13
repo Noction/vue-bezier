@@ -31,9 +31,9 @@ describe('components / Push / PushTransition', () => {
       },
     })
     const style = wrapper.attributes('style')
-    expect(style).toContain('--transition-enter-duration: 350ms')
-    expect(style).toContain('--transition-leave-duration: 450ms')
-    expect(style).toContain('--transition-enter-delay: 75ms')
-    expect(style).toContain('--transition-leave-delay: 125ms')
+    expect(style).toContain('--noc-transition-enter-duration: 350ms')
+    expect(style).toContain('--noc-transition-leave-duration: 450ms')
+    expect(style).toContain('--noc-transition-enter-delay: 75ms')
+    expect(style).toContain('--noc-transition-leave-delay: 125ms')
   })
 })

@@ -35,24 +35,24 @@ const transitionDelay = computed(() => {
 })
 
 const pushDirectionClass = computed(() => {
-  return `push-${direction}`
+  return `noc-push-${direction}`
 })
 </script>
 
 <template>
   <Transition
     :class="[pushDirectionClass]"
-    enter-active-class="push-enter-active"
-    enter-from-class="push-enter-from"
-    enter-to-class="push-enter-to"
-    leave-active-class="push-leave-active"
-    leave-from-class="push-leave-from"
-    leave-to-class="push-leave-to"
+    enter-active-class="noc-push-enter-active"
+    enter-from-class="noc-push-enter-from"
+    enter-to-class="noc-push-enter-to"
+    leave-active-class="noc-push-leave-active"
+    leave-from-class="noc-push-leave-from"
+    leave-to-class="noc-push-leave-to"
     :style="{
-      '--transition-enter-duration': transitionDuration.enter,
-      '--transition-leave-duration': transitionDuration.leave,
-      '--transition-enter-delay': transitionDelay.enter,
-      '--transition-leave-delay': transitionDelay.leave,
+      '--noc-transition-enter-duration': transitionDuration.enter,
+      '--noc-transition-leave-duration': transitionDuration.leave,
+      '--noc-transition-enter-delay': transitionDelay.enter,
+      '--noc-transition-leave-delay': transitionDelay.leave,
     }"
   >
     <slot />
@@ -60,91 +60,91 @@ const pushDirectionClass = computed(() => {
 </template>
 
 <style scoped>
-  @property --transition-enter-duration {
+  @property --noc-transition-enter-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
-  @property --transition-leave-duration {
+  @property --noc-transition-leave-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
-  @property --transition-enter-delay {
+  @property --noc-transition-enter-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  @property --transition-leave-delay {
+  @property --noc-transition-leave-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  .push-enter-active,
-  .push-leave-active {
+  .noc-push-enter-active,
+  .noc-push-leave-active {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
     backface-visibility: hidden;
-    transition: opacity var(--transition-enter-duration) ease var(--transition-enter-delay), transform var(--transition-enter-duration) ease var(--transition-enter-delay);
+    transition: opacity var(--noc-transition-enter-duration) ease var(--noc-transition-enter-delay), transform var(--noc-transition-enter-duration) ease var(--noc-transition-enter-delay);
     will-change: opacity, transform;
   }
 
-  .push-leave-active {
+  .noc-push-leave-active {
     backface-visibility: hidden;
-    transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay), transform var(--transition-leave-duration) ease var(--transition-leave-delay);
+    transition: opacity var(--noc-transition-leave-duration) ease var(--noc-transition-leave-delay), transform var(--noc-transition-leave-duration) ease var(--noc-transition-leave-delay);
   }
 
-  .push-enter-to,
-  .push-leave-from {
+  .noc-push-enter-to,
+  .noc-push-leave-from {
     opacity: 1;
     transform: translateX(0);
   }
 
   /* Left */
-  .push-left.push-enter-from {
+  .noc-push-left.noc-push-enter-from {
     opacity: 0;
     transform: translateX(100%);
   }
 
-  .push-left.push-leave-to {
+  .noc-push-left.noc-push-leave-to {
     opacity: 0;
     transform: translateX(-100%);
   }
 
   /* Right */
-  .push-right.push-enter-from {
+  .noc-push-right.noc-push-enter-from {
     opacity: 0;
     transform: translateX(-100%);
   }
 
-  .push-right.push-leave-to {
+  .noc-push-right.noc-push-leave-to {
     opacity: 0;
     transform: translateX(100%);
   }
 
   /* Up */
-  .push-up.push-enter-from {
+  .noc-push-up.noc-push-enter-from {
     opacity: 0;
     transform: translateY(100%);
   }
 
-  .push-up.push-leave-to {
+  .noc-push-up.noc-push-leave-to {
     opacity: 0;
     transform: translateY(-100%);
   }
 
   /* Down */
-  .push-down.push-enter-from {
+  .noc-push-down.noc-push-enter-from {
     opacity: 0;
     transform: translateY(-100%);
   }
 
-  .push-down.push-leave-to {
+  .noc-push-down.noc-push-leave-to {
     opacity: 0;
     transform: translateY(100%);
   }

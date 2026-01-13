@@ -11,7 +11,7 @@ describe('components / ClipPath / ClipPathTransition', () => {
     const wrapper = mount(ClipPathTransition, {
       props: { clipType: 'circle' },
     })
-    expect(wrapper.classes()).toContain('clip-circle')
+    expect(wrapper.classes()).toContain('noc-clip-circle')
     expect(wrapper.html()).toMatchSnapshot()
   })
 
@@ -19,7 +19,7 @@ describe('components / ClipPath / ClipPathTransition', () => {
     const wrapper = mount(ClipPathTransition, {
       props: { clipType: 'square' },
     })
-    expect(wrapper.classes()).toContain('clip-square')
+    expect(wrapper.classes()).toContain('noc-clip-square')
     expect(wrapper.html()).toMatchSnapshot()
   })
 
@@ -47,9 +47,9 @@ describe('components / ClipPath / ClipPathTransition', () => {
       },
     })
     const style = wrapper.attributes('style')
-    expect(style).toContain('--transition-enter-duration: 600ms')
-    expect(style).toContain('--transition-leave-duration: 900ms')
-    expect(style).toContain('--transition-enter-delay: 100ms')
-    expect(style).toContain('--transition-leave-delay: 200ms')
+    expect(style).toContain('--noc-transition-enter-duration: 600ms')
+    expect(style).toContain('--noc-transition-leave-duration: 900ms')
+    expect(style).toContain('--noc-transition-enter-delay: 100ms')
+    expect(style).toContain('--noc-transition-leave-delay: 200ms')
   })
 })

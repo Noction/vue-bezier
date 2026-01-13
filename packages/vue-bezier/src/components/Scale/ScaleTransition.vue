@@ -37,19 +37,19 @@ const transitionDelay = computed(() => {
 
 <template>
   <Transition
-    enter-active-class="scale-enter-active"
-    enter-from-class="scale-enter-from"
-    enter-to-class="scale-enter-to"
-    leave-active-class="scale-leave-active"
-    leave-from-class="scale-leave-from"
-    leave-to-class="scale-leave-to"
-    move-class="scale-move"
+    enter-active-class="noc-scale-enter-active"
+    enter-from-class="noc-scale-enter-from"
+    enter-to-class="noc-scale-enter-to"
+    leave-active-class="noc-scale-leave-active"
+    leave-from-class="noc-scale-leave-from"
+    leave-to-class="noc-scale-leave-to"
+    move-class="noc-scale-move"
     :style="{
-      '--transition-enter-duration': transitionDuration.enter,
-      '--transition-leave-duration': transitionDuration.leave,
-      '--transition-enter-delay': transitionDelay.enter,
-      '--transition-leave-delay': transitionDelay.leave,
-      '--transform-origin': origin,
+      '--noc-transition-enter-duration': transitionDuration.enter,
+      '--noc-transition-leave-duration': transitionDuration.leave,
+      '--noc-transition-enter-delay': transitionDelay.enter,
+      '--noc-transition-leave-delay': transitionDelay.leave,
+      '--noc-transform-origin': origin,
     }"
   >
     <slot />
@@ -57,62 +57,62 @@ const transitionDelay = computed(() => {
 </template>
 
 <style scoped>
-  @property --transition-enter-duration {
+  @property --noc-transition-enter-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
-  @property --transition-leave-duration {
+  @property --noc-transition-leave-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
-  @property --transition-enter-delay {
+  @property --noc-transition-enter-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  @property --transition-leave-delay {
+  @property --noc-transition-leave-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  .scale-enter-active,
-  .scale-leave-active {
-    transform-origin: var(--transform-origin, top left);
-    transition: all var(--transition-enter-duration) ease-out var(--transition-enter-delay);
+  .noc-scale-enter-active,
+  .noc-scale-leave-active {
+    transform-origin: var(--noc-transform-origin, top left);
+    transition: all var(--noc-transition-enter-duration) ease-out var(--noc-transition-enter-delay);
     will-change: opacity, transform;
   }
 
-  .scale-leave-active {
-    transition: all var(--transition-leave-duration) ease-out var(--transition-leave-delay);
+  .noc-scale-leave-active {
+    transition: all var(--noc-transition-leave-duration) ease-out var(--noc-transition-leave-delay);
   }
 
-  .scale-enter-from {
+  .noc-scale-enter-from {
     opacity: 0;
     transform: scale(0);
   }
 
-  .scale-enter-to {
+  .noc-scale-enter-to {
     opacity: 1;
     transform: scale(1);
   }
 
-  .scale-leave-from {
+  .noc-scale-leave-from {
     opacity: 1;
     transform: scale(1);
   }
 
-  .scale-leave-to {
+  .noc-scale-leave-to {
     opacity: 0;
     transform: scale(0);
   }
 
-  .scale-move {
+  .noc-scale-move {
     transition: transform .3s cubic-bezier(.25, .8, .5, 1);
   }
 </style>

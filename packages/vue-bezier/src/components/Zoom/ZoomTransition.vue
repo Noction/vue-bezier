@@ -19,18 +19,18 @@ const transitionDelay = computed(() => ({
 
 <template>
   <Transition
-    enter-active-class="zoom-enter-active"
-    enter-from-class="zoom-enter-from"
-    enter-to-class="zoom-enter-to"
-    leave-active-class="zoom-leave-active"
-    leave-from-class="zoom-leave-from"
-    leave-to-class="zoom-leave-to"
+    enter-active-class="noc-zoom-enter-active"
+    enter-from-class="noc-zoom-enter-from"
+    enter-to-class="noc-zoom-enter-to"
+    leave-active-class="noc-zoom-leave-active"
+    leave-from-class="noc-zoom-leave-from"
+    leave-to-class="noc-zoom-leave-to"
     mode="out-in"
     :style="{
-      '--transition-enter-duration': transitionDuration.enter,
-      '--transition-leave-duration': transitionDuration.leave,
-      '--transition-enter-delay': transitionDelay.enter,
-      '--transition-leave-delay': transitionDelay.leave,
+      '--noc-transition-enter-duration': transitionDuration.enter,
+      '--noc-transition-leave-duration': transitionDuration.leave,
+      '--noc-transition-enter-delay': transitionDelay.enter,
+      '--noc-transition-leave-delay': transitionDelay.leave,
     }"
   >
     <slot />
@@ -39,50 +39,50 @@ const transitionDelay = computed(() => ({
 
 <style scoped>
   /* Define CSS properties for transition timing and delay */
-  @property --transition-enter-duration {
+  @property --noc-transition-enter-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .5s;
   }
 
-  @property --transition-leave-duration {
+  @property --noc-transition-leave-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .5s;
   }
 
-  @property --transition-enter-delay {
+  @property --noc-transition-enter-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  @property --transition-leave-delay {
+  @property --noc-transition-leave-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  .zoom-enter-active,
-  .zoom-leave-active {
+  .noc-zoom-enter-active,
+  .noc-zoom-leave-active {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
-    transition: transform var(--transition-enter-duration) ease var(--transition-enter-delay);
+    transition: transform var(--noc-transition-enter-duration) ease var(--noc-transition-enter-delay);
     will-change: transform;
   }
 
-  .zoom-leave-active {
-    transition: transform var(--transition-leave-duration) ease var(--transition-leave-delay);
+  .noc-zoom-leave-active {
+    transition: transform var(--noc-transition-leave-duration) ease var(--noc-transition-leave-delay);
   }
 
-  .zoom-enter-from,
-  .zoom-leave-to {
+  .noc-zoom-enter-from,
+  .noc-zoom-leave-to {
     transform: scale(1.05);
   }
 
-  .zoom-enter-to,
-  .zoom-leave-from {
+  .noc-zoom-enter-to,
+  .noc-zoom-leave-from {
     transform: scale(1);
   }
 </style>

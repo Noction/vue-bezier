@@ -141,10 +141,40 @@ const items = ref([1, 2, 3, 4, 5]);
 
 ```css
 /* Example: Custom move duration for DissolveListTransition */
-.dissolve-move {
+.noc-dissolve-move {
   transition: transform 0.5s ease-out;
 }
 ```
+
+## Customizing Transitions
+
+All CSS classes and custom properties are prefixed with `noc-` to prevent naming conflicts with other libraries. You can override any transition styles by targeting the specific classes:
+
+```css
+/* Override dissolve transition timing */
+.noc-dissolve-enter-active {
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Override blur transition effect */
+.noc-blur-enter-from {
+  opacity: 0;
+  filter: blur(20px); /* Increase blur intensity */
+}
+
+/* Override scale list move animation */
+.noc-scale-list-move {
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.5, 1);
+}
+```
+
+Available CSS custom properties:
+
+- `--noc-transition-enter-duration`
+- `--noc-transition-leave-duration`
+- `--noc-transition-enter-delay`
+- `--noc-transition-leave-delay`
+- `--noc-transform-origin` (ScaleTransition)
 
 ## License
 

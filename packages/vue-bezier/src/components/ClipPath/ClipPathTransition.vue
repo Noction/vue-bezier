@@ -15,7 +15,7 @@ const transitionDelay = computed(() => ({
 }))
 
 const clipTypeClass = computed(() => {
-  return clipType === 'circle' ? 'clip-circle' : 'clip-square'
+  return clipType === 'circle' ? 'noc-clip-circle' : 'noc-clip-square'
 })
 </script>
 
@@ -23,15 +23,15 @@ const clipTypeClass = computed(() => {
   <Transition
     mode="default"
     :class="[clipTypeClass]"
-    enter-active-class="clip-enter-active"
-    enter-from-class="clip-enter-from"
-    enter-to-class="clip-enter-to"
-    leave-active-class="clip-leave-active"
+    enter-active-class="noc-clip-enter-active"
+    enter-from-class="noc-clip-enter-from"
+    enter-to-class="noc-clip-enter-to"
+    leave-active-class="noc-clip-leave-active"
     :style="{
-      '--transition-enter-duration': transitionDuration.enter,
-      '--transition-leave-duration': transitionDuration.leave,
-      '--transition-enter-delay': transitionDelay.enter,
-      '--transition-leave-delay': transitionDelay.leave,
+      '--noc-transition-enter-duration': transitionDuration.enter,
+      '--noc-transition-leave-duration': transitionDuration.leave,
+      '--noc-transition-enter-delay': transitionDelay.enter,
+      '--noc-transition-leave-delay': transitionDelay.leave,
     }"
   >
     <slot />
@@ -39,53 +39,53 @@ const clipTypeClass = computed(() => {
 </template>
 
 <style scoped>
-  @property --transition-enter-duration {
+  @property --noc-transition-enter-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: 1s;
   }
 
-  @property --transition-leave-duration {
+  @property --noc-transition-leave-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .99s;
   }
 
-  @property --transition-enter-delay {
+  @property --noc-transition-enter-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  @property --transition-leave-delay {
+  @property --noc-transition-leave-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  .clip-enter-active {
+  .noc-clip-enter-active {
     position: relative;
-    transition: all var(--transition-enter-duration) ease-in var(--transition-enter-delay);
+    transition: all var(--noc-transition-enter-duration) ease-in var(--noc-transition-enter-delay);
   }
 
-  .clip-leave-active {
+  .noc-clip-leave-active {
     position: absolute;
-    transition: all calc(var(--transition-leave-duration) - .01s) linear calc(var(--transition-leave-delay));
+    transition: all calc(var(--noc-transition-leave-duration) - .01s) linear calc(var(--noc-transition-leave-delay));
   }
 
-  .clip-circle.clip-enter-from {
+  .noc-clip-circle.noc-clip-enter-from {
     clip-path: circle(0%);
   }
 
-  .clip-circle.clip-enter-to {
+  .noc-clip-circle.noc-clip-enter-to {
     clip-path: circle(100%);
   }
 
-  .clip-square.clip-enter-from {
+  .noc-clip-square.noc-clip-enter-from {
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
   }
 
-  .clip-square.clip-enter-to {
+  .noc-clip-square.noc-clip-enter-to {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 </style>

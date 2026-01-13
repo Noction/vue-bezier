@@ -22,17 +22,17 @@ const transitionDelay = computed(() => ({
 
 <template>
   <Transition
-    enter-active-class="blur-enter-active"
-    enter-from-class="blur-enter-from"
-    enter-to-class="blur-enter-to"
-    leave-active-class="blur-leave-active"
-    leave-from-class="blur-leave-from"
-    leave-to-class="blur-leave-to"
+    enter-active-class="noc-blur-enter-active"
+    enter-from-class="noc-blur-enter-from"
+    enter-to-class="noc-blur-enter-to"
+    leave-active-class="noc-blur-leave-active"
+    leave-from-class="noc-blur-leave-from"
+    leave-to-class="noc-blur-leave-to"
     :style="{
-      '--transition-enter-duration': transitionDuration.enter,
-      '--transition-leave-duration': transitionDuration.leave,
-      '--transition-enter-delay': transitionDelay.enter,
-      '--transition-leave-delay': transitionDelay.leave,
+      '--noc-transition-enter-duration': transitionDuration.enter,
+      '--noc-transition-leave-duration': transitionDuration.leave,
+      '--noc-transition-enter-delay': transitionDelay.enter,
+      '--noc-transition-leave-delay': transitionDelay.leave,
     }"
   >
     <slot />
@@ -41,60 +41,60 @@ const transitionDelay = computed(() => ({
 
 <style scoped>
   /* Define CSS properties for transition timing and delay */
-  @property --transition-enter-duration {
+  @property --noc-transition-enter-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .5s;
   }
 
-  @property --transition-leave-duration {
+  @property --noc-transition-leave-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .5s;
   }
 
-  @property --transition-enter-delay {
+  @property --noc-transition-enter-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  @property --transition-leave-delay {
+  @property --noc-transition-leave-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
   /* Active transition classes for enter and leave */
-  .blur-enter-active,
-  .blur-leave-active {
+  .noc-blur-enter-active,
+  .noc-blur-leave-active {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
-    transition: all var(--transition-enter-duration) ease var(--transition-enter-delay);
+    transition: all var(--noc-transition-enter-duration) ease var(--noc-transition-enter-delay);
     will-change: opacity, filter;
   }
 
-  .blur-leave-active {
-    transition: all var(--transition-leave-duration) ease var(--transition-leave-delay);
+  .noc-blur-leave-active {
+    transition: all var(--noc-transition-leave-duration) ease var(--noc-transition-leave-delay);
   }
 
-  .blur-enter-from {
+  .noc-blur-enter-from {
     opacity: 0;
     filter: blur(8px); /* Tailwind's blur-md */
   }
 
-  .blur-enter-to {
+  .noc-blur-enter-to {
     opacity: 1;
     filter: blur(0); /* Tailwind's blur-none */
   }
 
-  .blur-leave-from {
+  .noc-blur-leave-from {
     opacity: 1;
     filter: blur(0); /* Tailwind's blur-none */
   }
 
-  .blur-leave-to {
+  .noc-blur-leave-to {
     opacity: 0;
     filter: blur(8px); /* Tailwind's blur-md */
   }

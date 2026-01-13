@@ -20,17 +20,17 @@ const transitionDelay = computed(() => ({
 <template>
   <Transition
     mode="out-in"
-    enter-active-class="rotate-enter-active"
-    enter-from-class="rotate-enter-from"
-    enter-to-class="rotate-enter-to"
-    leave-active-class="rotate-leave-active"
-    leave-from-class="rotate-leave-from"
-    leave-to-class="rotate-leave-to"
+    enter-active-class="noc-rotate-enter-active"
+    enter-from-class="noc-rotate-enter-from"
+    enter-to-class="noc-rotate-enter-to"
+    leave-active-class="noc-rotate-leave-active"
+    leave-from-class="noc-rotate-leave-from"
+    leave-to-class="noc-rotate-leave-to"
     :style="{
-      '--transition-enter-duration': transitionDuration.enter,
-      '--transition-leave-duration': transitionDuration.leave,
-      '--transition-enter-delay': transitionDelay.enter,
-      '--transition-leave-delay': transitionDelay.leave,
+      '--noc-transition-enter-duration': transitionDuration.enter,
+      '--noc-transition-leave-duration': transitionDuration.leave,
+      '--noc-transition-enter-delay': transitionDelay.enter,
+      '--noc-transition-leave-delay': transitionDelay.leave,
     }"
   >
     <slot />
@@ -39,60 +39,60 @@ const transitionDelay = computed(() => ({
 
 <style scoped>
   /* Define CSS properties for transition timing and delay */
-  @property --transition-enter-duration {
+  @property --noc-transition-enter-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
-  @property --transition-leave-duration {
+  @property --noc-transition-leave-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
-  @property --transition-enter-delay {
+  @property --noc-transition-enter-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  @property --transition-leave-delay {
+  @property --noc-transition-leave-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
   /* Active transition classes for enter and leave */
-  .rotate-enter-active,
-  .rotate-leave-active {
-    transition: all var(--transition-enter-duration) linear var(--transition-enter-delay);
+  .noc-rotate-enter-active,
+  .noc-rotate-leave-active {
+    transition: all var(--noc-transition-enter-duration) linear var(--noc-transition-enter-delay);
   }
 
-  .rotate-leave-active {
-    transition: all var(--transition-leave-duration) linear var(--transition-leave-delay);
+  .noc-rotate-leave-active {
+    transition: all var(--noc-transition-leave-duration) linear var(--noc-transition-leave-delay);
   }
 
   /* Define starting and ending states for the rotate transition */
-  .rotate-enter-from {
+  .noc-rotate-enter-from {
     opacity: 1;
     filter: blur(4px); /* Tailwind's blur-sm */
     transform: rotate(12deg);
   }
 
-  .rotate-enter-to {
+  .noc-rotate-enter-to {
     opacity: 1;
     filter: blur(0); /* Tailwind's blur-none */
     transform: rotate(0deg);
   }
 
-  .rotate-leave-from {
+  .noc-rotate-leave-from {
     opacity: 1;
     filter: blur(0); /* Tailwind's blur-none */
     transform: rotate(0deg);
   }
 
-  .rotate-leave-to {
+  .noc-rotate-leave-to {
     opacity: 1;
     filter: blur(4px); /* Tailwind's blur-sm */
     transform: rotate(12deg);

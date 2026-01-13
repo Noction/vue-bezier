@@ -37,17 +37,17 @@ const transitionDelay = computed(() => {
 
 <template>
   <Transition
-    enter-active-class="fade-slide-enter-active"
-    enter-from-class="fade-slide-enter-from"
-    enter-to-class="fade-slide-enter-to"
-    leave-active-class="fade-slide-leave-active"
-    leave-from-class="fade-slide-leave-from"
-    leave-to-class="fade-slide-leave-to"
+    enter-active-class="noc-fade-slide-enter-active"
+    enter-from-class="noc-fade-slide-enter-from"
+    enter-to-class="noc-fade-slide-enter-to"
+    leave-active-class="noc-fade-slide-leave-active"
+    leave-from-class="noc-fade-slide-leave-from"
+    leave-to-class="noc-fade-slide-leave-to"
     :style="{
-      '--transition-enter-duration': transitionDuration.enter,
-      '--transition-leave-duration': transitionDuration.leave,
-      '--transition-enter-delay': transitionDelay.enter,
-      '--transition-leave-delay': transitionDelay.leave,
+      '--noc-transition-enter-duration': transitionDuration.enter,
+      '--noc-transition-leave-duration': transitionDuration.leave,
+      '--noc-transition-enter-delay': transitionDelay.enter,
+      '--noc-transition-leave-delay': transitionDelay.leave,
     }"
   >
     <slot />
@@ -55,60 +55,60 @@ const transitionDelay = computed(() => {
 </template>
 
 <style scoped>
-  @property --transition-enter-duration {
+  @property --noc-transition-enter-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
-  @property --transition-leave-duration {
+  @property --noc-transition-leave-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
-  @property --transition-enter-delay {
+  @property --noc-transition-enter-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  @property --transition-leave-delay {
+  @property --noc-transition-leave-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  .fade-slide-enter-active,
-  .fade-slide-leave-active {
+  .noc-fade-slide-enter-active,
+  .noc-fade-slide-leave-active {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
     backface-visibility: hidden;
-    transition: all var(--transition-enter-duration) ease var(--transition-enter-delay);
+    transition: all var(--noc-transition-enter-duration) ease var(--noc-transition-enter-delay);
   }
 
-  .fade-slide-leave-active {
+  .noc-fade-slide-leave-active {
     backface-visibility: hidden;
-    transition: all var(--transition-leave-duration) ease var(--transition-leave-delay);
+    transition: all var(--noc-transition-leave-duration) ease var(--noc-transition-leave-delay);
   }
 
-  .fade-slide-enter-from {
+  .noc-fade-slide-enter-from {
     opacity: 0;
     transform: translateY(.5rem);
   }
 
-  .fade-slide-enter-to {
+  .noc-fade-slide-enter-to {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .fade-slide-leave-from {
+  .noc-fade-slide-leave-from {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .fade-slide-leave-to {
+  .noc-fade-slide-leave-to {
     opacity: 0;
     transform: translateY(.5rem);
   }

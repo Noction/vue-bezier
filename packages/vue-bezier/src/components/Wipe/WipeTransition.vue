@@ -19,17 +19,17 @@ const transitionDelay = computed(() => ({
 
 <template>
   <Transition
-    enter-active-class="wipe-enter-active"
-    enter-from-class="wipe-enter-from"
-    enter-to-class="wipe-enter-to"
-    leave-active-class="wipe-leave-active"
-    leave-from-class="wipe-leave-from"
-    leave-to-class="wipe-leave-to"
+    enter-active-class="noc-wipe-enter-active"
+    enter-from-class="noc-wipe-enter-from"
+    enter-to-class="noc-wipe-enter-to"
+    leave-active-class="noc-wipe-leave-active"
+    leave-from-class="noc-wipe-leave-from"
+    leave-to-class="noc-wipe-leave-to"
     :style="{
-      '--transition-enter-duration': transitionDuration.enter,
-      '--transition-leave-duration': transitionDuration.leave,
-      '--transition-enter-delay': transitionDelay.enter,
-      '--transition-leave-delay': transitionDelay.leave,
+      '--noc-transition-enter-duration': transitionDuration.enter,
+      '--noc-transition-leave-duration': transitionDuration.leave,
+      '--noc-transition-enter-delay': transitionDelay.enter,
+      '--noc-transition-leave-delay': transitionDelay.leave,
     }"
   >
     <slot />
@@ -37,45 +37,45 @@ const transitionDelay = computed(() => ({
 </template>
 
 <style scoped>
-  @property --transition-enter-duration {
+  @property --noc-transition-enter-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .5s;
   }
 
-  @property --transition-leave-duration {
+  @property --noc-transition-leave-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .49s;
   }
 
-  @property --transition-enter-delay {
+  @property --noc-transition-enter-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  @property --transition-leave-delay {
+  @property --noc-transition-leave-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  .wipe-enter-active {
+  .noc-wipe-enter-active {
     z-index: 10;
-    transition: transform var(--transition-enter-duration) ease-out var(--transition-enter-delay);
+    transition: transform var(--noc-transition-enter-duration) ease-out var(--noc-transition-enter-delay);
   }
 
-  .wipe-leave-active {
+  .noc-wipe-leave-active {
     position: absolute;
-    transition: transform calc(var(--transition-leave-duration) - .01s) ease var(--transition-leave-delay);
+    transition: transform calc(var(--noc-transition-leave-duration) - .01s) ease var(--noc-transition-leave-delay);
   }
 
-  .wipe-enter-from {
+  .noc-wipe-enter-from {
     transform: translateX(-100%);
   }
 
-  .wipe-enter-to {
+  .noc-wipe-enter-to {
     transform: translateX(0);
   }
 </style>

@@ -44,10 +44,10 @@ describe('components / Scale / ScaleListTransition', () => {
       },
     })
     const style = wrapper.attributes('style')
-    expect(style).toContain('--transition-enter-duration: 320ms')
-    expect(style).toContain('--transition-leave-duration: 480ms')
-    expect(style).toContain('--transition-enter-delay: 70ms')
-    expect(style).toContain('--transition-leave-delay: 140ms')
+    expect(style).toContain('--noc-transition-enter-duration: 320ms')
+    expect(style).toContain('--noc-transition-leave-duration: 480ms')
+    expect(style).toContain('--noc-transition-enter-delay: 70ms')
+    expect(style).toContain('--noc-transition-leave-delay: 140ms')
   })
 
   it('should handle lifecycle hooks', () => {

@@ -86,19 +86,19 @@ function onLeave(el: Element) {
 <template>
   <TransitionGroup
     :tag
-    class="dissolve-list"
-    enter-active-class="dissolve-enter-active"
-    enter-from-class="dissolve-enter-from"
-    enter-to-class="dissolve-enter-to"
-    leave-active-class="dissolve-leave-active"
-    leave-from-class="dissolve-leave-from"
-    leave-to-class="dissolve-leave-to"
-    move-class="dissolve-move"
+    class="noc-dissolve-list"
+    enter-active-class="noc-dissolve-enter-active"
+    enter-from-class="noc-dissolve-enter-from"
+    enter-to-class="noc-dissolve-enter-to"
+    leave-active-class="noc-dissolve-leave-active"
+    leave-from-class="noc-dissolve-leave-from"
+    leave-to-class="noc-dissolve-leave-to"
+    move-class="noc-dissolve-move"
     :style="{
-      '--transition-enter-duration': transitionDuration.enter,
-      '--transition-leave-duration': transitionDuration.leave,
-      '--transition-enter-delay': transitionDelay.enter,
-      '--transition-leave-delay': transitionDelay.leave,
+      '--noc-transition-enter-duration': transitionDuration.enter,
+      '--noc-transition-leave-duration': transitionDuration.leave,
+      '--noc-transition-enter-delay': transitionDelay.enter,
+      '--noc-transition-leave-delay': transitionDelay.leave,
     }"
     @after-leave="afterLeave($event)"
     @before-leave="beforeLeave($event)"
@@ -109,60 +109,60 @@ function onLeave(el: Element) {
 </template>
 
 <style>
-  @property --transition-enter-duration {
+  @property --noc-transition-enter-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
-  @property --transition-leave-duration {
+  @property --noc-transition-leave-duration {
     syntax: '<time>';
     inherits: false;
     initial-value: .3s;
   }
 
-  @property --transition-enter-delay {
+  @property --noc-transition-enter-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  @property --transition-leave-delay {
+  @property --noc-transition-leave-delay {
     syntax: '<time>';
     inherits: false;
     initial-value: 0s;
   }
 
-  .dissolve-list > * {
-    --transition-enter-duration: inherit;
-    --transition-leave-duration: inherit;
-    --transition-enter-delay: inherit;
-    --transition-leave-delay: inherit;
+  .noc-dissolve-list > * {
+    --noc-transition-enter-duration: inherit;
+    --noc-transition-leave-duration: inherit;
+    --noc-transition-enter-delay: inherit;
+    --noc-transition-leave-delay: inherit;
   }
 
-  .dissolve-enter-active {
-    transition: opacity var(--transition-enter-duration) ease var(--transition-enter-delay);
+  .noc-dissolve-enter-active {
+    transition: opacity var(--noc-transition-enter-duration) ease var(--noc-transition-enter-delay);
     will-change: opacity;
   }
 
-  .dissolve-leave-active {
+  .noc-dissolve-leave-active {
     position: absolute;
     backface-visibility: hidden;
-    transition: opacity var(--transition-leave-duration) ease var(--transition-leave-delay);
+    transition: opacity var(--noc-transition-leave-duration) ease var(--noc-transition-leave-delay);
     will-change: opacity;
   }
 
-  .dissolve-enter-from,
-  .dissolve-leave-to {
+  .noc-dissolve-enter-from,
+  .noc-dissolve-leave-to {
     opacity: 0;
   }
 
-  .dissolve-enter-to,
-  .dissolve-leave-from {
+  .noc-dissolve-enter-to,
+  .noc-dissolve-leave-from {
     opacity: 1;
   }
 
-  .dissolve-move {
-    transition: transform var(--transition-enter-duration) ease-out var(--transition-enter-delay);
+  .noc-dissolve-move {
+    transition: transform var(--noc-transition-enter-duration) ease-out var(--noc-transition-enter-delay);
   }
 </style>
