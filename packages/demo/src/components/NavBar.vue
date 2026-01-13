@@ -55,6 +55,7 @@ function toggleDark() {
         class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
         target="_blank"
         href="https://www.npmjs.com/package/@noction/vue-bezier"
+        aria-label="View on NPM"
       >
         <IMdiNpm class="text-3xl" />
       </a>
@@ -62,6 +63,7 @@ function toggleDark() {
         class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
         target="_blank"
         href="https://github.com/Noction/vue-bezier"
+        aria-label="View on GitHub"
       >
         <IMdiGithub class="text-xl" />
       </a>

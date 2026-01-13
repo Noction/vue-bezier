@@ -38,51 +38,24 @@ const showSetup = ref(false)
     <NavBar />
 
     <DissolveTransition :duration="300">
-      <div
+      <aside
         v-if="showSetup"
         class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
         @click="showSetup = false"
       >
-        <div
+        <article
           class="border-2 border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-900 shadow-2xl max-h-[80vh] overflow-auto w-full max-w-4xl"
           @click.stop
         >
           <SetupCode />
-        </div>
-      </div>
+        </article>
+      </aside>
     </DissolveTransition>
 
-    <div class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 md:px-8 flex flex-col justify-center gap-4 min-h-0">
+    <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 md:px-8 flex flex-col justify-center gap-4 min-h-0">
       <!-- Main Demo Area -->
-      <div class="border p-4 border-slate-200 dark:border-slate-700 rounded-lg h-[500px] flex flex-col lg:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[200px_1fr_200px] gap-4 overflow-hidden">
-        <nav class="lg:col-span-3 flex w-full justify-center justify-items-center font-semibold text-slate-600 dark:text-slate-300 text-sm lg:text-base">
-          <div class="flex justify-evenly items-center w-full max-w-md">
-            <router-link
-              to="/"
-              class="flex gap-x-2 items-center py-2 justify-center flex-1"
-              active-class="text-sky-500 dark:text-sky-400"
-            >
-              <i-lucide-square-dashed-bottom />
-              Appear
-            </router-link>
-            <router-link
-              to="/between"
-              class="flex gap-x-2 items-center justify-center flex-1"
-              active-class="text-emerald-500 dark:text-emerald-400"
-            >
-              <i-lucide-squares-subtract />
-              Between
-            </router-link>
-            <router-link
-              to="/list"
-              class="flex gap-x-2 items-center justify-center flex-1"
-              active-class="text-yellow-500 dark:text-yellow-400"
-            >
-              <i-lucide-square-stack />
-              List
-            </router-link>
-          </div>
-        </nav>
+      <section class="border p-4 border-slate-200 dark:border-slate-700 rounded-lg h-[500px] flex flex-col lg:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[200px_1fr_200px] gap-4 overflow-hidden">
+        <SectionNav />
 
         <!-- Mobile: nav + demo + controls stacked -->
         <div class="flex-1 flex flex-col lg:hidden min-h-0 gap-4">
@@ -116,12 +89,12 @@ const showSetup = ref(false)
         <div class="hidden lg:block">
           <RouterView name="controls" />
         </div>
-      </div>
+      </section>
 
       <!-- Usage Code Section -->
-      <div class="border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+      <section class="border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-slate-800/50">
         <UsageCode />
-      </div>
-    </div>
+      </section>
+    </main>
   </div>
 </template>

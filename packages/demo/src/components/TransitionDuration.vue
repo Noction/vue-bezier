@@ -19,6 +19,7 @@ import CircleProgress from './CircleProgress.vue'
         <input
           v-model.number.lazy="options.delay"
           type="number"
+          name="transition-delay"
           min="0"
           max="1000"
           step="100"
@@ -33,6 +34,7 @@ import CircleProgress from './CircleProgress.vue'
         <input
           v-model.number.lazy="options.enter"
           type="number"
+          name="transition-enter"
           min="0"
           max="1000"
           step="100"
@@ -47,6 +49,7 @@ import CircleProgress from './CircleProgress.vue'
         <input
           v-model.number.lazy="options.leave"
           type="number"
+          name="transition-leave"
           min="0"
           max="1000"
           step="100"
@@ -65,6 +68,7 @@ import CircleProgress from './CircleProgress.vue'
       <input
         v-model.number.lazy="options.delay"
         type="number"
+        name="transition-delay-desktop"
         min="0"
         max="1000"
         step="100"
@@ -76,6 +80,7 @@ import CircleProgress from './CircleProgress.vue'
       <input
         v-model.number.lazy="options.enter"
         type="number"
+        name="transition-enter-desktop"
         min="0"
         max="1000"
         step="100"
@@ -87,6 +92,7 @@ import CircleProgress from './CircleProgress.vue'
       <input
         v-model.number.lazy="options.leave"
         type="number"
+        name="transition-leave-desktop"
         min="0"
         max="1000"
         step="100"

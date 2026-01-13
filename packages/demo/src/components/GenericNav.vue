@@ -40,6 +40,7 @@ function navigateToTransition(event: Event) {
   <select
     :key="currentTransition"
     :value="currentTransition"
+    :name="`${section}-transition-select`"
     class="lg:hidden w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium text-sm"
     @change="navigateToTransition"
   >
