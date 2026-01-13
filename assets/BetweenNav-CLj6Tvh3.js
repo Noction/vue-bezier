@@ -1,0 +1,1 @@
+import{p as e,v as t,y as n}from"./index-B14MUkrz.js";import{t as r}from"./GenericNav-Cnpje3rW.js";var i=t({__name:`BetweenNav`,setup(t){return(t,i)=>(n(),e(r,{section:`between`,"active-class":`text-emerald-500`}))}});export{i as default};

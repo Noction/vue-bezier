@@ -1,0 +1,1 @@
+import{S as e,_ as t,c as n,h as r,y as i}from"./index-B14MUkrz.js";var a={},o={class:`relative w-full h-full max-w-72 max-h-48 m-auto`};function s(n,a){let s=e(`router-view`);return i(),r(`div`,o,[t(s)])}var c=n(a,[[`render`,s]]);export{c as default};

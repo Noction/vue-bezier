@@ -1,0 +1,1 @@
+import{p as e,v as t,y as n}from"./index-B14MUkrz.js";import{t as r}from"./GenericNav-Cnpje3rW.js";var i=t({__name:`ListNav`,setup(t){return(t,i)=>(n(),e(r,{section:`list`,"active-class":`text-yellow-500`}))}});export{i as default};
