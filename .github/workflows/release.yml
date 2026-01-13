@@ -24,11 +24,14 @@ jobs:
           node-version-file: ".node-version"
           registry-url: "https://registry.npmjs.org"
 
+      - name: Setup
+        run: npm i -g @antfu/ni
+
       - run: npx changelogithub
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - run: pnpm nci
+      - run: nci
 
       - run: pnpm -r publish --provenance --access public --no-git-checks

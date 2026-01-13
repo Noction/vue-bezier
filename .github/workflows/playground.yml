@@ -11,17 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set node version to 18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
       - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
+
+      - uses: actions/setup-node@v3
         with:
-          version: 8
-          run_install: false
+          node-version-file: ".node-version"
+
+      - name: Setup
+        run: npm i -g @antfu/ni
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -37,11 +34,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Installing modules
-        run: pnpm i -r
+      - name: Install dependencies
+        run: nci
 
-      - name: Building module
-        run: pnpm run build
+      - name: Build module
+        run: nr build
 
       - name: Deploy to GitHub Pages
         if: success()

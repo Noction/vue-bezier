@@ -24,6 +24,9 @@ jobs:
         with:
           node-version-file: ".node-version"
 
+      - name: Setup
+        run: npm i -g @antfu/ni
+
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
@@ -39,7 +42,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm nci
+        run: nci
 
   lint:
     runs-on: ubuntu-latest
@@ -53,6 +56,9 @@ jobs:
         with:
           node-version-file: ".node-version"
 
+      - name: Setup
+        run: npm i -g @antfu/ni
+
       - uses: actions/cache@v3
         name: Restore pnpm cache
         with:
@@ -62,16 +68,16 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm nci --offline
+        run: nci --offline
 
       - name: Build module
         run: pnpm -F=vue-bezier run build
 
       - name: Run ESLint
-        run: pnpm run lint:es
+        run: nr lint:es
 
       - name: Run Stylelint
-        run: pnpm run lint:style
+        run: nr lint:style
 
   typecheck:
     runs-on: ubuntu-latest
@@ -85,6 +91,9 @@ jobs:
         with:
           node-version-file: ".node-version"
 
+      - name: Setup
+        run: npm i -g @antfu/ni
+
       - uses: actions/cache@v3
         name: Restore pnpm cache
         with:
@@ -94,10 +103,10 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm nci --offline
+        run: nci --offline
 
       - name: Run type check
-        run: pnpm -F vue-bezier run type:check
+        run: nr -F vue-bezier type:check
 
   unit-test:
     runs-on: ubuntu-latest
@@ -111,6 +120,9 @@ jobs:
         with:
           node-version-file: ".node-version"
 
+      - name: Setup
+        run: npm i -g @antfu/ni
+
       - uses: actions/cache@v3
         name: Restore pnpm cache
         with:
@@ -120,10 +132,10 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm nci --offline
+        run: nci --offline
 
       - name: Run tests
-        run: pnpm run test:coverage
+        run: nr test:coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
