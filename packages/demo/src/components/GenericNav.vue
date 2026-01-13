@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { useIntervalFn } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-interface Props {
+type Props = {
   section: 'appear' | 'between' | 'list'
   activeClass: string
 }
@@ -11,6 +12,8 @@ const props = defineProps<Props>()
 
 const router = useRouter()
 const route = useRoute()
+
+const visibleCount = ref(0)
 
 const currentTransition = computed(() => {
   const name = route.name as string
@@ -33,6 +36,15 @@ function navigateToTransition(event: Event) {
   const value = (event.target as HTMLSelectElement).value
   router.push(`/${props.section}/${value}`)
 }
+
+const { pause } = useIntervalFn(() => {
+  if (visibleCount.value < transitions.value.length) {
+    visibleCount.value++
+  }
+  else {
+    pause()
+  }
+}, 50)
 </script>
 
 <template>
@@ -54,9 +66,13 @@ function navigateToTransition(event: Event) {
   </select>
 
   <!-- Desktop: Link list -->
-  <nav class="hidden lg:flex flex-col items-end justify-center gap-x-8">
+  <DissolveListTransition
+    tag="nav"
+    :duration="400"
+    class="hidden lg:flex flex-col items-end gap-x-8"
+  >
     <router-link
-      v-for="transition in transitions"
+      v-for="transition in transitions.slice(0, visibleCount)"
       :key="transition.value"
       class="p-2"
       :to="{ name: transition.name }"
@@ -64,5 +80,5 @@ function navigateToTransition(event: Event) {
     >
       {{ transition.label }}
     </router-link>
-  </nav>
+  </DissolveListTransition>
 </template>

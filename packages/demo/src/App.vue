@@ -83,7 +83,7 @@ const showSetup = ref(false)
             Setup
           </button>
         </div>
-        <div class="hidden lg:block">
+        <div class="hidden lg:flex items-center justify-center">
           <RouterView />
         </div>
         <div class="hidden lg:block">
