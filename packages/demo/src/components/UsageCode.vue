@@ -1,49 +1,45 @@
 <script setup lang="ts">
+import { useClipboard } from '@vueuse/core'
 import { codeToHtml } from 'shiki'
 import { computed, ref, watch } from 'vue'
 import { TransitionInfoKey } from '../../types/symbols'
 import { injectStrict } from '../../utils'
-import { appliance } from '../assets/example'
 import { options } from '../composables/options'
 
 const { transitionGroup, transitionType } = injectStrict(TransitionInfoKey)
 
-// Highlighted code ref
-const applianceHighlighted = ref('')
+const usageCode = computed(() => {
+  let code = `<${transitionType.value}`
 
-function formatter(code: string) {
-  let sampleCode = code
-    .replace(/TRANSITION/g, transitionType.value)
-    .replace(/kebab-transition/g, transitionType.value)
-
-  if (!transitionGroup.value) {
-    sampleCode = sampleCode.replace(/\[group\]/g, '')
-  }
-  else {
-    sampleCode = sampleCode.replace(/\[group\]/g, ' group')
-  }
-
+  // Add duration prop if not default
   if (options.leave !== 300 || options.enter !== 300) {
-    sampleCode = sampleCode.replace(
-      /\[duration\]/g,
-      ` :duration="${JSON.stringify({ enter: options.enter, leave: options.leave })}"`,
-    )
-  }
-  else {
-    sampleCode = sampleCode.replace(/\[duration\]/g, '')
+    if (options.enter === options.leave) {
+      code += ` :duration="${options.enter}"`
+    }
+    else {
+      code += ` :duration="{ enter: ${options.enter}, leave: ${options.leave} }"`
+    }
   }
 
+  // Add delay prop if not default
   if (options.delay !== 0) {
-    sampleCode = sampleCode.replace(/\[delay\]/g, ` :delay="${options.delay}"`)
-  }
-  else {
-    sampleCode = sampleCode.replace(/\[delay\]/g, '')
+    code += ` :delay="${options.delay}"`
   }
 
-  return sampleCode
-}
+  // Add group prop if enabled
+  if (transitionGroup.value) {
+    code += ' group'
+  }
 
-const applianceCode = computed(() => formatter(appliance))
+  code += ' />'
+
+  return code
+})
+
+const { copy, copied } = useClipboard({ source: usageCode })
+
+// Highlighted code ref
+const usageHighlighted = ref('')
 
 // Highlight code with Shiki
 async function highlightCode() {
@@ -51,7 +47,7 @@ async function highlightCode() {
     ? 'github-dark'
     : 'github-light'
 
-  applianceHighlighted.value = await codeToHtml(applianceCode.value, {
+  usageHighlighted.value = await codeToHtml(usageCode.value, {
     lang: 'vue',
     theme,
   })
@@ -61,7 +57,7 @@ async function highlightCode() {
 highlightCode()
 
 // Re-highlight when code changes
-watch(applianceCode, () => {
+watch([usageCode, transitionType, transitionGroup], () => {
   highlightCode()
 })
 
@@ -77,20 +73,19 @@ observer.observe(document.documentElement, {
 </script>
 
 <template>
-  <div class="h-full p-6">
-    <h2 class="text-2xl font-bold mb-4">
-      Usage
-    </h2>
-
-    <div class="code-block grid gap-y-2">
-      <h3 class="text-lg font-semibold">
-        {{ transitionType }}
-      </h3>
-      <div
-        class="shiki-container overflow-auto rounded-xl border border-black/5 dark:border-white/5"
-        v-html="applianceHighlighted"
-      />
-    </div>
+  <div class="p-4 flex items-center justify-between gap-4">
+    <div
+      class="flex-1 shiki-container overflow-auto rounded-lg border border-slate-200 dark:border-slate-700"
+      v-html="usageHighlighted"
+    />
+    <button
+      class="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 rounded-lg transition-colors flex items-center gap-2"
+      @click="copy()"
+    >
+      <i-lucide-check v-if="copied" class="text-green-500" />
+      <i-lucide-copy v-else />
+      {{ copied ? 'Copied!' : 'Copy' }}
+    </button>
   </div>
 </template>
 
@@ -99,7 +94,7 @@ observer.observe(document.documentElement, {
     padding: .75rem;
     margin: 0;
     font-family: 'Fira code', 'Fira Mono', Consolas, Menlo, Courier, monospace;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
   }
 

@@ -1,12 +1,22 @@
 <script setup lang="ts">
+import { watch } from 'vue'
 import { options } from '@/composables/options'
 import { useListItems } from '@/composables/useListItems'
+import type { TransitionType } from '../../../types/transitionInfo'
+import { TransitionInfoKey } from '../../../types/symbols'
+import { injectStrict } from '../../../utils'
 
 defineOptions({ inheritAttrs: false })
 
-defineProps<{
+const props = defineProps<{
   component: string
 }>()
+
+const { transitionType } = injectStrict(TransitionInfoKey)
+
+watch(() => props.component, (newComponent) => {
+  transitionType.value = newComponent as TransitionType
+}, { immediate: true })
 
 const colors = [
   'border-blue-200 bg-blue-100 text-blue-600 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-400',
