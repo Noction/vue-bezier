@@ -1,3 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* stylelint-disable */
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+/* stylelint-enable */

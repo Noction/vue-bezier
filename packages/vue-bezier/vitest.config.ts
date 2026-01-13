@@ -1,13 +1,12 @@
-import { defineConfig } from 'vitest/config'
-import path from 'node:path'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
-    }
+      '@/': new URL('./src/', import.meta.url).pathname,
+    },
   },
   test: {
     coverage: {
@@ -15,10 +14,10 @@ export default defineConfig({
       exclude: ['src/components/index.ts'],
       include: ['src/components/**', 'src/composables/**'],
       provider: 'v8',
-      reporter: ['text', 'cobertura']
+      reporter: ['text', 'cobertura'],
     },
     environment: 'jsdom',
     globals: true,
-    include: ['tests/unit/**/*.spec.ts']
-  }
+    include: ['tests/unit/**/*.spec.ts'],
+  },
 })

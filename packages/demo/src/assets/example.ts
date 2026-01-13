@@ -7,15 +7,11 @@ export const appliance = `<template>
 </template>`
 
 export const globalRegister = `import VueBezier from '@noction/vue-bezier'
-TRANSITION_LIST
-app.use(TRANSITION_LIST_RESULT)`
 
-export const localRegister = `<script>
+app.use(VueBezier)`
+
+export const localRegister = `<script setup lang="ts">
 import { TRANSITION } from '@noction/vue-bezier'
-
-export default {
-  components: { TRANSITION }
-}
 </script>`
 
 export const styleImport = 'import \'@noction/vue-bezier/styles\''

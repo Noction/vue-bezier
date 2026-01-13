@@ -1,7 +1,23 @@
 {
   "name": "@noction/vue-bezier",
-  "version": "1.12.0",
+  "type": "module",
+  "version": "2.0.0",
+  "packageManager": "pnpm@10.7.1",
   "description": "Vue3 reusable transition components",
+  "author": {
+    "name": "50rayn",
+    "email": "soryngitlan@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://noction.github.io/vue-bezier/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noction/vue-bezier.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Noction/vue-bezier/issues",
+    "email": "soryngitlan@gmail.com"
+  },
   "keywords": [
     "transitions",
     "animations",
@@ -11,22 +27,6 @@
     "vue",
     "vue3"
   ],
-  "author": {
-    "name": "50rayn",
-    "email": "soryngitlan@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Noction/vue-bezier.git"
-  },
-  "homepage": "https://noction.github.io/vue-bezier/",
-  "bugs": {
-    "url": "https://github.com/Noction/vue-bezier/issues",
-    "email": "soryngitlan@gmail.com"
-  },
-  "files": [
-    "dist"
-  ],
   "exports": {
     ".": {
       "types": "./dist/types/main.d.ts",
@@ -34,17 +34,19 @@
     },
     "./*": "./*",
     "./types": "./dist/types/main.d.ts",
-    "./styles": "./dist/style.css"
+    "./styles": "./dist/vue-bezier.css"
   },
-  "license": "MIT",
   "main": "dist/vue-bezier.js",
   "module": "dist/vue-bezier.js",
   "types": "dist/types/main.d.ts",
-  "type": "module",
+  "files": [
+    "README.md",
+    "dist"
+  ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite build --watch",
     "build:light": "cross-env NODE_ENV=development vite build",
-    "prebuild": "vue-tsc -p tsconfig.build.json",
+    "prebuild": "vue-tsc -p tsconfig.build.json && cp ../../README.md .",
     "build": "vite build",
     "postbuild": "vue-docgen-web-types",
     "prepublishOnly": "npm run build",
@@ -55,20 +57,18 @@
     "type:check": "vue-tsc --noEmit"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.4.1",
-    "@types/node": "^22.1.0",
-    "@vitejs/plugin-vue": "^5.1.2",
-    "@vitest/coverage-v8": "^2.0.5",
-    "@vue/test-utils": "^2.4.6",
-    "cross-env": "^7.0.3",
-    "jsdom": "^24.1.1",
-    "minimist": "^1.2.8",
-    "sass": "^1.77.8",
-    "vite": "^5.3.5",
-    "vitest": "^2.0.5",
-    "vue": "^3.4.35",
-    "vue-docgen-web-types": "^0.1.8",
-    "vue-tsc": "^2.0.29"
+    "@faker-js/faker": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "@vue/test-utils": "catalog:",
+    "cross-env": "catalog:",
+    "jsdom": "catalog:",
+    "minimist": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:",
+    "vue": "catalog:",
+    "vue-docgen-web-types": "catalog:",
+    "vue-tsc": "catalog:"
   },
   "web-types": "./dist/web-types.json"
 }

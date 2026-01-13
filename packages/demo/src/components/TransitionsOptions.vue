@@ -1,3 +1,40 @@
+<script setup lang="ts">
+import type { TransitionType } from '../../types/transitionInfo'
+import { TransitionBundleKey, TransitionInfoKey } from '../../types/symbols'
+import { injectStrict } from '../../utils'
+
+const { transitionType } = injectStrict(TransitionInfoKey)
+const { transitionsList, addTransition, removeTransition }
+  = injectStrict(TransitionBundleKey)
+
+const transitions: TransitionType[] = [
+  'DissolveTransition',
+  'PushTransition',
+  'FadeSlideTransition',
+  'BlurTransition',
+  'ScaleTransition',
+  'ZoomTransition',
+  'WipeTransition',
+  'RotateTransition',
+  'ClipPathTransition',
+]
+
+function isSelected(anim: TransitionType): boolean {
+  return transitionsList.value.includes(anim)
+}
+
+function addBadge(anim: TransitionType): string {
+  return isSelected(anim)
+    ? 'before:content-[\'+\'] group-hover:before:content-[\'-\']'
+    : 'before:content-[\'\']'
+}
+
+function optionSelected(anim: TransitionType) {
+  isSelected(anim) ? removeTransition(anim) : addTransition(anim)
+  transitionType.value = anim
+}
+</script>
+
 <template>
   <div id="transitions-options">
     <select
@@ -23,7 +60,7 @@
               :key="transition"
               class="group relative -ml-px flex cursor-pointer items-center justify-between border-l pt-2 pl-4"
               :class="{
-                'border-current text-sky-500': transition === transitionType
+                'border-current text-sky-500': transition === transitionType,
               }"
             >
               <span
@@ -42,41 +79,3 @@
     </nav>
   </div>
 </template>
-
-<script setup lang="ts">
-import { TransitionType } from '../../types/transitionInfo'
-import { injectStrict } from '../../utils'
-import { TransitionBundleKey, TransitionInfoKey } from '../../types/symbols'
-
-const { transitionType } = injectStrict(TransitionInfoKey)
-const { transitionsList, addTransition, removeTransition } =
-  injectStrict(TransitionBundleKey)
-
-const transitions: TransitionType[] = [
-  'FadeTransition',
-  'SlideXLeftTransition',
-  'SlideXRightTransition',
-  'SlideYDownTransition',
-  'SlideYUpTransition',
-  'ZoomCenterTransition',
-  'ZoomUpTransition',
-  'ZoomXTransition',
-  'ZoomYTransition',
-  'ScaleTransition',
-  'CollapseTransition'
-]
-
-const isSelected = (anim: TransitionType): boolean =>
-  transitionsList.value.includes(anim)
-
-const addBadge = (anim: TransitionType): string =>
-  isSelected(anim)
-    ? 'before:content-[\'+\'] group-hover:before:content-[\'-\']'
-    : 'before:content-[\'\']'
-
-const optionSelected = (anim: TransitionType) => {
-  isSelected(anim) ? removeTransition(anim) : addTransition(anim)
-  transitionType.value = anim
-}
-
-</script>

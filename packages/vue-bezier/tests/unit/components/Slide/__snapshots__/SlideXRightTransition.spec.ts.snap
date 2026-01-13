@@ -1,5 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`components / Slide / SlideXRightTransition > When mounting component with default props, it should work fine 1`] = `"<transition-stub name="noc-slide-right" appear="false" persisted="false" css="true" tag="span"></transition-stub>"`;
-
-exports[`components / Slide / SlideXRightTransition > When mounting component with group enabled prop, it should work fine 1`] = `"<transition-group-stub tag="span" name="noc-slide-right" appear="false" persisted="false" css="true"></transition-group-stub>"`;

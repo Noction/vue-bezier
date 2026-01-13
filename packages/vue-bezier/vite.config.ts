@@ -1,7 +1,6 @@
-import { defineConfig } from 'vite'
-import path from 'node:path'
-import { resolve } from 'node:path'
+import path, { resolve } from 'node:path'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   build: {
@@ -9,19 +8,19 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, './src/main.ts'),
       formats: ['es'],
-      name: 'vue-bezier'
+      name: 'vue-bezier',
     },
     rollupOptions: {
       external: ['vue'],
       output: {
-        globals: { vue: 'Vue' }
-      }
-    }
+        globals: { vue: 'Vue' },
+      },
+    },
   },
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
-    }
-  }
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
 })

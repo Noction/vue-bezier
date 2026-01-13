@@ -1,17 +1,21 @@
 {
   "compilerOptions": {
     "target": "ES2018",
+    "jsx": "preserve",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
     "module": "ESNext",
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "resolveJsonModule": true,
     "strict": false,
     "declaration": true,
-    "lib": [ "ESNext", "DOM", "DOM.Iterable"],
-    "jsx": "preserve",
     "outDir": "dist",
-    "moduleResolution": "node",
-    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules", "dist", "**/*.js"],
   "include": ["src/**/*.ts", "src/**/*.vue"],
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }
