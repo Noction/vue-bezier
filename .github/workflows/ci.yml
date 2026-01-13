@@ -3,27 +3,26 @@ name: ci
 on:
   push:
     branches:
-      - '**'
+      - main
+      - next
   pull_request:
     branches:
-      - master
+      - main
+      - next
+
 jobs:
-  lint:
+  prepare:
     runs-on: ubuntu-latest
+    outputs:
+      pnpm-store-path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set node version to 18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
       - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
+
+      - uses: actions/setup-node@v3
         with:
-          version: 8
-          run_install: false
+          node-version-file: ".node-version"
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -39,57 +38,94 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Installing modules
-        run: pnpm i -r
+      - name: Install dependencies
+        run: pnpm nci
 
-      - name: Building module
+  lint:
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".node-version"
+
+      - uses: actions/cache@v3
+        name: Restore pnpm cache
+        with:
+          path: ${{ needs.prepare.outputs.pnpm-store-path }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm nci --offline
+
+      - name: Build module
         run: pnpm -F=vue-bezier run build
 
-      - name: Running eslint
+      - name: Run ESLint
         run: pnpm run lint:es
 
-      - name: Running stylelint
+      - name: Run Stylelint
         run: pnpm run lint:style
+
+  typecheck:
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".node-version"
+
+      - uses: actions/cache@v3
+        name: Restore pnpm cache
+        with:
+          path: ${{ needs.prepare.outputs.pnpm-store-path }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm nci --offline
+
+      - name: Run type check
+        run: pnpm -F vue-bezier run type:check
 
   unit-test:
     runs-on: ubuntu-latest
-
+    needs: prepare
     steps:
-      - uses: actions/checkout@master
-
-      - name: Set node version to 18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 8
-          run_install: false
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".node-version"
 
       - uses: actions/cache@v3
-        name: Setup pnpm cache
+        name: Restore pnpm cache
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          path: ${{ needs.prepare.outputs.pnpm-store-path }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Installing modules
-        run: pnpm i -r
+      - name: Install dependencies
+        run: pnpm nci --offline
 
-      - name: Running tests
+      - name: Run tests
         run: pnpm run test:coverage
 
-      - name: Submitting test coverage to CodeCov
+      - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
