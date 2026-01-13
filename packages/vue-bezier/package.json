@@ -1,7 +1,7 @@
 {
   "name": "@noction/vue-bezier",
   "type": "module",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "packageManager": "pnpm@10.7.1",
   "description": "Vue3 reusable transition components",
   "author": {
