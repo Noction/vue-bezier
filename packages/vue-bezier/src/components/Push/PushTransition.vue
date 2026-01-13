@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ComponentProps } from '@/types'
+import type { ComponentProps } from '../../types'
 import { computed } from 'vue'
 
 const { duration = 300, delay = 0, direction = 'right' } = defineProps<ComponentProps & { direction?: 'left' | 'right' | 'up' | 'down' }>()

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ComponentProps } from '@/types'
+import type { ComponentProps } from '../../types'
 import { computed } from 'vue'
 
 const { duration = 1000, delay = 0, clipType = 'circle' } = defineProps<ComponentProps & { clipType?: 'circle' | 'square' }>()
