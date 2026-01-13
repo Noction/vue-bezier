@@ -9,95 +9,142 @@
 ## Install :coffee:
 
 ```bash
-npm i -S @noction/vue-bezier
+pnpm add @noction/vue-bezier
 ```
 
 ## Local usage :rocket:
 
 ```vue
-<script>
-import { FadeTransition } from '@noction/vue-bezier'
-import '@noction/vue-bezier/styles'
+<script setup>
+import { ref } from "vue";
+import { DissolveTransition } from "@noction/vue-bezier";
+import "@noction/vue-bezier/styles";
 
-export default {
-  components: {
-    FadeTransition
-  }
-}
+const show = ref(true);
 </script>
 
 <template>
-  <FadeTransition>
-    <div v-show="show" class="box">
-      <p>Fade transition</p>
+  <DissolveTransition :duration="400">
+    <div v-if="show" class="box">
+      <p>Dissolve transition</p>
     </div>
-  </FadeTransition>
+  </DissolveTransition>
 </template>
 ```
 
 ## Global usage
-```js
-import Transitions from '@noction/vue-bezier'
-import { createApp } from 'vue'
-import '@noction/vue-bezier/styles'
 
-const app = createApp(App)
-app.use(Transitions)
+```js
+import Transitions from "@noction/vue-bezier";
+import { createApp } from "vue";
+import "@noction/vue-bezier/styles";
+
+const app = createApp(App);
+app.use(Transitions);
 ```
 
 ## List of available transitions
-- FadeTransition
-- ZoomCenterTransition
-- ZoomXTransition
-- ZoomYTransition
-- SlideXLeftTransition
-- SlideXRightTransition
-- SlideYUpTransition
-- SlideYDownTransition
-- ScaleTransition
-- CollapseTransition
+
+### Single Element Transitions
+
+- `BlurTransition` - Blur effect with opacity
+- `ClipPathTransition` - Clip path reveal animation
+- `DissolveTransition` - Fade in/out effect
+- `FadeSlideTransition` - Combined fade and slide animation
+- `PushTransition` - Push content in a direction
+- `RotateTransition` - 3D rotation effect
+- `ScaleTransition` - Scale up/down animation
+- `WipeTransition` - Wipe reveal effect
+- `ZoomTransition` - Zoom in/out animation
+
+### List Transitions (TransitionGroup)
+
+- `DissolveListTransition` - Fade effect for lists
+- `ScaleListTransition` - Scale effect for lists
 
 ## Props
 
-|     Prop     | Type               |                               Default                                | Description                                                                                                                                                                               |
-|:------------:|--------------------|:--------------------------------------------------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **duration** | _Number_, _Object_ |                                `300`                                 | Transition duration. Number for specifying the same duration for enter/leave transitions. <br> Object style `{enter: 300, leave: 300}` for specifying explicit durations for enter/leave. |
-|  **group**   | _Boolean_          |                               `false`                                | Whether the component should be a `transition-group` component.                                                                                                                           |
-|   **tag**    | _String_           |                               `'span'`                               | Transition tag, in case the component is a `transition-group.`                                                                                                                            |
-|  **origin**  | _String_           |                                 `''`                                 | [Transform origin property](https://tympanus.net/codrops/css_reference/transform-origin/), can be specified with styles as well but it's shorter with this prop.                          |
-|  **styles**  | _Object_           | `{ animationFillMode: 'both', animationTimingFunction: 'ease-out' }` | Element styles that are applied during transition. These styles are applied on `@beforeEnter` and `@beforeLeave` hooks.                                                                   |
+|     Prop     | Type               | Default  | Description                                                                                                                                                                                               |
+| :----------: | ------------------ | :------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **duration** | _Number_, _Object_ |  `300`   | Transition duration in milliseconds. Number for specifying the same duration for enter/leave transitions. <br> Object style `{enter: 300, leave: 300}` for specifying explicit durations for enter/leave. |
+|  **delay**   | _Number_, _Object_ |   `0`    | Transition delay in milliseconds. Number for specifying the same delay for enter/leave transitions. <br> Object style `{enter: 0, leave: 100}` for specifying explicit delays for enter/leave.            |
+|   **tag**    | _String_           | `'span'` | Transition tag for List transitions (TransitionGroup components).                                                                                                                                         |
+|  **origin**  | _String_           |   `''`   | [Transform origin property](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin), can be specified with styles as well but it's shorter with this prop.                                     |
+|  **styles**  | _Object_           |   `{}`   | Custom CSS styles that are applied during transition. These styles are applied via CSS variables.                                                                                                         |
 
-## Group transitions
-Each transition can be used as a `transition-group` by adding the `group` prop to one of the desired transitions.
-```html
-<fade-transition group>
-   <!--keyed children here-->
-</fade-transition>
+## Component-Specific Props
+
+Some transitions have additional props for customization:
+
+### ClipPathTransition
+
+|     Prop     |           Type           |  Default   | Description                 |
+| :----------: | :----------------------: | :--------: | --------------------------- |
+| **clipType** | `'circle'` \| `'square'` | `'circle'` | Type of clip path animation |
+
+```vue
+<ClipPathTransition clip-type="square" :duration="1000">
+  <div v-if="show">Content</div>
+</ClipPathTransition>
 ```
-Gotchas/things to watch:
-1. Elements inside `group` transitions should have `display: inline-block` or must be placed in a flex context:
-   [Vue.js docs reference](https://vuejs.org/v2/guide/transitions.html#List-Move-Transitions)
-2. Each transition has a `move` class [move class docs](https://vuejs.org/v2/guide/transitions.html#List-Move-Transitions).
-   Unfortunately the duration for the move transition cannot be configured through props. By default each transition has a `move` class associated
-   with `.3s` transition duration:
 
-- Zoom
-  ```css
-    .zoom-move { transition: transform .3s ease-out; }
-  ```
-- Slide
-  ```css
-    .slide-move { transition: transform .3s ease-out; }
-  ```
-- Scale
-  ```css
-    .scale-move { transition: transform .3s cubic-bezier(.25, .8, .50, 1); }
-  ```
-- Fade
-  ```css
-    .fade-move { transition: transform .3s ease-out; }
-   ```
-If you want to configure the duration, just redefine the class for the transition you use with the desired duration.
+### PushTransition
+
+|     Prop      |                    Type                     |  Default  | Description                  |
+| :-----------: | :-----------------------------------------: | :-------: | ---------------------------- |
+| **direction** | `'left'` \| `'right'` \| `'up'` \| `'down'` | `'right'` | Direction of the push effect |
+
+```vue
+<PushTransition direction="down" :duration="400">
+  <div v-if="show">Content</div>
+</PushTransition>
+```
+
+### ScaleTransition
+
+|    Prop    |   Type   |   Default    | Description                              |
+| :--------: | :------: | :----------: | ---------------------------------------- |
+| **origin** | _String_ | `'top left'` | Transform origin for the scale animation |
+
+```vue
+<ScaleTransition origin="center" :duration="300">
+  <div v-if="show">Content</div>
+</ScaleTransition>
+```
+
+## List Transitions
+
+For animating lists of elements, use the dedicated List transition components:
+
+```vue
+<script setup>
+import { ref } from "vue";
+import { DissolveListTransition } from "@noction/vue-bezier";
+import "@noction/vue-bezier/styles";
+
+const items = ref([1, 2, 3, 4, 5]);
+</script>
+
+<template>
+  <DissolveListTransition :duration="400" tag="div">
+    <div v-for="item in items" :key="item" class="item">
+      {{ item }}
+    </div>
+  </DissolveListTransition>
+</template>
+```
+
+**Important notes:**
+
+1. Elements inside list transitions should have `display: inline-block` or must be placed in a flex context: [Vue.js docs reference](https://vuejs.org/guide/built-ins/transition-group.html#move-transitions)
+2. Each list transition has a `move` class for animating position changes. The move duration defaults to `.3s` or `.35s` and cannot be configured via props. To customize, override the CSS class:
+
+```css
+/* Example: Custom move duration for DissolveListTransition */
+.dissolve-move {
+  transition: transform 0.5s ease-out;
+}
+```
 
 ## License
 

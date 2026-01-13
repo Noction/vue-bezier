@@ -40,12 +40,13 @@
   "module": "dist/vue-bezier.js",
   "types": "dist/types/main.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite build --watch",
     "build:light": "cross-env NODE_ENV=development vite build",
-    "prebuild": "vue-tsc -p tsconfig.build.json",
+    "prebuild": "vue-tsc -p tsconfig.build.json && cp ../../README.md .",
     "build": "vite build",
     "postbuild": "vue-docgen-web-types",
     "prepublishOnly": "npm run build",
