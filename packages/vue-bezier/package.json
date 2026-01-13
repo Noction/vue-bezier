@@ -40,8 +40,8 @@
   "module": "dist/vue-bezier.js",
   "types": "dist/types/main.d.ts",
   "files": [
-    "dist",
-    "README.md"
+    "README.md",
+    "dist"
   ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite build --watch",

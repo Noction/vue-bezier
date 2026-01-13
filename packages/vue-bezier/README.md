@@ -16,11 +16,11 @@ pnpm add @noction/vue-bezier
 
 ```vue
 <script setup>
-import { ref } from "vue";
-import { DissolveTransition } from "@noction/vue-bezier";
-import "@noction/vue-bezier/styles";
+import { DissolveTransition } from '@noction/vue-bezier'
+import { ref } from 'vue'
+import '@noction/vue-bezier/styles'
 
-const show = ref(true);
+const show = ref(true)
 </script>
 
 <template>
@@ -35,12 +35,12 @@ const show = ref(true);
 ## Global usage
 
 ```js
-import Transitions from "@noction/vue-bezier";
-import { createApp } from "vue";
-import "@noction/vue-bezier/styles";
+import Transitions from '@noction/vue-bezier'
+import { createApp } from 'vue'
+import '@noction/vue-bezier/styles'
 
-const app = createApp(App);
-app.use(Transitions);
+const app = createApp(App)
+app.use(Transitions)
 ```
 
 ## List of available transitions
@@ -118,11 +118,11 @@ For animating lists of elements, use the dedicated List transition components:
 
 ```vue
 <script setup>
-import { ref } from "vue";
-import { DissolveListTransition } from "@noction/vue-bezier";
-import "@noction/vue-bezier/styles";
+import { DissolveListTransition } from '@noction/vue-bezier'
+import { ref } from 'vue'
+import '@noction/vue-bezier/styles'
 
-const items = ref([1, 2, 3, 4, 5]);
+const items = ref([1, 2, 3, 4, 5])
 </script>
 
 <template>

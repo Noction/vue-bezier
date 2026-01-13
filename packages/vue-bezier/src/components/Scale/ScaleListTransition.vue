@@ -143,6 +143,7 @@ function onLeave(el: Element) {
   }
 
   .noc-scale-list-enter-active {
+    /* stylelint-disable-next-line @stylistic/max-line-length */
     transition: opacity var(--noc-transition-enter-duration) ease var(--noc-transition-enter-delay), transform var(--noc-transition-enter-duration) ease var(--noc-transition-enter-delay);
     will-change: opacity, transform;
   }
@@ -150,6 +151,7 @@ function onLeave(el: Element) {
   .noc-scale-list-leave-active {
     position: absolute;
     backface-visibility: hidden;
+    /* stylelint-disable-next-line @stylistic/max-line-length */
     transition: opacity var(--noc-transition-leave-duration) ease var(--noc-transition-leave-delay), transform var(--noc-transition-leave-duration) ease var(--noc-transition-leave-delay);
     will-change: opacity, transform;
   }

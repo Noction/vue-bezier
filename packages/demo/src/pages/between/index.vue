@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import type { TransitionType } from '../../../types/transitionInfo'
 import { watch } from 'vue'
 import { options, state } from '@/composables/options'
-import type { TransitionType } from '../../../types/transitionInfo'
 import { TransitionInfoKey } from '../../../types/symbols'
 import { injectStrict } from '../../../utils'
 

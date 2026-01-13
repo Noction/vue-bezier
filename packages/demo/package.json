@@ -13,7 +13,7 @@
   "dependencies": {
     "@noction/vue-bezier": "workspace:*",
     "@vueuse/core": "catalog:",
-    "shiki": "^3.21.0",
+    "shiki": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"
   },

@@ -90,12 +90,14 @@ const pushDirectionClass = computed(() => {
     inset-block-start: 0;
     inset-inline-start: 0;
     backface-visibility: hidden;
+    /* stylelint-disable-next-line @stylistic/max-line-length */
     transition: opacity var(--noc-transition-enter-duration) ease var(--noc-transition-enter-delay), transform var(--noc-transition-enter-duration) ease var(--noc-transition-enter-delay);
     will-change: opacity, transform;
   }
 
   .noc-push-leave-active {
     backface-visibility: hidden;
+    /* stylelint-disable-next-line @stylistic/max-line-length */
     transition: opacity var(--noc-transition-leave-duration) ease var(--noc-transition-leave-delay), transform var(--noc-transition-leave-duration) ease var(--noc-transition-leave-delay);
   }
 

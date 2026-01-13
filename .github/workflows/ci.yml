@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version-file: ".node-version"
+          node-version-file: .node-version
 
       - name: Setup
         run: npm i -g @antfu/ni
@@ -54,7 +54,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version-file: ".node-version"
+          node-version-file: .node-version
 
       - name: Setup
         run: npm i -g @antfu/ni
@@ -89,7 +89,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version-file: ".node-version"
+          node-version-file: .node-version
 
       - name: Setup
         run: npm i -g @antfu/ni
@@ -118,7 +118,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version-file: ".node-version"
+          node-version-file: .node-version
 
       - name: Setup
         run: npm i -g @antfu/ni

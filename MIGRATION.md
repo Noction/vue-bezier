@@ -79,12 +79,6 @@ These transitions are entirely new and have no v1.x equivalent:
 
 **v1.x:**
 ```vue
-<template>
-  <FadeTransition :duration="300">
-    <div v-if="show">Content</div>
-  </FadeTransition>
-</template>
-
 <script>
 import { FadeTransition } from '@noction/vue-bezier'
 import '@noction/vue-bezier/styles'
@@ -93,20 +87,30 @@ export default {
   components: { FadeTransition }
 }
 </script>
+
+<template>
+  <FadeTransition :duration="300">
+    <div v-if="show">
+      Content
+    </div>
+  </FadeTransition>
+</template>
 ```
 
 **v2.0.0:**
 ```vue
-<template>
-  <DissolveTransition :duration="300">
-    <div v-if="show">Content</div>
-  </DissolveTransition>
-</template>
-
 <script setup>
 import { DissolveTransition } from '@noction/vue-bezier'
 import '@noction/vue-bezier/styles'
 </script>
+
+<template>
+  <DissolveTransition :duration="300">
+    <div v-if="show">
+      Content
+    </div>
+  </DissolveTransition>
+</template>
 ```
 
 #### Example 2: SlideXLeftTransition → PushTransition
@@ -147,7 +151,7 @@ import '@noction/vue-bezier/styles'
 
 **v2.0.0 only:**
 ```vue
-<DissolveTransition 
+<DissolveTransition
   :duration="{ enter: 300, leave: 200 }"
   :delay="{ enter: 0, leave: 100 }"
 >
@@ -191,9 +195,9 @@ All CSS classes in v2.0.0 are prefixed with `noc-` to prevent conflicts.
 Used inline styles with `animationFillMode` and `animationTimingFunction`:
 
 ```js
-:styles="{ 
-  animationFillMode: 'both', 
-  animationTimingFunction: 'ease-out' 
+:styles="{
+  animationFillMode: 'both',
+  animationTimingFunction: 'ease-out'
 }"
 ```
 
