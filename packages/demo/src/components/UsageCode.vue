@@ -75,11 +75,11 @@ observer.observe(document.documentElement, {
 <template>
   <div class="p-4 flex items-center justify-between gap-4">
     <div
-      class="flex-1 shiki-container overflow-auto rounded-lg border border-slate-200 dark:border-slate-700"
+      class="flex-1 shiki-container rounded-lg border border-slate-200 dark:border-slate-700"
       v-html="usageHighlighted"
     />
     <button
-      class="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 rounded-lg transition-colors flex items-center gap-2"
+      class="hidden lg:flex px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 rounded-lg transition-colors items-center gap-2"
       @click="copy()"
     >
       <i-lucide-check v-if="copied" class="text-green-500" />
@@ -94,11 +94,15 @@ observer.observe(document.documentElement, {
     padding: .75rem;
     margin: 0;
     font-family: 'Fira code', 'Fira Mono', Consolas, Menlo, Courier, monospace;
-    font-size: 14px;
+    font-size: .875rem;
     line-height: 1.5;
+    word-break: break-all;
+    white-space: pre-wrap;
   }
 
   .shiki-container :deep(code) {
     font-family: inherit;
+    word-break: break-all;
+    white-space: pre-wrap;
   }
 </style>

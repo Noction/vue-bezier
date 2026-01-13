@@ -17,6 +17,7 @@ declare module 'vue' {
     BetweenNav: typeof import('./src/components/between/BetweenNav.vue')['default']
     CircleProgress: typeof import('./src/components/CircleProgress.vue')['default']
     DemoCode: typeof import('./src/components/DemoCode.vue')['default']
+    GenericNav: typeof import('./src/components/GenericNav.vue')['default']
     ILucideCheck: typeof import('~icons/lucide/check')['default']
     ILucideChevronDown: typeof import('~icons/lucide/chevron-down')['default']
     ILucideChevronUp: typeof import('~icons/lucide/chevron-up')['default']

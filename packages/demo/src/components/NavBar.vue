@@ -35,7 +35,7 @@ function toggleDark() {
 
 <template>
   <nav
-    class="sticky flex top-0 z-40 w-full justify-between bg-white/95 px-8 py-4 dark:border-slate-50/6 dark:bg-transparent lg:border-b lg:border-slate-900/10"
+    class="sticky items-center flex top-0 z-40 w-full justify-between bg-white/95 px-4 py-3 lg:px-8 lg:py-4 dark:border-slate-50/6 dark:bg-transparent lg:border-b lg:border-slate-900/10"
   >
     <NavLogo />
     <div class="right flex flex-row items-center gap-x-4">

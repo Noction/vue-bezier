@@ -54,34 +54,51 @@ const showSetup = ref(false)
 
     <div class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 md:px-8 flex flex-col justify-center gap-4 min-h-0">
       <!-- Main Demo Area -->
-      <div class="border p-4 border-slate-200 dark:border-slate-700 rounded-lg h-[500px] grid grid-rows-[auto_1fr] grid-cols-[200px_1fr_200px] gap-4 overflow-hidden">
-        <nav class="col-span-3 flex w-full justify-center gap-x-8 font-semibold text-slate-600 dark:text-slate-300">
-          <router-link
-            to="/"
-            class="flex gap-x-2 items-center py-2"
-            active-class="text-sky-500 dark:text-sky-400"
-          >
-            <i-lucide-square-dashed-bottom />
-            Appear
-          </router-link>
-          <router-link
-            to="/between"
-            class="flex gap-x-2 items-center"
-            active-class="text-emerald-500 dark:text-emerald-400"
-          >
-            <i-lucide-squares-subtract />
-            Between
-          </router-link>
-          <router-link
-            to="/list"
-            class="flex gap-x-2 items-center"
-            active-class="text-yellow-500 dark:text-yellow-400"
-          >
-            <i-lucide-square-stack />
-            List
-          </router-link>
+      <div class="border p-4 border-slate-200 dark:border-slate-700 rounded-lg h-[500px] flex flex-col lg:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[200px_1fr_200px] gap-4 overflow-hidden">
+        <nav class="lg:col-span-3 flex w-full justify-center justify-items-center font-semibold text-slate-600 dark:text-slate-300 text-sm lg:text-base">
+          <div class="flex justify-evenly items-center w-full max-w-md">
+            <router-link
+              to="/"
+              class="flex gap-x-2 items-center py-2 justify-center flex-1"
+              active-class="text-sky-500 dark:text-sky-400"
+            >
+              <i-lucide-square-dashed-bottom />
+              Appear
+            </router-link>
+            <router-link
+              to="/between"
+              class="flex gap-x-2 items-center justify-center flex-1"
+              active-class="text-emerald-500 dark:text-emerald-400"
+            >
+              <i-lucide-squares-subtract />
+              Between
+            </router-link>
+            <router-link
+              to="/list"
+              class="flex gap-x-2 items-center justify-center flex-1"
+              active-class="text-yellow-500 dark:text-yellow-400"
+            >
+              <i-lucide-square-stack />
+              List
+            </router-link>
+          </div>
         </nav>
-        <div class="flex flex-col justify-between min-h-0">
+
+        <!-- Mobile: nav + demo + controls stacked -->
+        <div class="flex-1 flex flex-col lg:hidden min-h-0 gap-4">
+          <div class="overflow-y-auto min-h-0">
+            <RouterView name="nav" />
+          </div>
+          <div class="flex-1 flex items-center justify-center min-h-0">
+            <RouterView />
+          </div>
+          <div class="overflow-y-auto max-h-48">
+            <RouterView name="controls" />
+          </div>
+        </div>
+
+        <!-- Desktop: left nav + demo + controls -->
+        <div class="hidden lg:flex flex-col justify-between min-h-0">
           <div class="overflow-y-auto min-h-0 flex-1 pr-4">
             <RouterView name="nav" />
           </div>
@@ -93,8 +110,12 @@ const showSetup = ref(false)
             Setup
           </button>
         </div>
-        <RouterView />
-        <RouterView name="controls" />
+        <div class="hidden lg:block">
+          <RouterView />
+        </div>
+        <div class="hidden lg:block">
+          <RouterView name="controls" />
+        </div>
       </div>
 
       <!-- Usage Code Section -->

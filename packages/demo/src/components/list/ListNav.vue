@@ -1,11 +1,7 @@
-<template>
-  <nav class="flex flex-col items-end justify-center gap-x-8">
-    <router-link class="p-2" to="/list/dissolve" active-class="text-yellow-500">
-      Dissolve
-    </router-link>
+<script setup lang="ts">
+import GenericNav from '../GenericNav.vue'
+</script>
 
-    <router-link class="p-2" to="/list/scale" active-class="text-yellow-500">
-      Scale
-    </router-link>
-  </nav>
+<template>
+  <GenericNav section="list" active-class="text-yellow-500" />
 </template>
