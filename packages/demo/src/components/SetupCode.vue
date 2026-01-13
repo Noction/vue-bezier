@@ -1,16 +1,23 @@
 <script setup lang="ts">
 import { codeToHtml } from 'shiki'
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { TransitionInfoKey } from '../../types/symbols'
+import { injectStrict } from '../../utils'
 import {
   globalRegister,
-  localRegister,
   styleImport,
 } from '../assets/example'
+
+const { transitionType } = injectStrict(TransitionInfoKey)
 
 // Highlighted code refs
 const styleImportHighlighted = ref('')
 const globalRegisterHighlighted = ref('')
 const localRegisterHighlighted = ref('')
+
+const localRegister = computed(() => `<script setup lang="ts">
+import { ${transitionType.value} } from '@noction/vue-bezier'
+<\/script>`)
 
 // Highlight code with Shiki
 async function highlightCode() {
@@ -28,14 +35,19 @@ async function highlightCode() {
     theme,
   })
 
-  localRegisterHighlighted.value = await codeToHtml(localRegister, {
-    lang: 'javascript',
+  localRegisterHighlighted.value = await codeToHtml(localRegister.value, {
+    lang: 'vue',
     theme,
   })
 }
 
 // Initial highlight
 highlightCode()
+
+// Re-highlight when transition type changes
+watch(transitionType, () => {
+  highlightCode()
+})
 
 // Re-highlight when theme changes
 const observer = new MutationObserver(() => {
@@ -68,7 +80,7 @@ observer.observe(document.documentElement, {
       <h3 class="text-lg font-semibold">
         2. Register components
       </h3>
-      <div class="grid auto-cols-auto gap-y-4 border border-black/5 p-4 dark:border-white/5 rounded-xl">
+      <div class="grid md:grid-cols-[1fr_auto_1fr] gap-4 border border-black/5 p-4 dark:border-white/5 rounded-xl">
         <div class="code-block grid gap-y-2">
           <h4 class="font-medium text-sm text-slate-600 dark:text-slate-400">
             Globally
@@ -78,10 +90,10 @@ observer.observe(document.documentElement, {
             v-html="globalRegisterHighlighted"
           />
         </div>
-        <div class="code-block relative flex flex-row items-center gap-x-4">
-          <hr class="grow border-slate-200 dark:border-slate-700">
+        <div class="code-block flex md:flex-col flex-row items-center gap-4 md:justify-center">
+          <hr class="md:hidden grow border-slate-200 dark:border-slate-700">
           <span class="grow-0 text-xs text-slate-500">OR</span>
-          <hr class="grow border-slate-200 dark:border-slate-700">
+          <hr class="md:hidden grow border-slate-200 dark:border-slate-700">
         </div>
         <div class="code-block grid gap-y-2">
           <h4 class="font-medium text-sm text-slate-600 dark:text-slate-400">

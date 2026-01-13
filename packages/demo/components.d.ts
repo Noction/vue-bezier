@@ -18,6 +18,7 @@ declare module 'vue' {
     CircleProgress: typeof import('./src/components/CircleProgress.vue')['default']
     DemoCode: typeof import('./src/components/DemoCode.vue')['default']
     ILucideCheck: typeof import('~icons/lucide/check')['default']
+    ILucideChevronDown: typeof import('~icons/lucide/chevron-down')['default']
     ILucideChevronUp: typeof import('~icons/lucide/chevron-up')['default']
     ILucideCodeXml: typeof import('~icons/lucide/code-xml')['default']
     ILucideCopy: typeof import('~icons/lucide/copy')['default']
