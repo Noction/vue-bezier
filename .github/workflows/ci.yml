@@ -11,33 +11,18 @@ on:
 jobs:
   prepare:
     runs-on: ubuntu-latest
-    outputs:
-      pnpm-store-path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v2
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
+          cache: pnpm
 
       - name: Setup
         run: npm i -g @antfu/ni
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: nci
@@ -46,27 +31,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v2
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
+          cache: pnpm
 
       - name: Setup
         run: npm i -g @antfu/ni
 
-      - uses: actions/cache@v3
-        name: Restore pnpm cache
-        with:
-          path: ${{ needs.prepare.outputs.pnpm-store-path }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install dependencies
-        run: nci --offline
+        run: nci
 
       - name: Build module
         run: pnpm -F=vue-bezier run build
@@ -81,27 +59,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v2
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
+          cache: pnpm
 
       - name: Setup
         run: npm i -g @antfu/ni
 
-      - uses: actions/cache@v3
-        name: Restore pnpm cache
-        with:
-          path: ${{ needs.prepare.outputs.pnpm-store-path }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install dependencies
-        run: nci --offline
+        run: nci
 
       - name: Run type check
         run: nr -F vue-bezier type:check
@@ -110,27 +81,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v2
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
+          cache: pnpm
 
       - name: Setup
         run: npm i -g @antfu/ni
 
-      - uses: actions/cache@v3
-        name: Restore pnpm cache
-        with:
-          path: ${{ needs.prepare.outputs.pnpm-store-path }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install dependencies
-        run: nci --offline
+        run: nci
 
       - name: Run tests
         run: nr test:coverage

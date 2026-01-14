@@ -42,6 +42,7 @@
     "vue-transitions",
     "vue-components"
   ],
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/types/main.d.ts",
@@ -54,14 +55,10 @@
   "main": "dist/vue-bezier.js",
   "module": "dist/vue-bezier.js",
   "types": "dist/types/main.d.ts",
-  "sideEffects": false,
   "files": [
     "README.md",
     "dist"
   ],
-  "peerDependencies": {
-    "vue": "^3.0.0"
-  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite build --watch",
     "build:light": "cross-env NODE_ENV=development vite build",
@@ -74,6 +71,9 @@
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "type:check": "vue-tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@faker-js/faker": "catalog:",
