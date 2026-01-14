@@ -1,7 +1,7 @@
 {
   "name": "@noction/vue-bezier",
   "type": "module",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "packageManager": "pnpm@10.7.1",
   "description": "A Vue 3 component library with customizable CSS-based transition components featuring Bezier timing functions. Includes fade, dissolve, blur, scale, slide, push, wipe, rotate, zoom, and clip-path transitions.",
   "author": {
