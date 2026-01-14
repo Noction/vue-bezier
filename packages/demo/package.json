@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --force",
     "prebuild": "vue-tsc --noEmit",
-    "build": "vite build --base=./ --emptyOutDir",
+    "build": "vite build --emptyOutDir",
     "preview": "vite preview",
     "lint:es": "eslint \"{src,ts,types}/**/*.{js,vue,ts}\" --fix --color",
     "lint:style": "stylelint src/**/*.{scss,vue} --color --fix"

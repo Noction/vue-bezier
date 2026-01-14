@@ -16,8 +16,7 @@ const route = useRoute()
 const visibleCount = ref(0)
 
 const currentTransition = computed(() => {
-  const name = route.name as string
-  return name ? name.replace(`${props.section}-`, '') : 'dissolve'
+  return route.name as string || `${props.section}-dissolve`
 })
 
 const transitions = computed(() => {
@@ -33,8 +32,8 @@ const transitions = computed(() => {
 })
 
 function navigateToTransition(event: Event) {
-  const value = (event.target as HTMLSelectElement).value
-  router.push(`/${props.section}/${value}`)
+  const name = (event.target as HTMLSelectElement).value
+  router.push({ name })
 }
 
 const { pause } = useIntervalFn(() => {
@@ -58,8 +57,8 @@ const { pause } = useIntervalFn(() => {
   >
     <option
       v-for="transition in transitions"
-      :key="transition.value"
-      :value="transition.value"
+      :key="transition.name"
+      :value="transition.name"
     >
       {{ transition.label }}
     </option>
